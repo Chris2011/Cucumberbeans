@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE fontscolors PUBLIC
+    "-//NetBeans//DTD Editor Fonts and Colors settings 1.1//EN"
+    "http://www.netbeans.org/dtds/EditorFontsColors-1_1.dtd">
+<fontscolors>   
+    <fontcolor name="errors" default="error"/>
+    <fontcolor name="keyword" default="keyword" foreColor="blue">
+        <font style="bold" />
+    </fontcolor>
+    <fontcolor name="Stepkeyword" default="keyword" foreColor="0066ff">  
+        <font style="italic"/>    
+    </fontcolor>
+    <fontcolor name="Featurekeyword" default="keyword" foreColor="0066ff">  
+        <font style="italic"/>    
+    </fontcolor>
+    <fontcolor name="Placeholder" foreColor="009933">  
+        <font style="italic"/>    
+    </fontcolor>
+    <fontcolor name="Table" foreColor="009933">  
+        <font style="italic"/>    
+    </fontcolor>
+    <fontcolor name="Text" foreColor="black">
+        <font style="plain"/>    
+    </fontcolor>
+    <fontcolor name="comment" default="comment">
+        <font style="italic"/>    
+    </fontcolor>
+    <fontcolor name="Tag" default="comment">
+        <font style="plain"/>    
+    </fontcolor>
+    <fontcolor name="string" default="string" foreColor="ee7700">
+        <font style="plain"/>    
+    </fontcolor>    
+    <fontcolor name="Number" foreColor="b20000">
+        <font style="plain"/>    
+    </fontcolor>    
+    <fontcolor name="whitespace" default="whitespace"/>    
+</fontscolors>
+

@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.2//EN" "http://www.netbeans.org/dtds/filesystem-1_2.dtd">
+<filesystem>
+    <folder name="CslPlugins">
+        <folder name="text">
+            <folder name="x-gherkin">
+                <!--me.dsnet.cetriolo.GherkinLanguage-->
+                <attr intvalue="2" name="genver"/>
+                <attr boolvalue="false" name="useMultiview"/>
+                <file name="language.instance">
+                    <!--me.dsnet.cetriolo.GherkinLanguage-->
+                    <attr name="instanceClass" stringvalue="me.dsnet.cetriolo.GherkinLanguage"/>
+                </file>
+            </folder>
+        </folder>
+    </folder>
+    <folder name="Editors">
+        <folder name="text">
+            <folder name="x-gherkin">                
+            <attr name="SystemFileSystem.localizingBundle" stringvalue="me.dsnet.cetriolo.Bundle"/>
+            <file name="me-dsnet-cetriolo-antlr-integration-IntegrationGherkinParserFactory.instance"/>
+            <file name="me-dsnet-cetriolo-integration-tasks-GherkinSyntaxErrorHighlightingTaskFactory.instance"/>
+            <file name="me-dsnet-cetriolo-integration-tasks-GherkinIndentTaskFactory.instance"/>
+            <!--            <file name="me-dsnet-crumblecuc-parser-CucSyntaxErrorHighlightingTaskFactory.instance"/>
+            <file name="me-dsnet-crumblecuc-parser-CucIndentTaskFactory.instance"/>
+            <file name="me-dsnet-crumblecuc-parser-CucReformatTaskFactory.instance"/>
+            <file name="me-dsnet-crumblecuc-parser-CucParserFactory.instance"/>-->
+            <folder name="FontsColors">
+                <folder name="NetBeans">
+                    <folder name="Defaults">
+                        <file name="FontAndColors.xml" url="FontAndColors.xml">
+                            <attr name="SystemFileSystem.localizingBundle" stringvalue="me.dsnet.cetriolo.Bundle"/>
+                        </file>
+                    </folder>
+                </folder>
+            </folder>  
+            <folder name="FoldManager">
+                <file name="org-netbeans-editor-CustomFoldManager$Factory.instance"/>
+            </folder>
+            <folder name="BracesMatchers">
+                <file name="me-dsnet-crumblecuc-parser-CucBracesMatcherFactory.instance">
+                    <attr name="position" intvalue="0"/>
+                </file>
+            </folder>          
+                <file name="org-netbeans-modules-csl-core-TLIndexerFactory.instance">
+                    <!--me.dsnet.cetriolo.GherkinLanguage-->
+                    <attr name="instanceClass" stringvalue="org.netbeans.modules.csl.core.TLIndexerFactory"/>
+                    <attr name="instanceOf" stringvalue="org.netbeans.modules.parsing.spi.indexing.EmbeddingIndexerFactory"/>
+                </file>
+                <file name="org-netbeans-modules-csl-core-CslEditorKit-createEditorKitInstance.instance">
+                    <!--me.dsnet.cetriolo.GherkinLanguage-->
+                    <attr methodvalue="org.netbeans.modules.csl.core.CslEditorKit.createEditorKitInstance" name="instanceCreate"/>
+                    <attr name="instanceOf" stringvalue="javax.swing.text.EditorKit"/>
+                </file>
+                <file name="org-netbeans-modules-csl-core-CslEditorKit-createLexerLanguageInstance.instance">
+                    <!--me.dsnet.cetriolo.GherkinLanguage-->
+                    <attr methodvalue="org.netbeans.modules.csl.core.CslEditorKit.createLexerLanguageInstance" name="instanceCreate"/>
+                    <attr name="instanceOf" stringvalue="org.netbeans.api.lexer.Language"/>
+                </file>
+                <folder name="CompletionProviders">
+                    <file name="org-netbeans-lib-editor-codetemplates-CodeTemplateCompletionProvider.instance">
+                        <!--me.dsnet.cetriolo.GherkinLanguage-->
+                        <attr name="instanceClass" stringvalue="org.netbeans.lib.editor.codetemplates.CodeTemplateCompletionProvider"/>
+                    </file>
+                    <file name="org-netbeans-modules-csl-editor-completion-GsfCompletionProvider.instance">
+                        <!--me.dsnet.cetriolo.GherkinLanguage-->
+                        <attr name="instanceClass" stringvalue="org.netbeans.modules.csl.editor.completion.GsfCompletionProvider"/>
+                    </file>
+                    <file name="org-netbeans-modules-parsing-ui-WaitScanFinishedCompletionProvider.instance">
+                        <!--me.dsnet.cetriolo.GherkinLanguage-->
+                        <attr name="instanceClass" stringvalue="org.netbeans.modules.parsing.ui.WaitScanFinishedCompletionProvider"/>
+                    </file>
+                </folder>
+                <folder name="SideBar">
+                    <file name="org-netbeans-modules-csl-editor-GsfCodeFoldingSideBarFactory.instance">
+                        <!--me.dsnet.cetriolo.GherkinLanguage-->
+                        <attr name="instanceClass" stringvalue="org.netbeans.modules.csl.editor.GsfCodeFoldingSideBarFactory"/>
+                        <attr intvalue="1200" name="position"/>
+                    </file>
+                </folder>
+                <folder name="FoldManager">
+                    <file name="org-netbeans-modules-csl-editor-fold-GsfFoldManagerFactory.instance">
+                        <!--me.dsnet.cetriolo.GherkinLanguage-->
+                        <attr name="instanceClass" stringvalue="org.netbeans.modules.csl.editor.fold.GsfFoldManagerFactory"/>
+                    </file>
+                </folder>
+                <folder name="CodeTemplateProcessorFactories">
+                    <file name="org-netbeans-modules-csl-editor-codetemplates-GsfCodeTemplateProcessor$Factory.instance">
+                        <!--me.dsnet.cetriolo.GherkinLanguage-->
+                        <attr name="instanceClass" stringvalue="org.netbeans.modules.csl.editor.codetemplates.GsfCodeTemplateProcessor$Factory"/>
+                    </file>
+                </folder>
+                <folder name="CodeTemplateFilterFactories">
+                    <file name="org-netbeans-modules-csl-editor-codetemplates-GsfCodeTemplateFilter$Factory.instance">
+                        <!--me.dsnet.cetriolo.GherkinLanguage-->
+                        <attr name="instanceClass" stringvalue="org.netbeans.modules.csl.editor.codetemplates.GsfCodeTemplateFilter$Factory"/>
+                    </file>
+                </folder>
+                <file name="org-netbeans-modules-csl-editor-semantic-HighlightsLayerFactoryImpl.instance">
+                    <!--me.dsnet.cetriolo.GherkinLanguage-->
+                    <attr name="instanceClass" stringvalue="org.netbeans.modules.csl.editor.semantic.HighlightsLayerFactoryImpl"/>
+                    <attr name="instanceOf" stringvalue="org.netbeans.spi.editor.highlighting.HighlightsLayerFactory"/>
+                </file>
+                <folder name="UpToDateStatusProvider">
+                    <file name="org-netbeans-modules-csl-hints-GsfUpToDateStateProviderFactory.instance">
+                        <!--me.dsnet.cetriolo.GherkinLanguage-->
+                        <attr name="instanceClass" stringvalue="org.netbeans.modules.csl.hints.GsfUpToDateStateProviderFactory"/>
+                        <attr name="instanceOf" stringvalue="org.netbeans.spi.editor.errorstripe.UpToDateStatusProviderFactory"/>
+                    </file>
+                    <file name="org-netbeans-modules-csl-editor-semantic-OccurrencesMarkProviderCreator.instance">
+                        <!--me.dsnet.cetriolo.GherkinLanguage-->
+                        <attr name="instanceClass" stringvalue="org.netbeans.modules.csl.editor.semantic.OccurrencesMarkProviderCreator"/>
+                        <attr name="instanceOf" stringvalue="org.netbeans.modules.editor.errorstripe.privatespi.MarkProviderCreator"/>
+                    </file>
+                </folder>
+                <folder name="Popup">
+                    <folder name="goto">
+                        <!--me.dsnet.cetriolo.GherkinLanguage-->
+                        <attr intvalue="500" name="position"/>
+                        <attr bundlevalue="org.netbeans.modules.csl.core.Bundle#generate-goto-popup" name="displayName"/>
+                        <file name="goto">
+                            <!--me.dsnet.cetriolo.GherkinLanguage-->
+                            <attr intvalue="600" name="position"/>
+                        </file>
+                    </folder>
+                    <file name="SeparatorBeforeCut.instance">
+                        <!--me.dsnet.cetriolo.GherkinLanguage-->
+                        <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                        <attr intvalue="1200" name="position"/>
+                    </file>
+                    <file name="format">
+                        <!--me.dsnet.cetriolo.GherkinLanguage-->
+                        <attr intvalue="750" name="position"/>
+                    </file>
+                    <file name="SeparatorAfterFormat.instance">
+                        <!--me.dsnet.cetriolo.GherkinLanguage-->
+                        <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                        <attr intvalue="780" name="position"/>
+                    </file>
+                </folder>
+                <folder name="Toolbars">
+                    <folder name="Default">
+                        <file name="Separator-before-comment.instance">
+                            <!--me.dsnet.cetriolo.GherkinLanguage-->
+                            <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                            <attr intvalue="30000" name="position"/>
+                        </file>
+                        <file name="comment">
+                            <!--me.dsnet.cetriolo.GherkinLanguage-->
+                            <attr intvalue="30100" name="position"/>
+                        </file>
+                        <file name="uncomment">
+                            <!--me.dsnet.cetriolo.GherkinLanguage-->
+                            <attr intvalue="30200" name="position"/>
+                        </file>
+                    </folder>
+                </folder>
+            </folder>
+        </folder>
+    </folder>
+    <folder name="Loaders">
+        <folder name="text">
+            <folder name="x-gherkin">
+                <folder name="Actions">
+                    <file name="org-openide-actions-OpenAction.shadow">
+                        <!--me.dsnet.cetriolo.GherkingDataObject-->
+                        <attr name="originalFile" stringvalue="Actions/System/org-openide-actions-OpenAction.instance"/>
+                        <attr intvalue="100" name="position"/>
+                    </file>
+                    <file name="org-openide-actions-OpenAction-separatorAfter.instance">
+                        <!--me.dsnet.cetriolo.GherkingDataObject-->
+                        <attr name="instanceCreate" newvalue="javax.swing.JSeparator"/>
+                        <attr intvalue="200" name="position"/>
+                    </file>
+                    <file name="org-openide-actions-CutAction.shadow">
+                        <!--me.dsnet.cetriolo.GherkingDataObject-->
+                        <attr name="originalFile" stringvalue="Actions/Edit/org-openide-actions-CutAction.instance"/>
+                        <attr intvalue="300" name="position"/>
+                    </file>
+                    <file name="org-openide-actions-CopyAction.shadow">
+                        <!--me.dsnet.cetriolo.GherkingDataObject-->
+                        <attr name="originalFile" stringvalue="Actions/Edit/org-openide-actions-CopyAction.instance"/>
+                        <attr intvalue="400" name="position"/>
+                    </file>
+                    <file name="org-openide-actions-CopyAction-separatorAfter.instance">
+                        <!--me.dsnet.cetriolo.GherkingDataObject-->
+                        <attr name="instanceCreate" newvalue="javax.swing.JSeparator"/>
+                        <attr intvalue="500" name="position"/>
+                    </file>
+                    <file name="org-openide-actions-DeleteAction.shadow">
+                        <!--me.dsnet.cetriolo.GherkingDataObject-->
+                        <attr name="originalFile" stringvalue="Actions/Edit/org-openide-actions-DeleteAction.instance"/>
+                        <attr intvalue="600" name="position"/>
+                    </file>
+                    <file name="org-openide-actions-RenameAction.shadow">
+                        <!--me.dsnet.cetriolo.GherkingDataObject-->
+                        <attr name="originalFile" stringvalue="Actions/System/org-openide-actions-RenameAction.instance"/>
+                        <attr intvalue="700" name="position"/>
+                    </file>
+                    <file name="org-openide-actions-RenameAction-separatorAfter.instance">
+                        <!--me.dsnet.cetriolo.GherkingDataObject-->
+                        <attr name="instanceCreate" newvalue="javax.swing.JSeparator"/>
+                        <attr intvalue="800" name="position"/>
+                    </file>
+                    <file name="org-openide-actions-SaveAsTemplateAction.shadow">
+                        <!--me.dsnet.cetriolo.GherkingDataObject-->
+                        <attr name="originalFile" stringvalue="Actions/System/org-openide-actions-SaveAsTemplateAction.instance"/>
+                        <attr intvalue="900" name="position"/>
+                    </file>
+                    <file name="org-openide-actions-SaveAsTemplateAction-separatorAfter.instance">
+                        <!--me.dsnet.cetriolo.GherkingDataObject-->
+                        <attr name="instanceCreate" newvalue="javax.swing.JSeparator"/>
+                        <attr intvalue="1000" name="position"/>
+                    </file>
+                    <file name="org-openide-actions-FileSystemAction.shadow">
+                        <!--me.dsnet.cetriolo.GherkingDataObject-->
+                        <attr name="originalFile" stringvalue="Actions/System/org-openide-actions-FileSystemAction.instance"/>
+                        <attr intvalue="1100" name="position"/>
+                    </file>
+                    <file name="org-openide-actions-FileSystemAction-separatorAfter.instance">
+                        <!--me.dsnet.cetriolo.GherkingDataObject-->
+                        <attr name="instanceCreate" newvalue="javax.swing.JSeparator"/>
+                        <attr intvalue="1200" name="position"/>
+                    </file>
+                    <file name="org-openide-actions-ToolsAction.shadow">
+                        <!--me.dsnet.cetriolo.GherkingDataObject-->
+                        <attr name="originalFile" stringvalue="Actions/System/org-openide-actions-ToolsAction.instance"/>
+                        <attr intvalue="1300" name="position"/>
+                    </file>
+                    <file name="org-openide-actions-PropertiesAction.shadow">
+                        <!--me.dsnet.cetriolo.GherkingDataObject-->
+                        <attr name="originalFile" stringvalue="Actions/System/org-openide-actions-PropertiesAction.instance"/>
+                        <attr intvalue="1400" name="position"/>
+                    </file>
+                </folder>
+                <folder name="Factories">
+                    <file name="org-netbeans-modules-csl-core-GsfDataLoader.instance">
+                        <!--me.dsnet.cetriolo.GherkinLanguage-->
+                        <attr name="instanceClass" stringvalue="org.netbeans.modules.csl.core.GsfDataLoader"/>
+                        <attr intvalue="89998" name="position"/>
+                    </file>
+                    <file name="me-dsnet-crumblecuc-GherkingDataObject.instance">
+                        <!--me.dsnet.cetriolo.GherkingDataObject-->
+                        <attr name="iconBase" stringvalue="me/dsnet/cetriolo/icons/tea.png"/>
+                        <attr intvalue="300" name="position"/>
+                        <attr bundlevalue="me.dsnet.cetriolo.Bundle#LBL_Cuc_LOADER" name="displayName"/>
+                        <attr methodvalue="org.openide.loaders.DataLoaderPool.factory" name="instanceCreate"/>
+                        <attr name="dataObjectClass" stringvalue="me.dsnet.cetriolo.GherkingDataObject"/>
+                        <attr name="mimeType" stringvalue="text/x-gherkin"/>
+                    </file>
+                </folder>
+            </folder>
+        </folder>
+    </folder>
+    <folder name="Services">
+        <folder name="MIMEResolver">
+            <file name="me-dsnet-crumblecuc-GherkingDataObject-Extension.xml">
+                <!--me.dsnet.cetriolo.GherkingDataObject-->
+                <attr methodvalue="org.openide.filesystems.MIMEResolver.create" name="instanceCreate"/>
+                <attr name="instanceClass" stringvalue="org.openide.filesystems.MIMEResolver"/>
+                <attr name="mimeType" stringvalue="text/x-gherkin"/>
+                <attr name="ext.0" stringvalue="feature"/>
+                <attr name="ext.1" stringvalue="future"/>
+                <attr bundlevalue="me.dsnet.cetriolo.Bundle#LBL_Cuc_LOADER" name="displayName"/>
+            </file>
+        </folder>
+    </folder>
+    <folder name="Templates">
+        <folder name="Cucumber">
+            <file name="GherkinTemplate.feature" url="nbresloc:/me/dsnet/cetriolo/GherkinTemplate.feature">
+                <!--me.dsnet.cetriolo-->
+                <attr boolvalue="true" name="template"/>
+            </file>            
+        </folder>
+    </folder> 
+    <folder name="OptionsDialog">
+        <folder name="PreviewExamples">
+            <folder name="text">
+                <file name="x-gherkin" url="GherkinTemplate.feature"/>
+            </folder>
+        </folder>
+    </folder>   
+</filesystem>

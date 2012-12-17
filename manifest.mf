@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+OpenIDE-Module: me.dsnet.cetriolo
+OpenIDE-Module-Layer: me/dsnet/cetriolo/layer.xml
+OpenIDE-Module-Localizing-Bundle: me/dsnet/cetriolo/Bundle.properties
+OpenIDE-Module-Specification-Version: 1.0
+

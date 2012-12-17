@@ -1,0 +1,84 @@
+Feature:
+	tags+=Tag*
+	'Feature:'
+	title=Title EOL+
+	narrative=Narrative?
+	background=Background?
+	scenarios+=(Scenario | ScenarioOutline)+;
+
+Background:
+	'Background:'
+	title=Title? EOL+
+	narrative=Narrative?
+	steps+=Step+;
+
+Scenario:
+	tags+=Tag*
+	'Scenario:'
+	title=Title? EOL+
+	narrative=Narrative?
+	steps+=Step+;
+
+ScenarioOutline:
+	tags+=Tag*
+	'Scenario Outline:'
+	title=Title? EOL+
+	narrative=Narrative?
+	steps+=Step+
+	examples=Examples;
+
+Step:
+	STEP_KEYWORD
+	description=StepDescription EOL*
+	tables+=Table*
+	code=DocString?
+	tables+=Table*;
+
+Examples:
+	'Examples:' 
+	title=Title? EOL+
+	narrative=Narrative?
+	table=Table;
+
+Table:
+	rows+=TABLE_ROW+ EOL*;
+
+DocString:
+	content=DOC_STRING EOL*;
+
+Title:
+	(WORD | INT | STRING | PLACEHOLDER) (WORD | INT | STRING | PLACEHOLDER | STEP_KEYWORD | TAGNAME)*;
+
+Narrative:
+	((WORD | INT | STRING | PLACEHOLDER) (WORD | INT | STRING | PLACEHOLDER | STEP_KEYWORD | TAGNAME)* EOL+)+;
+
+StepDescription:
+	(WORD | INT | STRING | PLACEHOLDER | STEP_KEYWORD | TAGNAME)+;
+
+Tag: id=TAGNAME EOL?;
+
+terminal INT: '-'? ('0'..'9')+ ('.' ('0'..'9')+)?;
+
+terminal STEP_KEYWORD: ('Given' | 'When' | 'Then' | 'And' | 'But') (' ' | '\t')+;
+
+terminal PLACEHOLDER: '<' !('>' | ' ' | '\t' | '\n' | '\r')+ '>';
+
+terminal TABLE_ROW: '|' (!('|' | '\n' | '\r')* '|')+ (' ' | '\t')* NL;
+
+terminal DOC_STRING: ('"""' -> '"""' | "'''" -> "'''") NL;
+
+terminal STRING:
+	'"' ('\\' ('b' | 't' | 'n' | 'f' | 'r' | 'u' | '"' | "'" | '\\') | !('\\' | '"' | '\r' | '\n'))* '"' |
+	"'" ('\\' ('b' | 't' | 'n' | 'f' | 'r' | 'u' | '"' | "'" | '\\') | !('\\' | "'" | '\r' | '\n'))* "'";
+
+terminal SL_COMMENT: '#' !('\n' | '\r')* NL;
+
+terminal TAGNAME: '@' !(' ' | '\t' | '\n' | '\r')+ ;
+
+terminal WORD: !('@' | '|' | ' ' | '\t' | '\n' | '\r') !(' ' | '\t' | '\n' | '\r')*;
+
+terminal WS: (' ' | '\t');
+
+terminal EOL: NL;
+
+terminal fragment NL: ('\r'? '\n'?);
