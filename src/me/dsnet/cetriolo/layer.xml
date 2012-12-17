@@ -21,10 +21,7 @@
             <file name="me-dsnet-cetriolo-antlr-integration-IntegrationGherkinParserFactory.instance"/>
             <file name="me-dsnet-cetriolo-integration-tasks-GherkinSyntaxErrorHighlightingTaskFactory.instance"/>
             <file name="me-dsnet-cetriolo-integration-tasks-GherkinIndentTaskFactory.instance"/>
-            <!--            <file name="me-dsnet-crumblecuc-parser-CucSyntaxErrorHighlightingTaskFactory.instance"/>
-            <file name="me-dsnet-crumblecuc-parser-CucIndentTaskFactory.instance"/>
-            <file name="me-dsnet-crumblecuc-parser-CucReformatTaskFactory.instance"/>
-            <file name="me-dsnet-crumblecuc-parser-CucParserFactory.instance"/>-->
+            <file name="me-dsnet-cetriolo-integration-tasks-GherkinReformatTaskFactory.instance"/>
             <folder name="FontsColors">
                 <folder name="NetBeans">
                     <folder name="Defaults">
