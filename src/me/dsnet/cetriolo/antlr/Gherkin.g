@@ -32,7 +32,7 @@ feature	: NL*
 	  FEATURE 
           title NL+
           narrative?
-          scenario+
+          (scenario|scenario_outline)+
         ;
           
 scenario: NL*
@@ -49,8 +49,8 @@ scenario_outline
 	  SCEN_OUT
 	  title? NL+
 	  narrative?
-	  step+
-	  examples+
+	  step*
+	  examples*
 	;
 	
 examples: NL*
@@ -70,7 +70,8 @@ step	: NL*
 
 title	: (WORD|STRING|NUMBER|PHOLDER) (WORD|STRING|NUMBER|STEP_KEY|PHOLDER|FEAT_KEY|TAGNAME)*;
 narrative
-	: ((WORD|STRING|NUMBER|PHOLDER) (WORD|STRING|NUMBER|STEP_KEY|FEAT_KEY|PHOLDER|TAGNAME)* NL+)+;	
+	: ((WORD|STRING|NUMBER|PHOLDER|FEAT_KEY) (WORD|STRING|NUMBER|STEP_KEY|FEAT_KEY|PHOLDER|TAGNAME)* NL+)+;	
+	
 stepdesc: (WORD|NUMBER|STRING|PHOLDER|STEP_KEY|FEAT_KEY|TAGNAME)+;	
 
 table   : (T_ROW)+ NL*;

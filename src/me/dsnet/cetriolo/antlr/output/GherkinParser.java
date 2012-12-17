@@ -1,4 +1,4 @@
-// $ANTLR 3.x C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g 2012-12-17 13:22:45
+// $ANTLR 3.x C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g 2012-12-17 15:37:27
 package me.dsnet.cetriolo.antlr.output;
 
 import org.antlr.runtime.*;
@@ -71,11 +71,11 @@ public class GherkinParser extends Parser {
 
 
 	// $ANTLR start "feature"
-	// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:30:1: feature : ( NL )* ( tag )* FEATURE title ( NL )+ ( narrative )? ( scenario )+ ;
+	// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:30:1: feature : ( NL )* ( tag )* FEATURE title ( NL )+ ( narrative )? ( scenario | scenario_outline )+ ;
 	public final void feature() throws RecognitionException {
 		try {
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:30:9: ( ( NL )* ( tag )* FEATURE title ( NL )+ ( narrative )? ( scenario )+ )
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:30:11: ( NL )* ( tag )* FEATURE title ( NL )+ ( narrative )? ( scenario )+
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:30:9: ( ( NL )* ( tag )* FEATURE title ( NL )+ ( narrative )? ( scenario | scenario_outline )+ )
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:30:11: ( NL )* ( tag )* FEATURE title ( NL )+ ( narrative )? ( scenario | scenario_outline )+
 			{
 			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:30:11: ( NL )*
 			loop1:
@@ -159,7 +159,7 @@ public class GherkinParser extends Parser {
 			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:34:11: ( narrative )?
 			int alt4=2;
 			int LA4_0 = input.LA(1);
-			if ( ((LA4_0 >= NUMBER && LA4_0 <= PHOLDER)||LA4_0==STRING||LA4_0==WORD) ) {
+			if ( (LA4_0==FEAT_KEY||(LA4_0 >= NUMBER && LA4_0 <= PHOLDER)||LA4_0==STRING||LA4_0==WORD) ) {
 				alt4=1;
 			}
 			switch (alt4) {
@@ -175,22 +175,27 @@ public class GherkinParser extends Parser {
 
 			}
 
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:35:11: ( scenario )+
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:35:11: ( scenario | scenario_outline )+
 			int cnt5=0;
 			loop5:
 			do {
-				int alt5=2;
-				int LA5_0 = input.LA(1);
-				if ( (LA5_0==NL||LA5_0==SCENARIO||LA5_0==TAGNAME) ) {
-					alt5=1;
-				}
-
+				int alt5=3;
+				alt5 = dfa5.predict(input);
 				switch (alt5) {
 				case 1 :
-					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:35:11: scenario
+					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:35:12: scenario
 					{
-					pushFollow(FOLLOW_scenario_in_feature90);
+					pushFollow(FOLLOW_scenario_in_feature91);
 					scenario();
+					state._fsp--;
+
+					}
+					break;
+				case 2 :
+					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:35:21: scenario_outline
+					{
+					pushFollow(FOLLOW_scenario_outline_in_feature93);
+					scenario_outline();
 					state._fsp--;
 
 					}
@@ -241,7 +246,7 @@ public class GherkinParser extends Parser {
 				case 1 :
 					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:38:11: NL
 					{
-					match(input,NL,FOLLOW_NL_in_scenario117); 
+					match(input,NL,FOLLOW_NL_in_scenario121); 
 					}
 					break;
 
@@ -263,7 +268,7 @@ public class GherkinParser extends Parser {
 				case 1 :
 					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:39:11: tag
 					{
-					pushFollow(FOLLOW_tag_in_scenario130);
+					pushFollow(FOLLOW_tag_in_scenario134);
 					tag();
 					state._fsp--;
 
@@ -275,7 +280,7 @@ public class GherkinParser extends Parser {
 				}
 			} while (true);
 
-			match(input,SCENARIO,FOLLOW_SCENARIO_in_scenario136); 
+			match(input,SCENARIO,FOLLOW_SCENARIO_in_scenario140); 
 			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:41:4: ( title )?
 			int alt8=2;
 			int LA8_0 = input.LA(1);
@@ -286,7 +291,7 @@ public class GherkinParser extends Parser {
 				case 1 :
 					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:41:4: title
 					{
-					pushFollow(FOLLOW_title_in_scenario141);
+					pushFollow(FOLLOW_title_in_scenario145);
 					title();
 					state._fsp--;
 
@@ -309,7 +314,7 @@ public class GherkinParser extends Parser {
 				case 1 :
 					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:41:11: NL
 					{
-					match(input,NL,FOLLOW_NL_in_scenario144); 
+					match(input,NL,FOLLOW_NL_in_scenario148); 
 					}
 					break;
 
@@ -325,14 +330,14 @@ public class GherkinParser extends Parser {
 			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:42:4: ( narrative )?
 			int alt10=2;
 			int LA10_0 = input.LA(1);
-			if ( ((LA10_0 >= NUMBER && LA10_0 <= PHOLDER)||LA10_0==STRING||LA10_0==WORD) ) {
+			if ( (LA10_0==FEAT_KEY||(LA10_0 >= NUMBER && LA10_0 <= PHOLDER)||LA10_0==STRING||LA10_0==WORD) ) {
 				alt10=1;
 			}
 			switch (alt10) {
 				case 1 :
 					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:42:4: narrative
 					{
-					pushFollow(FOLLOW_narrative_in_scenario150);
+					pushFollow(FOLLOW_narrative_in_scenario154);
 					narrative();
 					state._fsp--;
 
@@ -351,7 +356,7 @@ public class GherkinParser extends Parser {
 				case 1 :
 					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:43:4: step
 					{
-					pushFollow(FOLLOW_step_in_scenario156);
+					pushFollow(FOLLOW_step_in_scenario160);
 					step();
 					state._fsp--;
 
@@ -384,11 +389,11 @@ public class GherkinParser extends Parser {
 
 
 	// $ANTLR start "scenario_outline"
-	// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:46:1: scenario_outline : ( NL )* ( tag )* SCEN_OUT ( title )? ( NL )+ ( narrative )? ( step )+ ( examples )+ ;
+	// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:46:1: scenario_outline : ( NL )* ( tag )* SCEN_OUT ( title )? ( NL )+ ( narrative )? ( step )* ( examples )* ;
 	public final void scenario_outline() throws RecognitionException {
 		try {
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:47:2: ( ( NL )* ( tag )* SCEN_OUT ( title )? ( NL )+ ( narrative )? ( step )+ ( examples )+ )
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:47:4: ( NL )* ( tag )* SCEN_OUT ( title )? ( NL )+ ( narrative )? ( step )+ ( examples )+
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:47:2: ( ( NL )* ( tag )* SCEN_OUT ( title )? ( NL )+ ( narrative )? ( step )* ( examples )* )
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:47:4: ( NL )* ( tag )* SCEN_OUT ( title )? ( NL )+ ( narrative )? ( step )* ( examples )*
 			{
 			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:47:4: ( NL )*
 			loop12:
@@ -403,7 +408,7 @@ public class GherkinParser extends Parser {
 				case 1 :
 					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:47:4: NL
 					{
-					match(input,NL,FOLLOW_NL_in_scenario_outline169); 
+					match(input,NL,FOLLOW_NL_in_scenario_outline173); 
 					}
 					break;
 
@@ -425,7 +430,7 @@ public class GherkinParser extends Parser {
 				case 1 :
 					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:48:11: tag
 					{
-					pushFollow(FOLLOW_tag_in_scenario_outline182);
+					pushFollow(FOLLOW_tag_in_scenario_outline186);
 					tag();
 					state._fsp--;
 
@@ -437,7 +442,7 @@ public class GherkinParser extends Parser {
 				}
 			} while (true);
 
-			match(input,SCEN_OUT,FOLLOW_SCEN_OUT_in_scenario_outline188); 
+			match(input,SCEN_OUT,FOLLOW_SCEN_OUT_in_scenario_outline192); 
 			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:50:4: ( title )?
 			int alt14=2;
 			int LA14_0 = input.LA(1);
@@ -448,7 +453,7 @@ public class GherkinParser extends Parser {
 				case 1 :
 					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:50:4: title
 					{
-					pushFollow(FOLLOW_title_in_scenario_outline193);
+					pushFollow(FOLLOW_title_in_scenario_outline197);
 					title();
 					state._fsp--;
 
@@ -471,7 +476,7 @@ public class GherkinParser extends Parser {
 				case 1 :
 					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:50:11: NL
 					{
-					match(input,NL,FOLLOW_NL_in_scenario_outline196); 
+					match(input,NL,FOLLOW_NL_in_scenario_outline200); 
 					}
 					break;
 
@@ -487,14 +492,14 @@ public class GherkinParser extends Parser {
 			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:51:4: ( narrative )?
 			int alt16=2;
 			int LA16_0 = input.LA(1);
-			if ( ((LA16_0 >= NUMBER && LA16_0 <= PHOLDER)||LA16_0==STRING||LA16_0==WORD) ) {
+			if ( (LA16_0==FEAT_KEY||(LA16_0 >= NUMBER && LA16_0 <= PHOLDER)||LA16_0==STRING||LA16_0==WORD) ) {
 				alt16=1;
 			}
 			switch (alt16) {
 				case 1 :
 					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:51:4: narrative
 					{
-					pushFollow(FOLLOW_narrative_in_scenario_outline202);
+					pushFollow(FOLLOW_narrative_in_scenario_outline206);
 					narrative();
 					state._fsp--;
 
@@ -503,8 +508,7 @@ public class GherkinParser extends Parser {
 
 			}
 
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:52:4: ( step )+
-			int cnt17=0;
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:52:4: ( step )*
 			loop17:
 			do {
 				int alt17=2;
@@ -513,7 +517,7 @@ public class GherkinParser extends Parser {
 				case 1 :
 					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:52:4: step
 					{
-					pushFollow(FOLLOW_step_in_scenario_outline208);
+					pushFollow(FOLLOW_step_in_scenario_outline212);
 					step();
 					state._fsp--;
 
@@ -521,29 +525,20 @@ public class GherkinParser extends Parser {
 					break;
 
 				default :
-					if ( cnt17 >= 1 ) break loop17;
-						EarlyExitException eee =
-							new EarlyExitException(17, input);
-						throw eee;
+					break loop17;
 				}
-				cnt17++;
 			} while (true);
 
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:53:4: ( examples )+
-			int cnt18=0;
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:53:4: ( examples )*
 			loop18:
 			do {
 				int alt18=2;
-				int LA18_0 = input.LA(1);
-				if ( (LA18_0==EXAMPLE||LA18_0==NL) ) {
-					alt18=1;
-				}
-
+				alt18 = dfa18.predict(input);
 				switch (alt18) {
 				case 1 :
 					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:53:4: examples
 					{
-					pushFollow(FOLLOW_examples_in_scenario_outline214);
+					pushFollow(FOLLOW_examples_in_scenario_outline218);
 					examples();
 					state._fsp--;
 
@@ -551,12 +546,8 @@ public class GherkinParser extends Parser {
 					break;
 
 				default :
-					if ( cnt18 >= 1 ) break loop18;
-						EarlyExitException eee =
-							new EarlyExitException(18, input);
-						throw eee;
+					break loop18;
 				}
-				cnt18++;
 			} while (true);
 
 			}
@@ -595,7 +586,7 @@ public class GherkinParser extends Parser {
 				case 1 :
 					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:56:11: NL
 					{
-					match(input,NL,FOLLOW_NL_in_examples225); 
+					match(input,NL,FOLLOW_NL_in_examples229); 
 					}
 					break;
 
@@ -604,7 +595,7 @@ public class GherkinParser extends Parser {
 				}
 			} while (true);
 
-			match(input,EXAMPLE,FOLLOW_EXAMPLE_in_examples238); 
+			match(input,EXAMPLE,FOLLOW_EXAMPLE_in_examples242); 
 			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:58:4: ( title )?
 			int alt20=2;
 			int LA20_0 = input.LA(1);
@@ -615,7 +606,7 @@ public class GherkinParser extends Parser {
 				case 1 :
 					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:58:4: title
 					{
-					pushFollow(FOLLOW_title_in_examples244);
+					pushFollow(FOLLOW_title_in_examples248);
 					title();
 					state._fsp--;
 
@@ -638,7 +629,7 @@ public class GherkinParser extends Parser {
 				case 1 :
 					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:58:11: NL
 					{
-					match(input,NL,FOLLOW_NL_in_examples247); 
+					match(input,NL,FOLLOW_NL_in_examples251); 
 					}
 					break;
 
@@ -654,14 +645,14 @@ public class GherkinParser extends Parser {
 			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:59:4: ( narrative )?
 			int alt22=2;
 			int LA22_0 = input.LA(1);
-			if ( ((LA22_0 >= NUMBER && LA22_0 <= PHOLDER)||LA22_0==STRING||LA22_0==WORD) ) {
+			if ( (LA22_0==FEAT_KEY||(LA22_0 >= NUMBER && LA22_0 <= PHOLDER)||LA22_0==STRING||LA22_0==WORD) ) {
 				alt22=1;
 			}
 			switch (alt22) {
 				case 1 :
 					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:59:4: narrative
 					{
-					pushFollow(FOLLOW_narrative_in_examples253);
+					pushFollow(FOLLOW_narrative_in_examples257);
 					narrative();
 					state._fsp--;
 
@@ -670,7 +661,7 @@ public class GherkinParser extends Parser {
 
 			}
 
-			pushFollow(FOLLOW_table_in_examples259);
+			pushFollow(FOLLOW_table_in_examples263);
 			table();
 			state._fsp--;
 
@@ -710,7 +701,7 @@ public class GherkinParser extends Parser {
 				case 1 :
 					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:63:8: NL
 					{
-					match(input,NL,FOLLOW_NL_in_step270); 
+					match(input,NL,FOLLOW_NL_in_step274); 
 					}
 					break;
 
@@ -719,8 +710,8 @@ public class GherkinParser extends Parser {
 				}
 			} while (true);
 
-			match(input,STEP_KEY,FOLLOW_STEP_KEY_in_step283); 
-			pushFollow(FOLLOW_stepdesc_in_step288);
+			match(input,STEP_KEY,FOLLOW_STEP_KEY_in_step287); 
+			pushFollow(FOLLOW_stepdesc_in_step292);
 			stepdesc();
 			state._fsp--;
 
@@ -737,7 +728,7 @@ public class GherkinParser extends Parser {
 				case 1 :
 					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:65:13: NL
 					{
-					match(input,NL,FOLLOW_NL_in_step290); 
+					match(input,NL,FOLLOW_NL_in_step294); 
 					}
 					break;
 
@@ -759,7 +750,7 @@ public class GherkinParser extends Parser {
 				case 1 :
 					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:66:4: table
 					{
-					pushFollow(FOLLOW_table_in_step296);
+					pushFollow(FOLLOW_table_in_step300);
 					table();
 					state._fsp--;
 
@@ -781,7 +772,7 @@ public class GherkinParser extends Parser {
 				case 1 :
 					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:67:4: DOCSTR
 					{
-					match(input,DOCSTR,FOLLOW_DOCSTR_in_step302); 
+					match(input,DOCSTR,FOLLOW_DOCSTR_in_step306); 
 					}
 					break;
 
@@ -800,7 +791,7 @@ public class GherkinParser extends Parser {
 				case 1 :
 					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:68:4: table
 					{
-					pushFollow(FOLLOW_table_in_step308);
+					pushFollow(FOLLOW_table_in_step312);
 					table();
 					state._fsp--;
 
@@ -889,27 +880,27 @@ public class GherkinParser extends Parser {
 
 
 	// $ANTLR start "narrative"
-	// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:72:1: narrative : ( ( WORD | STRING | NUMBER | PHOLDER ) ( WORD | STRING | NUMBER | STEP_KEY | FEAT_KEY | PHOLDER | TAGNAME )* ( NL )+ )+ ;
+	// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:72:1: narrative : ( ( WORD | STRING | NUMBER | PHOLDER | FEAT_KEY ) ( WORD | STRING | NUMBER | STEP_KEY | FEAT_KEY | PHOLDER | TAGNAME )* ( NL )+ )+ ;
 	public final void narrative() throws RecognitionException {
 		try {
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:73:2: ( ( ( WORD | STRING | NUMBER | PHOLDER ) ( WORD | STRING | NUMBER | STEP_KEY | FEAT_KEY | PHOLDER | TAGNAME )* ( NL )+ )+ )
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:73:4: ( ( WORD | STRING | NUMBER | PHOLDER ) ( WORD | STRING | NUMBER | STEP_KEY | FEAT_KEY | PHOLDER | TAGNAME )* ( NL )+ )+
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:73:2: ( ( ( WORD | STRING | NUMBER | PHOLDER | FEAT_KEY ) ( WORD | STRING | NUMBER | STEP_KEY | FEAT_KEY | PHOLDER | TAGNAME )* ( NL )+ )+ )
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:73:4: ( ( WORD | STRING | NUMBER | PHOLDER | FEAT_KEY ) ( WORD | STRING | NUMBER | STEP_KEY | FEAT_KEY | PHOLDER | TAGNAME )* ( NL )+ )+
 			{
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:73:4: ( ( WORD | STRING | NUMBER | PHOLDER ) ( WORD | STRING | NUMBER | STEP_KEY | FEAT_KEY | PHOLDER | TAGNAME )* ( NL )+ )+
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:73:4: ( ( WORD | STRING | NUMBER | PHOLDER | FEAT_KEY ) ( WORD | STRING | NUMBER | STEP_KEY | FEAT_KEY | PHOLDER | TAGNAME )* ( NL )+ )+
 			int cnt31=0;
 			loop31:
 			do {
 				int alt31=2;
 				int LA31_0 = input.LA(1);
-				if ( ((LA31_0 >= NUMBER && LA31_0 <= PHOLDER)||LA31_0==STRING||LA31_0==WORD) ) {
+				if ( (LA31_0==FEAT_KEY||(LA31_0 >= NUMBER && LA31_0 <= PHOLDER)||LA31_0==STRING||LA31_0==WORD) ) {
 					alt31=1;
 				}
 
 				switch (alt31) {
 				case 1 :
-					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:73:5: ( WORD | STRING | NUMBER | PHOLDER ) ( WORD | STRING | NUMBER | STEP_KEY | FEAT_KEY | PHOLDER | TAGNAME )* ( NL )+
+					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:73:5: ( WORD | STRING | NUMBER | PHOLDER | FEAT_KEY ) ( WORD | STRING | NUMBER | STEP_KEY | FEAT_KEY | PHOLDER | TAGNAME )* ( NL )+
 					{
-					if ( (input.LA(1) >= NUMBER && input.LA(1) <= PHOLDER)||input.LA(1)==STRING||input.LA(1)==WORD ) {
+					if ( input.LA(1)==FEAT_KEY||(input.LA(1) >= NUMBER && input.LA(1) <= PHOLDER)||input.LA(1)==STRING||input.LA(1)==WORD ) {
 						input.consume();
 						state.errorRecovery=false;
 					}
@@ -917,7 +908,7 @@ public class GherkinParser extends Parser {
 						MismatchedSetException mse = new MismatchedSetException(null,input);
 						throw mse;
 					}
-					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:73:34: ( WORD | STRING | NUMBER | STEP_KEY | FEAT_KEY | PHOLDER | TAGNAME )*
+					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:73:43: ( WORD | STRING | NUMBER | STEP_KEY | FEAT_KEY | PHOLDER | TAGNAME )*
 					loop29:
 					do {
 						int alt29=2;
@@ -946,7 +937,7 @@ public class GherkinParser extends Parser {
 						}
 					} while (true);
 
-					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:73:90: ( NL )+
+					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:73:99: ( NL )+
 					int cnt30=0;
 					loop30:
 					do {
@@ -958,9 +949,9 @@ public class GherkinParser extends Parser {
 
 						switch (alt30) {
 						case 1 :
-							// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:73:90: NL
+							// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:73:99: NL
 							{
-							match(input,NL,FOLLOW_NL_in_narrative380); 
+							match(input,NL,FOLLOW_NL_in_narrative386); 
 							}
 							break;
 
@@ -1002,13 +993,13 @@ public class GherkinParser extends Parser {
 
 
 	// $ANTLR start "stepdesc"
-	// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:74:1: stepdesc : ( WORD | NUMBER | STRING | PHOLDER | STEP_KEY | FEAT_KEY | TAGNAME )+ ;
+	// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:75:1: stepdesc : ( WORD | NUMBER | STRING | PHOLDER | STEP_KEY | FEAT_KEY | TAGNAME )+ ;
 	public final void stepdesc() throws RecognitionException {
 		try {
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:74:9: ( ( WORD | NUMBER | STRING | PHOLDER | STEP_KEY | FEAT_KEY | TAGNAME )+ )
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:74:11: ( WORD | NUMBER | STRING | PHOLDER | STEP_KEY | FEAT_KEY | TAGNAME )+
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:75:9: ( ( WORD | NUMBER | STRING | PHOLDER | STEP_KEY | FEAT_KEY | TAGNAME )+ )
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:75:11: ( WORD | NUMBER | STRING | PHOLDER | STEP_KEY | FEAT_KEY | TAGNAME )+
 			{
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:74:11: ( WORD | NUMBER | STRING | PHOLDER | STEP_KEY | FEAT_KEY | TAGNAME )+
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:75:11: ( WORD | NUMBER | STRING | PHOLDER | STEP_KEY | FEAT_KEY | TAGNAME )+
 			int cnt32=0;
 			loop32:
 			do {
@@ -1062,13 +1053,13 @@ public class GherkinParser extends Parser {
 
 
 	// $ANTLR start "table"
-	// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:76:1: table : ( T_ROW )+ ( NL )* ;
+	// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:77:1: table : ( T_ROW )+ ( NL )* ;
 	public final void table() throws RecognitionException {
 		try {
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:76:9: ( ( T_ROW )+ ( NL )* )
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:76:11: ( T_ROW )+ ( NL )*
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:77:9: ( ( T_ROW )+ ( NL )* )
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:77:11: ( T_ROW )+ ( NL )*
 			{
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:76:11: ( T_ROW )+
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:77:11: ( T_ROW )+
 			int cnt33=0;
 			loop33:
 			do {
@@ -1080,9 +1071,9 @@ public class GherkinParser extends Parser {
 
 				switch (alt33) {
 				case 1 :
-					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:76:12: T_ROW
+					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:77:12: T_ROW
 					{
-					match(input,T_ROW,FOLLOW_T_ROW_in_table417); 
+					match(input,T_ROW,FOLLOW_T_ROW_in_table425); 
 					}
 					break;
 
@@ -1095,7 +1086,7 @@ public class GherkinParser extends Parser {
 				cnt33++;
 			} while (true);
 
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:76:20: ( NL )*
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:77:20: ( NL )*
 			loop34:
 			do {
 				int alt34=2;
@@ -1106,9 +1097,9 @@ public class GherkinParser extends Parser {
 
 				switch (alt34) {
 				case 1 :
-					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:76:20: NL
+					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:77:20: NL
 					{
-					match(input,NL,FOLLOW_NL_in_table421); 
+					match(input,NL,FOLLOW_NL_in_table429); 
 					}
 					break;
 
@@ -1134,14 +1125,14 @@ public class GherkinParser extends Parser {
 
 
 	// $ANTLR start "tag"
-	// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:77:1: tag : TAGNAME ( NL )? ;
+	// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:78:1: tag : TAGNAME ( NL )? ;
 	public final void tag() throws RecognitionException {
 		try {
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:77:5: ( TAGNAME ( NL )? )
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:77:7: TAGNAME ( NL )?
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:78:5: ( TAGNAME ( NL )? )
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:78:7: TAGNAME ( NL )?
 			{
-			match(input,TAGNAME,FOLLOW_TAGNAME_in_tag429); 
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:77:15: ( NL )?
+			match(input,TAGNAME,FOLLOW_TAGNAME_in_tag437); 
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:78:15: ( NL )?
 			int alt35=2;
 			int LA35_0 = input.LA(1);
 			if ( (LA35_0==NL) ) {
@@ -1149,9 +1140,9 @@ public class GherkinParser extends Parser {
 			}
 			switch (alt35) {
 				case 1 :
-					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:77:15: NL
+					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:78:15: NL
 					{
-					match(input,NL,FOLLOW_NL_in_tag431); 
+					match(input,NL,FOLLOW_NL_in_tag439); 
 					}
 					break;
 
@@ -1174,8 +1165,67 @@ public class GherkinParser extends Parser {
 	// Delegated rules
 
 
+	protected DFA5 dfa5 = new DFA5(this);
 	protected DFA11 dfa11 = new DFA11(this);
 	protected DFA17 dfa17 = new DFA17(this);
+	protected DFA18 dfa18 = new DFA18(this);
+	static final String DFA5_eotS =
+		"\7\uffff";
+	static final String DFA5_eofS =
+		"\1\1\6\uffff";
+	static final String DFA5_minS =
+		"\1\11\1\uffff\2\11\2\uffff\1\14";
+	static final String DFA5_maxS =
+		"\1\20\1\uffff\2\20\2\uffff\1\20";
+	static final String DFA5_acceptS =
+		"\1\uffff\1\3\2\uffff\1\1\1\2\1\uffff";
+	static final String DFA5_specialS =
+		"\7\uffff}>";
+	static final String[] DFA5_transitionS = {
+			"\1\2\2\uffff\1\4\1\5\2\uffff\1\3",
+			"",
+			"\1\2\2\uffff\1\4\1\5\2\uffff\1\3",
+			"\1\6\2\uffff\1\4\1\5\2\uffff\1\3",
+			"",
+			"",
+			"\1\4\1\5\2\uffff\1\3"
+	};
+
+	static final short[] DFA5_eot = DFA.unpackEncodedString(DFA5_eotS);
+	static final short[] DFA5_eof = DFA.unpackEncodedString(DFA5_eofS);
+	static final char[] DFA5_min = DFA.unpackEncodedStringToUnsignedChars(DFA5_minS);
+	static final char[] DFA5_max = DFA.unpackEncodedStringToUnsignedChars(DFA5_maxS);
+	static final short[] DFA5_accept = DFA.unpackEncodedString(DFA5_acceptS);
+	static final short[] DFA5_special = DFA.unpackEncodedString(DFA5_specialS);
+	static final short[][] DFA5_transition;
+
+	static {
+		int numStates = DFA5_transitionS.length;
+		DFA5_transition = new short[numStates][];
+		for (int i=0; i<numStates; i++) {
+			DFA5_transition[i] = DFA.unpackEncodedString(DFA5_transitionS[i]);
+		}
+	}
+
+	class DFA5 extends DFA {
+
+		public DFA5(BaseRecognizer recognizer) {
+			this.recognizer = recognizer;
+			this.decisionNumber = 5;
+			this.eot = DFA5_eot;
+			this.eof = DFA5_eof;
+			this.min = DFA5_min;
+			this.max = DFA5_max;
+			this.accept = DFA5_accept;
+			this.special = DFA5_special;
+			this.transition = DFA5_transition;
+		}
+		@Override
+		public String getDescription() {
+			return "()+ loopback of 35:11: ( scenario | scenario_outline )+";
+		}
+	}
+
 	static final String DFA11_eotS =
 		"\4\uffff";
 	static final String DFA11_eofS =
@@ -1189,9 +1239,9 @@ public class GherkinParser extends Parser {
 	static final String DFA11_specialS =
 		"\4\uffff}>";
 	static final String[] DFA11_transitionS = {
-			"\1\2\2\uffff\1\1\1\uffff\1\3\1\uffff\1\1",
+			"\1\2\2\uffff\2\1\1\3\1\uffff\1\1",
 			"",
-			"\1\2\2\uffff\1\1\1\uffff\1\3\1\uffff\1\1",
+			"\1\2\2\uffff\2\1\1\3\1\uffff\1\1",
 			""
 	};
 
@@ -1233,18 +1283,18 @@ public class GherkinParser extends Parser {
 	static final String DFA17_eotS =
 		"\4\uffff";
 	static final String DFA17_eofS =
-		"\4\uffff";
+		"\1\2\3\uffff";
 	static final String DFA17_minS =
 		"\2\6\2\uffff";
 	static final String DFA17_maxS =
-		"\2\16\2\uffff";
+		"\2\20\2\uffff";
 	static final String DFA17_acceptS =
 		"\2\uffff\1\2\1\1";
 	static final String DFA17_specialS =
 		"\4\uffff}>";
 	static final String[] DFA17_transitionS = {
-			"\1\2\2\uffff\1\1\4\uffff\1\3",
-			"\1\2\2\uffff\1\1\4\uffff\1\3",
+			"\1\2\2\uffff\1\1\2\uffff\2\2\1\3\1\uffff\1\2",
+			"\1\2\2\uffff\1\1\2\uffff\2\2\1\3\1\uffff\1\2",
 			"",
 			""
 	};
@@ -1280,7 +1330,61 @@ public class GherkinParser extends Parser {
 		}
 		@Override
 		public String getDescription() {
-			return "()+ loopback of 52:4: ( step )+";
+			return "()* loopback of 52:4: ( step )*";
+		}
+	}
+
+	static final String DFA18_eotS =
+		"\4\uffff";
+	static final String DFA18_eofS =
+		"\1\1\3\uffff";
+	static final String DFA18_minS =
+		"\1\6\1\uffff\1\6\1\uffff";
+	static final String DFA18_maxS =
+		"\1\20\1\uffff\1\20\1\uffff";
+	static final String DFA18_acceptS =
+		"\1\uffff\1\2\1\uffff\1\1";
+	static final String DFA18_specialS =
+		"\4\uffff}>";
+	static final String[] DFA18_transitionS = {
+			"\1\3\2\uffff\1\2\2\uffff\2\1\2\uffff\1\1",
+			"",
+			"\1\3\2\uffff\1\2\2\uffff\2\1\2\uffff\1\1",
+			""
+	};
+
+	static final short[] DFA18_eot = DFA.unpackEncodedString(DFA18_eotS);
+	static final short[] DFA18_eof = DFA.unpackEncodedString(DFA18_eofS);
+	static final char[] DFA18_min = DFA.unpackEncodedStringToUnsignedChars(DFA18_minS);
+	static final char[] DFA18_max = DFA.unpackEncodedStringToUnsignedChars(DFA18_maxS);
+	static final short[] DFA18_accept = DFA.unpackEncodedString(DFA18_acceptS);
+	static final short[] DFA18_special = DFA.unpackEncodedString(DFA18_specialS);
+	static final short[][] DFA18_transition;
+
+	static {
+		int numStates = DFA18_transitionS.length;
+		DFA18_transition = new short[numStates][];
+		for (int i=0; i<numStates; i++) {
+			DFA18_transition[i] = DFA.unpackEncodedString(DFA18_transitionS[i]);
+		}
+	}
+
+	class DFA18 extends DFA {
+
+		public DFA18(BaseRecognizer recognizer) {
+			this.recognizer = recognizer;
+			this.decisionNumber = 18;
+			this.eot = DFA18_eot;
+			this.eof = DFA18_eof;
+			this.min = DFA18_min;
+			this.max = DFA18_max;
+			this.accept = DFA18_accept;
+			this.special = DFA18_special;
+			this.transition = DFA18_transition;
+		}
+		@Override
+		public String getDescription() {
+			return "()* loopback of 53:4: ( examples )*";
 		}
 	}
 
@@ -1288,42 +1392,43 @@ public class GherkinParser extends Parser {
 	public static final BitSet FOLLOW_tag_in_feature43 = new BitSet(new long[]{0x0000000000010080L});
 	public static final BitSet FOLLOW_FEATURE_in_feature49 = new BitSet(new long[]{0x0000000000048C00L});
 	public static final BitSet FOLLOW_title_in_feature62 = new BitSet(new long[]{0x0000000000000200L});
-	public static final BitSet FOLLOW_NL_in_feature64 = new BitSet(new long[]{0x0000000000059E00L});
-	public static final BitSet FOLLOW_narrative_in_feature77 = new BitSet(new long[]{0x0000000000011200L});
-	public static final BitSet FOLLOW_scenario_in_feature90 = new BitSet(new long[]{0x0000000000011202L});
-	public static final BitSet FOLLOW_NL_in_scenario117 = new BitSet(new long[]{0x0000000000011200L});
-	public static final BitSet FOLLOW_tag_in_scenario130 = new BitSet(new long[]{0x0000000000011000L});
-	public static final BitSet FOLLOW_SCENARIO_in_scenario136 = new BitSet(new long[]{0x0000000000048E00L});
-	public static final BitSet FOLLOW_title_in_scenario141 = new BitSet(new long[]{0x0000000000000200L});
-	public static final BitSet FOLLOW_NL_in_scenario144 = new BitSet(new long[]{0x000000000004CE00L});
-	public static final BitSet FOLLOW_narrative_in_scenario150 = new BitSet(new long[]{0x0000000000004200L});
-	public static final BitSet FOLLOW_step_in_scenario156 = new BitSet(new long[]{0x0000000000004202L});
-	public static final BitSet FOLLOW_NL_in_scenario_outline169 = new BitSet(new long[]{0x0000000000012200L});
-	public static final BitSet FOLLOW_tag_in_scenario_outline182 = new BitSet(new long[]{0x0000000000012000L});
-	public static final BitSet FOLLOW_SCEN_OUT_in_scenario_outline188 = new BitSet(new long[]{0x0000000000048E00L});
-	public static final BitSet FOLLOW_title_in_scenario_outline193 = new BitSet(new long[]{0x0000000000000200L});
-	public static final BitSet FOLLOW_NL_in_scenario_outline196 = new BitSet(new long[]{0x000000000004CE00L});
-	public static final BitSet FOLLOW_narrative_in_scenario_outline202 = new BitSet(new long[]{0x0000000000004200L});
-	public static final BitSet FOLLOW_step_in_scenario_outline208 = new BitSet(new long[]{0x0000000000004240L});
-	public static final BitSet FOLLOW_examples_in_scenario_outline214 = new BitSet(new long[]{0x0000000000000242L});
-	public static final BitSet FOLLOW_NL_in_examples225 = new BitSet(new long[]{0x0000000000000240L});
-	public static final BitSet FOLLOW_EXAMPLE_in_examples238 = new BitSet(new long[]{0x0000000000048E00L});
-	public static final BitSet FOLLOW_title_in_examples244 = new BitSet(new long[]{0x0000000000000200L});
-	public static final BitSet FOLLOW_NL_in_examples247 = new BitSet(new long[]{0x0000000000068E00L});
-	public static final BitSet FOLLOW_narrative_in_examples253 = new BitSet(new long[]{0x0000000000020000L});
-	public static final BitSet FOLLOW_table_in_examples259 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_NL_in_step270 = new BitSet(new long[]{0x0000000000004200L});
-	public static final BitSet FOLLOW_STEP_KEY_in_step283 = new BitSet(new long[]{0x000000000005CD00L});
-	public static final BitSet FOLLOW_stepdesc_in_step288 = new BitSet(new long[]{0x0000000000020222L});
-	public static final BitSet FOLLOW_NL_in_step290 = new BitSet(new long[]{0x0000000000020222L});
-	public static final BitSet FOLLOW_table_in_step296 = new BitSet(new long[]{0x0000000000020022L});
-	public static final BitSet FOLLOW_DOCSTR_in_step302 = new BitSet(new long[]{0x0000000000020002L});
-	public static final BitSet FOLLOW_table_in_step308 = new BitSet(new long[]{0x0000000000020002L});
-	public static final BitSet FOLLOW_set_in_title319 = new BitSet(new long[]{0x000000000005CD02L});
-	public static final BitSet FOLLOW_set_in_narrative353 = new BitSet(new long[]{0x000000000005CF00L});
-	public static final BitSet FOLLOW_NL_in_narrative380 = new BitSet(new long[]{0x0000000000048E02L});
-	public static final BitSet FOLLOW_T_ROW_in_table417 = new BitSet(new long[]{0x0000000000020202L});
-	public static final BitSet FOLLOW_NL_in_table421 = new BitSet(new long[]{0x0000000000000202L});
-	public static final BitSet FOLLOW_TAGNAME_in_tag429 = new BitSet(new long[]{0x0000000000000202L});
-	public static final BitSet FOLLOW_NL_in_tag431 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_NL_in_feature64 = new BitSet(new long[]{0x000000000005BF00L});
+	public static final BitSet FOLLOW_narrative_in_feature77 = new BitSet(new long[]{0x0000000000013200L});
+	public static final BitSet FOLLOW_scenario_in_feature91 = new BitSet(new long[]{0x0000000000013202L});
+	public static final BitSet FOLLOW_scenario_outline_in_feature93 = new BitSet(new long[]{0x0000000000013202L});
+	public static final BitSet FOLLOW_NL_in_scenario121 = new BitSet(new long[]{0x0000000000011200L});
+	public static final BitSet FOLLOW_tag_in_scenario134 = new BitSet(new long[]{0x0000000000011000L});
+	public static final BitSet FOLLOW_SCENARIO_in_scenario140 = new BitSet(new long[]{0x0000000000048E00L});
+	public static final BitSet FOLLOW_title_in_scenario145 = new BitSet(new long[]{0x0000000000000200L});
+	public static final BitSet FOLLOW_NL_in_scenario148 = new BitSet(new long[]{0x000000000004CF00L});
+	public static final BitSet FOLLOW_narrative_in_scenario154 = new BitSet(new long[]{0x0000000000004200L});
+	public static final BitSet FOLLOW_step_in_scenario160 = new BitSet(new long[]{0x0000000000004202L});
+	public static final BitSet FOLLOW_NL_in_scenario_outline173 = new BitSet(new long[]{0x0000000000012200L});
+	public static final BitSet FOLLOW_tag_in_scenario_outline186 = new BitSet(new long[]{0x0000000000012000L});
+	public static final BitSet FOLLOW_SCEN_OUT_in_scenario_outline192 = new BitSet(new long[]{0x0000000000048E00L});
+	public static final BitSet FOLLOW_title_in_scenario_outline197 = new BitSet(new long[]{0x0000000000000200L});
+	public static final BitSet FOLLOW_NL_in_scenario_outline200 = new BitSet(new long[]{0x000000000004CF42L});
+	public static final BitSet FOLLOW_narrative_in_scenario_outline206 = new BitSet(new long[]{0x0000000000004242L});
+	public static final BitSet FOLLOW_step_in_scenario_outline212 = new BitSet(new long[]{0x0000000000004242L});
+	public static final BitSet FOLLOW_examples_in_scenario_outline218 = new BitSet(new long[]{0x0000000000000242L});
+	public static final BitSet FOLLOW_NL_in_examples229 = new BitSet(new long[]{0x0000000000000240L});
+	public static final BitSet FOLLOW_EXAMPLE_in_examples242 = new BitSet(new long[]{0x0000000000048E00L});
+	public static final BitSet FOLLOW_title_in_examples248 = new BitSet(new long[]{0x0000000000000200L});
+	public static final BitSet FOLLOW_NL_in_examples251 = new BitSet(new long[]{0x0000000000068F00L});
+	public static final BitSet FOLLOW_narrative_in_examples257 = new BitSet(new long[]{0x0000000000020000L});
+	public static final BitSet FOLLOW_table_in_examples263 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_NL_in_step274 = new BitSet(new long[]{0x0000000000004200L});
+	public static final BitSet FOLLOW_STEP_KEY_in_step287 = new BitSet(new long[]{0x000000000005CD00L});
+	public static final BitSet FOLLOW_stepdesc_in_step292 = new BitSet(new long[]{0x0000000000020222L});
+	public static final BitSet FOLLOW_NL_in_step294 = new BitSet(new long[]{0x0000000000020222L});
+	public static final BitSet FOLLOW_table_in_step300 = new BitSet(new long[]{0x0000000000020022L});
+	public static final BitSet FOLLOW_DOCSTR_in_step306 = new BitSet(new long[]{0x0000000000020002L});
+	public static final BitSet FOLLOW_table_in_step312 = new BitSet(new long[]{0x0000000000020002L});
+	public static final BitSet FOLLOW_set_in_title323 = new BitSet(new long[]{0x000000000005CD02L});
+	public static final BitSet FOLLOW_set_in_narrative357 = new BitSet(new long[]{0x000000000005CF00L});
+	public static final BitSet FOLLOW_NL_in_narrative386 = new BitSet(new long[]{0x0000000000048F02L});
+	public static final BitSet FOLLOW_T_ROW_in_table425 = new BitSet(new long[]{0x0000000000020202L});
+	public static final BitSet FOLLOW_NL_in_table429 = new BitSet(new long[]{0x0000000000000202L});
+	public static final BitSet FOLLOW_TAGNAME_in_tag437 = new BitSet(new long[]{0x0000000000000202L});
+	public static final BitSet FOLLOW_NL_in_tag439 = new BitSet(new long[]{0x0000000000000002L});
 }
