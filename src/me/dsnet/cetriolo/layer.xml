@@ -20,8 +20,7 @@
             <attr name="SystemFileSystem.localizingBundle" stringvalue="me.dsnet.cetriolo.Bundle"/>
             <file name="me-dsnet-cetriolo-antlr-integration-IntegrationGherkinParserFactory.instance"/>
             <file name="me-dsnet-cetriolo-integration-syntaxerrors-GherkinSyntaxErrorHighlightingTaskFactory.instance"/>
-            <file name="me-dsnet-cetriolo-integration-indent-GherkinIndentTaskFactory.instance"/>
-            <file name="me-dsnet-cetriolo-integration-reformat-GherkinReformatTaskFactory.instance"/>
+<!--            <file name="me-dsnet-cetriolo-integration-reformat-GherkinReformatTaskFactory.instance"/>-->
             <folder name="FontsColors">
                 <folder name="NetBeans">
                     <folder name="Defaults">
@@ -31,9 +30,9 @@
                     </folder>
                 </folder>
             </folder>  
-            <folder name="FoldManager">
+<!--            <folder name="FoldManager">
                 <file name="me-dsnet-cetriolo-integration-fold-GherkinFolderManagerFactory.instance"/>
-            </folder>
+            </folder>-->
                 <file name="org-netbeans-modules-csl-core-TLIndexerFactory.instance">
                     <!--me.dsnet.cetriolo.GherkinLanguage-->
                     <attr name="instanceClass" stringvalue="org.netbeans.modules.csl.core.TLIndexerFactory"/>
@@ -50,6 +49,10 @@
                     <attr name="instanceOf" stringvalue="org.netbeans.api.lexer.Language"/>
                 </file>
                 <folder name="CompletionProviders">
+                    <file name="me-dsnet-cetriolo-integration-completion-GherkinCompletionProvider.instance">
+                        <!--me.dsnet.cetriolo.integration.completion.GherkinCompletionProvider-->
+                        <attr name="instanceOf" stringvalue="org.netbeans.spi.editor.completion.CompletionProvider"/>
+                    </file>
                     <file name="org-netbeans-lib-editor-codetemplates-CodeTemplateCompletionProvider.instance">
                         <!--me.dsnet.cetriolo.GherkinLanguage-->
                         <attr name="instanceClass" stringvalue="org.netbeans.lib.editor.codetemplates.CodeTemplateCompletionProvider"/>

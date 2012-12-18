@@ -14,6 +14,7 @@ import org.netbeans.modules.editor.indent.spi.ReformatTask;
 public class GherkinReformatTaskFactory implements ReformatTask.Factory {
 
     public ReformatTask createTask(Context context) {
+        System.out.println("******** init reformat task");
         return new GherkinReformatTask(context);
     }
 }
