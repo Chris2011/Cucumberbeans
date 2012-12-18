@@ -2,33 +2,32 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package me.dsnet.cetriolo.integration.tasks;
+package me.dsnet.cetriolo.integration.reformat;
 
 import javax.swing.text.BadLocationException;
 import org.netbeans.modules.editor.indent.spi.Context;
 import org.netbeans.modules.editor.indent.spi.ExtraLock;
-import org.netbeans.modules.editor.indent.spi.IndentTask;
-import org.openide.awt.StatusDisplayer;
+import org.netbeans.modules.editor.indent.spi.ReformatTask;
 
 /**
  *
  * @author SessonaD
  */
-public class GherkinIndentTask implements IndentTask{
+public class GherkinReformatTask implements ReformatTask{
 
     private Context context;
 
-    GherkinIndentTask(Context context) {
+    public GherkinReformatTask(Context context) {
         this.context = context;
     }
     
     @Override
-    public void reindent() throws BadLocationException {
-        StatusDisplayer.getDefault().setStatusText("We will indent this now...");
+    public void reformat() throws BadLocationException {
+        System.out.println("we will format this now");
     }
 
     @Override
-    public ExtraLock indentLock() {
+    public ExtraLock reformatLock() {
         return null;
     }
     

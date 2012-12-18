@@ -2,13 +2,12 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package me.dsnet.cetriolo.integration.tasks;
+package me.dsnet.cetriolo.integration.syntaxerrors;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
-import me.dsnet.cetriolo.antlr.integration.IntegrationGherkinParser;
+import me.dsnet.cetriolo.antlr.integration.IntegrationGherkingParserResult;
 import me.dsnet.cetriolo.antlr.output.GherkinParser.SyntaxError;
 import org.antlr.runtime.RecognitionException;
 import org.netbeans.modules.parsing.spi.Parser.Result;
@@ -31,8 +30,8 @@ public class GherkinSyntaxErrorHighlightingTask extends ParserResultTask{
     @Override
     public void run(Result r, SchedulerEvent se) {
         try {
-            IntegrationGherkinParser.GherkinEditorParserResult sjResult = (IntegrationGherkinParser.GherkinEditorParserResult) r;
-            List<SyntaxError> syntaxErrors = sjResult.getSqlParser().syntaxErrors;
+            IntegrationGherkingParserResult gherkinRes = (IntegrationGherkingParserResult) r;
+            List<SyntaxError> syntaxErrors = gherkinRes.getGherkinParser().syntaxErrors;
             Document document = r.getSnapshot().getSource().getDocument(false);
             List<ErrorDescription> errors = new ArrayList<ErrorDescription>();
             for (SyntaxError syntaxError : syntaxErrors) {
@@ -51,6 +50,8 @@ public class GherkinSyntaxErrorHighlightingTask extends ParserResultTask{
                 errors.add(errorDescription);
             }
             HintsController.setErrors(document, "feature", errors);
+            
+           
         }catch (Exception ex1) {
             Exceptions.printStackTrace (ex1);
         }

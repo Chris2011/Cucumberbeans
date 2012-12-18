@@ -1,4 +1,4 @@
-// $ANTLR 3.x C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g 2012-12-17 15:37:28
+// $ANTLR 3.x C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g 2012-12-17 17:26:09
 package me.dsnet.cetriolo.antlr.output;
 
 import org.antlr.runtime.*;
@@ -46,8 +46,8 @@ public class GherkinLexer extends Lexer {
 		try {
 			int _type = FEATURE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:84:9: ( 'Feature:' )
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:84:10: 'Feature:'
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:88:9: ( 'Feature:' )
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:88:10: 'Feature:'
 			{
 			match("Feature:"); 
 
@@ -67,8 +67,8 @@ public class GherkinLexer extends Lexer {
 		try {
 			int _type = SCENARIO;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:85:9: ( 'Scenario:' )
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:85:10: 'Scenario:'
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:89:9: ( 'Scenario:' )
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:89:10: 'Scenario:'
 			{
 			match("Scenario:"); 
 
@@ -88,10 +88,10 @@ public class GherkinLexer extends Lexer {
 		try {
 			int _type = EXAMPLE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:86:9: ( ( 'Examples:' | 'Example:' ) )
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:86:10: ( 'Examples:' | 'Example:' )
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:90:9: ( ( 'Examples:' | 'Example:' ) )
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:90:10: ( 'Examples:' | 'Example:' )
 			{
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:86:10: ( 'Examples:' | 'Example:' )
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:90:10: ( 'Examples:' | 'Example:' )
 			int alt1=2;
 			int LA1_0 = input.LA(1);
 			if ( (LA1_0=='E') ) {
@@ -211,14 +211,14 @@ public class GherkinLexer extends Lexer {
 			}
 			switch (alt1) {
 				case 1 :
-					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:86:11: 'Examples:'
+					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:90:11: 'Examples:'
 					{
 					match("Examples:"); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:86:23: 'Example:'
+					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:90:23: 'Example:'
 					{
 					match("Example:"); 
 
@@ -243,10 +243,10 @@ public class GherkinLexer extends Lexer {
 		try {
 			int _type = SCEN_OUT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:87:9: ( ( 'Scenario Outline:' | 'Scenario outline:' ) )
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:87:10: ( 'Scenario Outline:' | 'Scenario outline:' )
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:91:9: ( ( 'Scenario Outline:' | 'Scenario outline:' ) )
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:91:10: ( 'Scenario Outline:' | 'Scenario outline:' )
 			{
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:87:10: ( 'Scenario Outline:' | 'Scenario outline:' )
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:91:10: ( 'Scenario Outline:' | 'Scenario outline:' )
 			int alt2=2;
 			int LA2_0 = input.LA(1);
 			if ( (LA2_0=='S') ) {
@@ -396,14 +396,14 @@ public class GherkinLexer extends Lexer {
 			}
 			switch (alt2) {
 				case 1 :
-					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:87:11: 'Scenario Outline:'
+					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:91:11: 'Scenario Outline:'
 					{
 					match("Scenario Outline:"); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:87:31: 'Scenario outline:'
+					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:91:31: 'Scenario outline:'
 					{
 					match("Scenario outline:"); 
 
@@ -428,10 +428,10 @@ public class GherkinLexer extends Lexer {
 		try {
 			int _type = STEP_KEY;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:88:9: ( ( 'Given ' | 'When ' | 'Then ' | 'And ' | 'But ' ) )
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:88:10: ( 'Given ' | 'When ' | 'Then ' | 'And ' | 'But ' )
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:92:9: ( ( 'Given ' | 'When ' | 'Then ' | 'And ' | 'But ' ) )
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:92:10: ( 'Given ' | 'When ' | 'Then ' | 'And ' | 'But ' )
 			{
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:88:10: ( 'Given ' | 'When ' | 'Then ' | 'And ' | 'But ' )
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:92:10: ( 'Given ' | 'When ' | 'Then ' | 'And ' | 'But ' )
 			int alt3=5;
 			switch ( input.LA(1) ) {
 			case 'G':
@@ -466,35 +466,35 @@ public class GherkinLexer extends Lexer {
 			}
 			switch (alt3) {
 				case 1 :
-					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:88:11: 'Given '
+					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:92:11: 'Given '
 					{
 					match("Given "); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:88:22: 'When '
+					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:92:22: 'When '
 					{
 					match("When "); 
 
 					}
 					break;
 				case 3 :
-					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:88:32: 'Then '
+					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:92:32: 'Then '
 					{
 					match("Then "); 
 
 					}
 					break;
 				case 4 :
-					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:88:42: 'And '
+					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:92:42: 'And '
 					{
 					match("And "); 
 
 					}
 					break;
 				case 5 :
-					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:88:51: 'But '
+					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:92:51: 'But '
 					{
 					match("But "); 
 
@@ -519,10 +519,10 @@ public class GherkinLexer extends Lexer {
 		try {
 			int _type = FEAT_KEY;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:89:9: ( ( 'In order ' | 'As a ' | 'I want ' ) )
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:89:10: ( 'In order ' | 'As a ' | 'I want ' )
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:93:9: ( ( 'In order ' | 'As a ' | 'I want ' ) )
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:93:10: ( 'In order ' | 'As a ' | 'I want ' )
 			{
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:89:10: ( 'In order ' | 'As a ' | 'I want ' )
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:93:10: ( 'In order ' | 'As a ' | 'I want ' )
 			int alt4=3;
 			int LA4_0 = input.LA(1);
 			if ( (LA4_0=='I') ) {
@@ -555,21 +555,21 @@ public class GherkinLexer extends Lexer {
 			}
 			switch (alt4) {
 				case 1 :
-					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:89:11: 'In order '
+					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:93:11: 'In order '
 					{
 					match("In order "); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:89:25: 'As a '
+					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:93:25: 'As a '
 					{
 					match("As a "); 
 
 					}
 					break;
 				case 3 :
-					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:89:35: 'I want '
+					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:93:35: 'I want '
 					{
 					match("I want "); 
 
@@ -594,10 +594,10 @@ public class GherkinLexer extends Lexer {
 		try {
 			int _type = NUMBER;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:91:9: ( ( '-' )? ( '0' .. '9' )+ ( '.' ( '0' .. '9' )+ )? )
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:91:11: ( '-' )? ( '0' .. '9' )+ ( '.' ( '0' .. '9' )+ )?
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:95:9: ( ( '-' )? ( '0' .. '9' )+ ( '.' ( '0' .. '9' )+ )? )
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:95:11: ( '-' )? ( '0' .. '9' )+ ( '.' ( '0' .. '9' )+ )?
 			{
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:91:11: ( '-' )?
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:95:11: ( '-' )?
 			int alt5=2;
 			int LA5_0 = input.LA(1);
 			if ( (LA5_0=='-') ) {
@@ -605,7 +605,7 @@ public class GherkinLexer extends Lexer {
 			}
 			switch (alt5) {
 				case 1 :
-					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:91:11: '-'
+					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:95:11: '-'
 					{
 					match('-'); 
 					}
@@ -613,7 +613,7 @@ public class GherkinLexer extends Lexer {
 
 			}
 
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:91:16: ( '0' .. '9' )+
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:95:16: ( '0' .. '9' )+
 			int cnt6=0;
 			loop6:
 			do {
@@ -647,7 +647,7 @@ public class GherkinLexer extends Lexer {
 				cnt6++;
 			} while (true);
 
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:91:28: ( '.' ( '0' .. '9' )+ )?
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:95:28: ( '.' ( '0' .. '9' )+ )?
 			int alt8=2;
 			int LA8_0 = input.LA(1);
 			if ( (LA8_0=='.') ) {
@@ -655,10 +655,10 @@ public class GherkinLexer extends Lexer {
 			}
 			switch (alt8) {
 				case 1 :
-					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:91:29: '.' ( '0' .. '9' )+
+					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:95:29: '.' ( '0' .. '9' )+
 					{
 					match('.'); 
-					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:91:33: ( '0' .. '9' )+
+					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:95:33: ( '0' .. '9' )+
 					int cnt7=0;
 					loop7:
 					do {
@@ -713,11 +713,11 @@ public class GherkinLexer extends Lexer {
 		try {
 			int _type = COMMENT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:92:9: ( '#' (~ ( '\\n' | '\\r' ) )* NL )
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:92:11: '#' (~ ( '\\n' | '\\r' ) )* NL
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:96:9: ( '#' (~ ( '\\n' | '\\r' ) )* NL )
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:96:11: '#' (~ ( '\\n' | '\\r' ) )* NL
 			{
 			match('#'); 
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:92:15: (~ ( '\\n' | '\\r' ) )*
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:96:15: (~ ( '\\n' | '\\r' ) )*
 			loop9:
 			do {
 				int alt9=2;
@@ -755,7 +755,7 @@ public class GherkinLexer extends Lexer {
 
 			mNL(); 
 
-			skip();
+			_channel=HIDDEN;
 			}
 
 			state.type = _type;
@@ -772,11 +772,11 @@ public class GherkinLexer extends Lexer {
 		try {
 			int _type = TAGNAME;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:93:9: ( '@' (~ ( ' ' | '\\t' | '\\n' | '\\r' ) )+ )
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:93:11: '@' (~ ( ' ' | '\\t' | '\\n' | '\\r' ) )+
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:97:9: ( '@' (~ ( ' ' | '\\t' | '\\n' | '\\r' ) )+ )
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:97:11: '@' (~ ( ' ' | '\\t' | '\\n' | '\\r' ) )+
 			{
 			match('@'); 
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:93:15: (~ ( ' ' | '\\t' | '\\n' | '\\r' ) )+
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:97:15: (~ ( ' ' | '\\t' | '\\n' | '\\r' ) )+
 			int cnt10=0;
 			loop10:
 			do {
@@ -826,11 +826,11 @@ public class GherkinLexer extends Lexer {
 		try {
 			int _type = PHOLDER;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:94:9: ( '<' (~ ( '\\t' | ' ' | '\\r' | '\\n' ) )+ '>' )
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:94:11: '<' (~ ( '\\t' | ' ' | '\\r' | '\\n' ) )+ '>'
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:98:9: ( '<' (~ ( '\\t' | ' ' | '\\r' | '\\n' ) )+ '>' )
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:98:11: '<' (~ ( '\\t' | ' ' | '\\r' | '\\n' ) )+ '>'
 			{
 			match('<'); 
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:94:15: (~ ( '\\t' | ' ' | '\\r' | '\\n' ) )+
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:98:15: (~ ( '\\t' | ' ' | '\\r' | '\\n' ) )+
 			int cnt11=0;
 			loop11:
 			do {
@@ -888,11 +888,11 @@ public class GherkinLexer extends Lexer {
 		try {
 			int _type = T_ROW;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:95:9: ( '|' ( (~ ( '|' | '\\n' | '\\r' ) )* '|' )+ ( ' ' | '\\t' )* NL )
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:95:11: '|' ( (~ ( '|' | '\\n' | '\\r' ) )* '|' )+ ( ' ' | '\\t' )* NL
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:99:9: ( '|' ( (~ ( '|' | '\\n' | '\\r' ) )* '|' )+ ( ' ' | '\\t' )* NL )
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:99:11: '|' ( (~ ( '|' | '\\n' | '\\r' ) )* '|' )+ ( ' ' | '\\t' )* NL
 			{
 			match('|'); 
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:95:15: ( (~ ( '|' | '\\n' | '\\r' ) )* '|' )+
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:99:15: ( (~ ( '|' | '\\n' | '\\r' ) )* '|' )+
 			int cnt13=0;
 			loop13:
 			do {
@@ -900,9 +900,9 @@ public class GherkinLexer extends Lexer {
 				alt13 = dfa13.predict(input);
 				switch (alt13) {
 				case 1 :
-					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:95:16: (~ ( '|' | '\\n' | '\\r' ) )* '|'
+					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:99:16: (~ ( '|' | '\\n' | '\\r' ) )* '|'
 					{
-					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:95:16: (~ ( '|' | '\\n' | '\\r' ) )*
+					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:99:16: (~ ( '|' | '\\n' | '\\r' ) )*
 					loop12:
 					do {
 						int alt12=2;
@@ -944,7 +944,7 @@ public class GherkinLexer extends Lexer {
 				cnt13++;
 			} while (true);
 
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:95:46: ( ' ' | '\\t' )*
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:99:46: ( ' ' | '\\t' )*
 			loop14:
 			do {
 				int alt14=2;
@@ -991,7 +991,7 @@ public class GherkinLexer extends Lexer {
 		try {
 			int _type = STRING;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:96:8: ( ( '\"' ( ( ( '\\\\' ) ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) ) | (~ ( '\\\\' | '\"' | '\\r' | '\\n' ) ) )* '\"' ) | ( '\\'' ( ( ( '\\\\' ) ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) ) | (~ ( '\\\\' | '\\'' | '\\r' | '\\n' ) ) )* '\\'' ) )
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:100:8: ( ( '\"' ( ( ( '\\\\' ) ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) ) | (~ ( '\\\\' | '\"' | '\\r' | '\\n' ) ) )* '\"' ) | ( '\\'' ( ( ( '\\\\' ) ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) ) | (~ ( '\\\\' | '\\'' | '\\r' | '\\n' ) ) )* '\\'' ) )
 			int alt17=2;
 			int LA17_0 = input.LA(1);
 			if ( (LA17_0=='\"') ) {
@@ -1007,13 +1007,13 @@ public class GherkinLexer extends Lexer {
 			}
 			switch (alt17) {
 				case 1 :
-					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:96:10: ( '\"' ( ( ( '\\\\' ) ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) ) | (~ ( '\\\\' | '\"' | '\\r' | '\\n' ) ) )* '\"' )
+					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:100:10: ( '\"' ( ( ( '\\\\' ) ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) ) | (~ ( '\\\\' | '\"' | '\\r' | '\\n' ) ) )* '\"' )
 					{
-					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:96:10: ( '\"' ( ( ( '\\\\' ) ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) ) | (~ ( '\\\\' | '\"' | '\\r' | '\\n' ) ) )* '\"' )
-					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:96:11: '\"' ( ( ( '\\\\' ) ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) ) | (~ ( '\\\\' | '\"' | '\\r' | '\\n' ) ) )* '\"'
+					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:100:10: ( '\"' ( ( ( '\\\\' ) ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) ) | (~ ( '\\\\' | '\"' | '\\r' | '\\n' ) ) )* '\"' )
+					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:100:11: '\"' ( ( ( '\\\\' ) ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) ) | (~ ( '\\\\' | '\"' | '\\r' | '\\n' ) ) )* '\"'
 					{
 					match('\"'); 
-					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:96:14: ( ( ( '\\\\' ) ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) ) | (~ ( '\\\\' | '\"' | '\\r' | '\\n' ) ) )*
+					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:100:14: ( ( ( '\\\\' ) ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) ) | (~ ( '\\\\' | '\"' | '\\r' | '\\n' ) ) )*
 					loop15:
 					do {
 						int alt15=3;
@@ -1027,13 +1027,13 @@ public class GherkinLexer extends Lexer {
 
 						switch (alt15) {
 						case 1 :
-							// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:96:15: ( ( '\\\\' ) ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) )
+							// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:100:15: ( ( '\\\\' ) ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) )
 							{
-							// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:96:15: ( ( '\\\\' ) ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) )
-							// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:96:16: ( '\\\\' ) ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
+							// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:100:15: ( ( '\\\\' ) ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) )
+							// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:100:16: ( '\\\\' ) ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
 							{
-							// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:96:16: ( '\\\\' )
-							// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:96:17: '\\\\'
+							// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:100:16: ( '\\\\' )
+							// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:100:17: '\\\\'
 							{
 							match('\\'); 
 							}
@@ -1051,7 +1051,7 @@ public class GherkinLexer extends Lexer {
 							}
 							break;
 						case 2 :
-							// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:96:79: (~ ( '\\\\' | '\"' | '\\r' | '\\n' ) )
+							// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:100:79: (~ ( '\\\\' | '\"' | '\\r' | '\\n' ) )
 							{
 							if ( (input.LA(1) >= '\u0000' && input.LA(1) <= '\t')||(input.LA(1) >= '\u000B' && input.LA(1) <= '\f')||(input.LA(1) >= '\u000E' && input.LA(1) <= '!')||(input.LA(1) >= '#' && input.LA(1) <= '[')||(input.LA(1) >= ']' && input.LA(1) <= '\uFFFF') ) {
 								input.consume();
@@ -1075,13 +1075,13 @@ public class GherkinLexer extends Lexer {
 					}
 					break;
 				case 2 :
-					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:97:4: ( '\\'' ( ( ( '\\\\' ) ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) ) | (~ ( '\\\\' | '\\'' | '\\r' | '\\n' ) ) )* '\\'' )
+					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:101:4: ( '\\'' ( ( ( '\\\\' ) ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) ) | (~ ( '\\\\' | '\\'' | '\\r' | '\\n' ) ) )* '\\'' )
 					{
-					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:97:4: ( '\\'' ( ( ( '\\\\' ) ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) ) | (~ ( '\\\\' | '\\'' | '\\r' | '\\n' ) ) )* '\\'' )
-					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:97:5: '\\'' ( ( ( '\\\\' ) ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) ) | (~ ( '\\\\' | '\\'' | '\\r' | '\\n' ) ) )* '\\''
+					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:101:4: ( '\\'' ( ( ( '\\\\' ) ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) ) | (~ ( '\\\\' | '\\'' | '\\r' | '\\n' ) ) )* '\\'' )
+					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:101:5: '\\'' ( ( ( '\\\\' ) ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) ) | (~ ( '\\\\' | '\\'' | '\\r' | '\\n' ) ) )* '\\''
 					{
 					match('\''); 
-					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:97:9: ( ( ( '\\\\' ) ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) ) | (~ ( '\\\\' | '\\'' | '\\r' | '\\n' ) ) )*
+					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:101:9: ( ( ( '\\\\' ) ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) ) | (~ ( '\\\\' | '\\'' | '\\r' | '\\n' ) ) )*
 					loop16:
 					do {
 						int alt16=3;
@@ -1095,13 +1095,13 @@ public class GherkinLexer extends Lexer {
 
 						switch (alt16) {
 						case 1 :
-							// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:97:10: ( ( '\\\\' ) ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) )
+							// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:101:10: ( ( '\\\\' ) ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) )
 							{
-							// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:97:10: ( ( '\\\\' ) ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) )
-							// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:97:11: ( '\\\\' ) ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
+							// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:101:10: ( ( '\\\\' ) ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) )
+							// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:101:11: ( '\\\\' ) ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
 							{
-							// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:97:11: ( '\\\\' )
-							// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:97:12: '\\\\'
+							// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:101:11: ( '\\\\' )
+							// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:101:12: '\\\\'
 							{
 							match('\\'); 
 							}
@@ -1119,7 +1119,7 @@ public class GherkinLexer extends Lexer {
 							}
 							break;
 						case 2 :
-							// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:97:74: (~ ( '\\\\' | '\\'' | '\\r' | '\\n' ) )
+							// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:101:74: (~ ( '\\\\' | '\\'' | '\\r' | '\\n' ) )
 							{
 							if ( (input.LA(1) >= '\u0000' && input.LA(1) <= '\t')||(input.LA(1) >= '\u000B' && input.LA(1) <= '\f')||(input.LA(1) >= '\u000E' && input.LA(1) <= '&')||(input.LA(1) >= '(' && input.LA(1) <= '[')||(input.LA(1) >= ']' && input.LA(1) <= '\uFFFF') ) {
 								input.consume();
@@ -1158,15 +1158,23 @@ public class GherkinLexer extends Lexer {
 		try {
 			int _type = WORD;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:98:6: ( (~ ( '@' | ' ' | '\\t' | '\\n' | '\\r' | '\\'' | '\"' | '\\u000C' ) )* )
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:98:8: (~ ( '@' | ' ' | '\\t' | '\\n' | '\\r' | '\\'' | '\"' | '\\u000C' ) )*
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:102:6: ( (~ ( '@' | ' ' | '\\t' | '\\n' | '\\r' | '\\'' | '\"' | '\\u000C' ) ) (~ ( ' ' | '\\t' | NL ) )* )
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:102:8: (~ ( '@' | ' ' | '\\t' | '\\n' | '\\r' | '\\'' | '\"' | '\\u000C' ) ) (~ ( ' ' | '\\t' | NL ) )*
 			{
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:98:8: (~ ( '@' | ' ' | '\\t' | '\\n' | '\\r' | '\\'' | '\"' | '\\u000C' ) )*
+			if ( (input.LA(1) >= '\u0000' && input.LA(1) <= '\b')||input.LA(1)=='\u000B'||(input.LA(1) >= '\u000E' && input.LA(1) <= '\u001F')||input.LA(1)=='!'||(input.LA(1) >= '#' && input.LA(1) <= '&')||(input.LA(1) >= '(' && input.LA(1) <= '?')||(input.LA(1) >= 'A' && input.LA(1) <= '\uFFFF') ) {
+				input.consume();
+			}
+			else {
+				MismatchedSetException mse = new MismatchedSetException(null,input);
+				recover(mse);
+				throw mse;
+			}
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:102:54: (~ ( ' ' | '\\t' | NL ) )*
 			loop18:
 			do {
 				int alt18=2;
 				int LA18_0 = input.LA(1);
-				if ( ((LA18_0 >= '\u0000' && LA18_0 <= '\b')||LA18_0=='\u000B'||(LA18_0 >= '\u000E' && LA18_0 <= '\u001F')||LA18_0=='!'||(LA18_0 >= '#' && LA18_0 <= '&')||(LA18_0 >= '(' && LA18_0 <= '?')||(LA18_0 >= 'A' && LA18_0 <= '\uFFFF')) ) {
+				if ( ((LA18_0 >= '\u0000' && LA18_0 <= '\b')||LA18_0=='\u000B'||(LA18_0 >= '\u000E' && LA18_0 <= '\u001F')||(LA18_0 >= '!' && LA18_0 <= '\uFFFF')) ) {
 					alt18=1;
 				}
 
@@ -1174,7 +1182,7 @@ public class GherkinLexer extends Lexer {
 				case 1 :
 					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:
 					{
-					if ( (input.LA(1) >= '\u0000' && input.LA(1) <= '\b')||input.LA(1)=='\u000B'||(input.LA(1) >= '\u000E' && input.LA(1) <= '\u001F')||input.LA(1)=='!'||(input.LA(1) >= '#' && input.LA(1) <= '&')||(input.LA(1) >= '(' && input.LA(1) <= '?')||(input.LA(1) >= 'A' && input.LA(1) <= '\uFFFF') ) {
+					if ( (input.LA(1) >= '\u0000' && input.LA(1) <= '\b')||input.LA(1)=='\u000B'||(input.LA(1) >= '\u000E' && input.LA(1) <= '\u001F')||(input.LA(1) >= '!' && input.LA(1) <= '\uFFFF') ) {
 						input.consume();
 					}
 					else {
@@ -1206,10 +1214,10 @@ public class GherkinLexer extends Lexer {
 		try {
 			int _type = DOCSTR;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:99:8: ( ( ( ( '\"\"\"' ) ( 'mio' )* ( '\"\"\"' ) ) | ( ( '\\'\\'\\'' ) ( 'mio' )* ( '\\'\\'\\'' ) ) ) NL )
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:99:10: ( ( ( '\"\"\"' ) ( 'mio' )* ( '\"\"\"' ) ) | ( ( '\\'\\'\\'' ) ( 'mio' )* ( '\\'\\'\\'' ) ) ) NL
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:103:8: ( ( ( ( '\"\"\"' ) ( WORD )* ( '\"\"\"' ) ) | ( ( '\\'\\'\\'' ) ( WORD )* ( '\\'\\'\\'' ) ) ) NL )
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:103:10: ( ( ( '\"\"\"' ) ( WORD )* ( '\"\"\"' ) ) | ( ( '\\'\\'\\'' ) ( WORD )* ( '\\'\\'\\'' ) ) ) NL
 			{
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:99:10: ( ( ( '\"\"\"' ) ( 'mio' )* ( '\"\"\"' ) ) | ( ( '\\'\\'\\'' ) ( 'mio' )* ( '\\'\\'\\'' ) ) )
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:103:10: ( ( ( '\"\"\"' ) ( WORD )* ( '\"\"\"' ) ) | ( ( '\\'\\'\\'' ) ( WORD )* ( '\\'\\'\\'' ) ) )
 			int alt21=2;
 			int LA21_0 = input.LA(1);
 			if ( (LA21_0=='\"') ) {
@@ -1225,32 +1233,32 @@ public class GherkinLexer extends Lexer {
 			}
 			switch (alt21) {
 				case 1 :
-					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:99:11: ( ( '\"\"\"' ) ( 'mio' )* ( '\"\"\"' ) )
+					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:103:11: ( ( '\"\"\"' ) ( WORD )* ( '\"\"\"' ) )
 					{
-					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:99:11: ( ( '\"\"\"' ) ( 'mio' )* ( '\"\"\"' ) )
-					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:99:12: ( '\"\"\"' ) ( 'mio' )* ( '\"\"\"' )
+					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:103:11: ( ( '\"\"\"' ) ( WORD )* ( '\"\"\"' ) )
+					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:103:12: ( '\"\"\"' ) ( WORD )* ( '\"\"\"' )
 					{
-					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:99:12: ( '\"\"\"' )
-					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:99:13: '\"\"\"'
+					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:103:12: ( '\"\"\"' )
+					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:103:13: '\"\"\"'
 					{
 					match("\"\"\""); 
 
 					}
 
-					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:99:20: ( 'mio' )*
+					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:103:20: ( WORD )*
 					loop19:
 					do {
 						int alt19=2;
 						int LA19_0 = input.LA(1);
-						if ( (LA19_0=='m') ) {
+						if ( ((LA19_0 >= '\u0000' && LA19_0 <= '\b')||LA19_0=='\u000B'||(LA19_0 >= '\u000E' && LA19_0 <= '\u001F')||LA19_0=='!'||(LA19_0 >= '#' && LA19_0 <= '&')||(LA19_0 >= '(' && LA19_0 <= '?')||(LA19_0 >= 'A' && LA19_0 <= '\uFFFF')) ) {
 							alt19=1;
 						}
 
 						switch (alt19) {
 						case 1 :
-							// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:99:21: 'mio'
+							// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:103:21: WORD
 							{
-							match("mio"); 
+							mWORD(); 
 
 							}
 							break;
@@ -1260,8 +1268,8 @@ public class GherkinLexer extends Lexer {
 						}
 					} while (true);
 
-					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:99:29: ( '\"\"\"' )
-					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:99:30: '\"\"\"'
+					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:103:28: ( '\"\"\"' )
+					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:103:29: '\"\"\"'
 					{
 					match("\"\"\""); 
 
@@ -1272,32 +1280,32 @@ public class GherkinLexer extends Lexer {
 					}
 					break;
 				case 2 :
-					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:99:38: ( ( '\\'\\'\\'' ) ( 'mio' )* ( '\\'\\'\\'' ) )
+					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:103:37: ( ( '\\'\\'\\'' ) ( WORD )* ( '\\'\\'\\'' ) )
 					{
-					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:99:38: ( ( '\\'\\'\\'' ) ( 'mio' )* ( '\\'\\'\\'' ) )
-					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:99:39: ( '\\'\\'\\'' ) ( 'mio' )* ( '\\'\\'\\'' )
+					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:103:37: ( ( '\\'\\'\\'' ) ( WORD )* ( '\\'\\'\\'' ) )
+					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:103:38: ( '\\'\\'\\'' ) ( WORD )* ( '\\'\\'\\'' )
 					{
-					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:99:39: ( '\\'\\'\\'' )
-					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:99:40: '\\'\\'\\''
+					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:103:38: ( '\\'\\'\\'' )
+					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:103:39: '\\'\\'\\''
 					{
 					match("'''"); 
 
 					}
 
-					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:99:50: ( 'mio' )*
+					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:103:49: ( WORD )*
 					loop20:
 					do {
 						int alt20=2;
 						int LA20_0 = input.LA(1);
-						if ( (LA20_0=='m') ) {
+						if ( ((LA20_0 >= '\u0000' && LA20_0 <= '\b')||LA20_0=='\u000B'||(LA20_0 >= '\u000E' && LA20_0 <= '\u001F')||LA20_0=='!'||(LA20_0 >= '#' && LA20_0 <= '&')||(LA20_0 >= '(' && LA20_0 <= '?')||(LA20_0 >= 'A' && LA20_0 <= '\uFFFF')) ) {
 							alt20=1;
 						}
 
 						switch (alt20) {
 						case 1 :
-							// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:99:51: 'mio'
+							// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:103:50: WORD
 							{
-							match("mio"); 
+							mWORD(); 
 
 							}
 							break;
@@ -1307,8 +1315,8 @@ public class GherkinLexer extends Lexer {
 						}
 					} while (true);
 
-					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:99:59: ( '\\'\\'\\'' )
-					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:99:60: '\\'\\'\\''
+					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:103:57: ( '\\'\\'\\'' )
+					// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:103:58: '\\'\\'\\''
 					{
 					match("'''"); 
 
@@ -1339,7 +1347,7 @@ public class GherkinLexer extends Lexer {
 		try {
 			int _type = NL;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:104:9: ( ( '\\r' | '\\n' | '\\u000C' ) )
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:105:9: ( ( '\\r' | '\\n' | '\\u000C' ) )
 			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:
 			{
 			if ( input.LA(1)=='\n'||(input.LA(1) >= '\f' && input.LA(1) <= '\r') ) {
@@ -1366,10 +1374,10 @@ public class GherkinLexer extends Lexer {
 		try {
 			int _type = WS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:105:9: ( ( '\\t' | ' ' )+ )
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:105:10: ( '\\t' | ' ' )+
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:106:9: ( ( '\\t' | ' ' )+ )
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:106:10: ( '\\t' | ' ' )+
 			{
-			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:105:10: ( '\\t' | ' ' )+
+			// C:\\Users\\sessonad\\Documents\\NetBeansProjects\\Cetriolo\\src\\me\\dsnet\\cetriolo\\antlr\\Gherkin.g:106:10: ( '\\t' | ' ' )+
 			int cnt22=0;
 			loop22:
 			do {
@@ -1403,7 +1411,7 @@ public class GherkinLexer extends Lexer {
 				cnt22++;
 			} while (true);
 
-			skip();
+			_channel=HIDDEN;
 			}
 
 			state.type = _type;
@@ -1551,7 +1559,7 @@ public class GherkinLexer extends Lexer {
 	static final String DFA13_acceptS =
 		"\3\uffff\1\2\1\1";
 	static final String DFA13_specialS =
-		"\1\1\1\0\1\2\2\uffff}>";
+		"\1\0\1\2\1\1\2\uffff}>";
 	static final String[] DFA13_transitionS = {
 			"\11\4\1\1\1\3\1\4\1\2\1\3\22\4\1\1\uffdf\4",
 			"\11\4\1\1\1\3\1\4\1\2\1\3\22\4\1\1\uffdf\4",
@@ -1591,7 +1599,7 @@ public class GherkinLexer extends Lexer {
 		}
 		@Override
 		public String getDescription() {
-			return "()+ loopback of 95:15: ( (~ ( '|' | '\\n' | '\\r' ) )* '|' )+";
+			return "()+ loopback of 99:15: ( (~ ( '|' | '\\n' | '\\r' ) )* '|' )+";
 		}
 		@Override
 		public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
@@ -1599,16 +1607,6 @@ public class GherkinLexer extends Lexer {
 			int _s = s;
 			switch ( s ) {
 					case 0 : 
-						int LA13_1 = input.LA(1);
-						s = -1;
-						if ( (LA13_1=='\f') ) {s = 2;}
-						else if ( (LA13_1=='\t'||LA13_1==' ') ) {s = 1;}
-						else if ( ((LA13_1 >= '\u0000' && LA13_1 <= '\b')||LA13_1=='\u000B'||(LA13_1 >= '\u000E' && LA13_1 <= '\u001F')||(LA13_1 >= '!' && LA13_1 <= '\uFFFF')) ) {s = 4;}
-						else if ( (LA13_1=='\n'||LA13_1=='\r') ) {s = 3;}
-						if ( s>=0 ) return s;
-						break;
-
-					case 1 : 
 						int LA13_0 = input.LA(1);
 						s = -1;
 						if ( (LA13_0=='\t'||LA13_0==' ') ) {s = 1;}
@@ -1618,11 +1616,21 @@ public class GherkinLexer extends Lexer {
 						if ( s>=0 ) return s;
 						break;
 
-					case 2 : 
+					case 1 : 
 						int LA13_2 = input.LA(1);
 						s = -1;
 						if ( ((LA13_2 >= '\u0000' && LA13_2 <= '\t')||(LA13_2 >= '\u000B' && LA13_2 <= '\f')||(LA13_2 >= '\u000E' && LA13_2 <= '\uFFFF')) ) {s = 4;}
 						else s = 3;
+						if ( s>=0 ) return s;
+						break;
+
+					case 2 : 
+						int LA13_1 = input.LA(1);
+						s = -1;
+						if ( (LA13_1=='\f') ) {s = 2;}
+						else if ( (LA13_1=='\t'||LA13_1==' ') ) {s = 1;}
+						else if ( ((LA13_1 >= '\u0000' && LA13_1 <= '\b')||LA13_1=='\u000B'||(LA13_1 >= '\u000E' && LA13_1 <= '\u001F')||(LA13_1 >= '!' && LA13_1 <= '\uFFFF')) ) {s = 4;}
+						else if ( (LA13_1=='\n'||LA13_1=='\r') ) {s = 3;}
 						if ( s>=0 ) return s;
 						break;
 			}
@@ -1634,37 +1642,38 @@ public class GherkinLexer extends Lexer {
 	}
 
 	static final String DFA23_eotS =
-		"\13\22\1\41\1\22\1\uffff\2\22\5\uffff\12\22\1\uffff\1\22\2\uffff\2\22"+
-		"\1\uffff\2\22\1\uffff\1\52\1\uffff\1\52\10\22\1\41\1\45\1\uffff\6\22\1"+
-		"\uffff\12\22\1\114\2\22\1\120\1\uffff\1\121\1\uffff\1\120\2\uffff";
+		"\1\uffff\12\22\1\42\1\22\1\uffff\2\22\5\uffff\12\22\1\uffff\1\42\1\22"+
+		"\2\uffff\2\22\1\uffff\2\22\1\uffff\1\53\1\uffff\1\53\10\22\1\42\1\46\1"+
+		"\uffff\6\22\1\uffff\12\22\1\115\2\22\1\121\1\uffff\1\122\1\uffff\1\121"+
+		"\2\uffff";
 	static final String DFA23_eofS =
-		"\122\uffff";
+		"\123\uffff";
 	static final String DFA23_minS =
-		"\1\11\1\145\1\143\1\170\1\151\2\150\1\156\1\165\1\40\1\60\2\0\1\uffff"+
-		"\4\0\3\uffff\1\141\1\145\1\141\1\166\2\145\1\144\1\40\1\164\1\40\1\uffff"+
-		"\1\60\2\uffff\2\0\1\uffff\2\0\1\uffff\1\42\1\uffff\1\47\1\164\1\156\1"+
-		"\155\1\145\2\156\2\40\2\0\1\uffff\1\165\1\141\1\160\1\156\2\40\1\uffff"+
+		"\1\0\1\145\1\143\1\170\1\151\2\150\1\156\1\165\1\40\1\60\2\0\1\uffff\4"+
+		"\0\3\uffff\1\141\1\145\1\141\1\166\2\145\1\144\1\40\1\164\1\40\1\uffff"+
+		"\1\0\1\60\2\uffff\2\0\1\uffff\2\0\1\uffff\1\42\1\uffff\1\47\1\164\1\156"+
+		"\1\155\1\145\2\156\2\40\2\0\1\uffff\1\165\1\141\1\160\1\156\2\40\1\uffff"+
 		"\2\162\1\154\1\40\1\145\1\151\1\145\1\72\1\157\1\72\1\0\1\40\1\72\1\0"+
 		"\1\uffff\1\0\1\uffff\1\0\2\uffff";
 	static final String DFA23_maxS =
-		"\1\174\1\145\1\143\1\170\1\151\2\150\1\163\1\165\1\156\1\71\2\uffff\1"+
-		"\uffff\4\uffff\3\uffff\1\141\1\145\1\141\1\166\2\145\1\144\1\40\1\164"+
-		"\1\40\1\uffff\1\71\2\uffff\2\uffff\1\uffff\2\uffff\1\uffff\1\42\1\uffff"+
-		"\1\47\1\164\1\156\1\155\1\145\2\156\2\40\2\uffff\1\uffff\1\165\1\141\1"+
-		"\160\1\156\2\40\1\uffff\2\162\1\154\1\40\1\145\1\151\1\145\1\72\1\157"+
-		"\1\163\1\uffff\2\72\1\uffff\1\uffff\1\uffff\1\uffff\1\uffff\2\uffff";
+		"\1\uffff\1\145\1\143\1\170\1\151\2\150\1\163\1\165\1\156\1\71\2\uffff"+
+		"\1\uffff\4\uffff\3\uffff\1\141\1\145\1\141\1\166\2\145\1\144\1\40\1\164"+
+		"\1\40\1\uffff\1\uffff\1\71\2\uffff\2\uffff\1\uffff\2\uffff\1\uffff\1\42"+
+		"\1\uffff\1\47\1\164\1\156\1\155\1\145\2\156\2\40\2\uffff\1\uffff\1\165"+
+		"\1\141\1\160\1\156\2\40\1\uffff\2\162\1\154\1\40\1\145\1\151\1\145\1\72"+
+		"\1\157\1\163\1\uffff\2\72\1\uffff\1\uffff\1\uffff\1\uffff\1\uffff\2\uffff";
 	static final String DFA23_acceptS =
-		"\15\uffff\1\11\4\uffff\1\15\1\17\1\20\12\uffff\1\6\1\uffff\1\7\1\10\2"+
+		"\15\uffff\1\11\4\uffff\1\15\1\17\1\20\12\uffff\1\6\2\uffff\1\7\1\10\2"+
 		"\uffff\1\12\2\uffff\1\13\1\uffff\1\14\13\uffff\1\16\6\uffff\1\5\16\uffff"+
 		"\1\1\1\uffff\1\4\1\uffff\1\3\1\2";
 	static final String DFA23_specialS =
-		"\13\uffff\1\14\1\17\1\uffff\1\1\1\2\1\13\1\3\21\uffff\1\6\1\11\1\uffff"+
-		"\1\15\1\0\14\uffff\1\4\1\10\22\uffff\1\7\2\uffff\1\5\1\uffff\1\16\1\uffff"+
-		"\1\12\2\uffff}>";
+		"\1\11\12\uffff\1\13\1\2\1\uffff\1\10\1\20\1\14\1\7\16\uffff\1\1\3\uffff"+
+		"\1\5\1\16\1\uffff\1\0\1\21\14\uffff\1\4\1\6\22\uffff\1\15\2\uffff\1\12"+
+		"\1\uffff\1\3\1\uffff\1\17\2\uffff}>";
 	static final String[] DFA23_transitionS = {
-			"\1\24\1\23\1\uffff\2\23\22\uffff\1\24\1\uffff\1\20\1\14\3\uffff\1\21"+
-			"\5\uffff\1\12\2\uffff\12\13\2\uffff\1\16\3\uffff\1\15\1\7\1\10\2\uffff"+
-			"\1\3\1\1\1\4\1\uffff\1\11\11\uffff\1\2\1\6\2\uffff\1\5\44\uffff\1\17",
+			"\11\22\1\24\1\23\1\22\2\23\22\22\1\24\1\22\1\20\1\14\3\22\1\21\5\22\1"+
+			"\12\2\22\12\13\2\22\1\16\3\22\1\15\1\7\1\10\2\22\1\3\1\1\1\4\1\22\1\11"+
+			"\11\22\1\2\1\6\2\22\1\5\44\22\1\17\uff83\22",
 			"\1\25",
 			"\1\26",
 			"\1\27",
@@ -1674,48 +1683,42 @@ public class GherkinLexer extends Lexer {
 			"\1\33\4\uffff\1\34",
 			"\1\35",
 			"\1\37\115\uffff\1\36",
-			"\12\13",
-			"\11\22\2\uffff\1\22\2\uffff\22\22\1\uffff\1\22\1\uffff\4\22\1\uffff"+
-			"\6\22\1\40\1\22\12\13\6\22\1\uffff\uffbf\22",
-			"\11\43\2\42\1\43\2\42\22\43\1\42\1\43\1\42\4\43\1\42\30\43\1\42\uffbf"+
-			"\43",
+			"\12\40",
+			"\11\22\2\uffff\1\22\2\uffff\22\22\1\uffff\15\22\1\41\1\22\12\40\uffc6"+
+			"\22",
+			"\11\44\2\43\1\44\2\43\22\44\1\43\uffdf\44",
 			"",
-			"\11\44\2\uffff\1\44\1\45\1\uffff\22\44\1\uffff\1\44\1\45\4\44\1\45\30"+
-			"\44\1\45\uffbf\44",
-			"\11\46\1\50\1\uffff\1\46\1\50\1\uffff\22\46\1\50\1\46\1\50\4\46\1\50"+
-			"\30\46\1\50\73\46\1\47\uff83\46",
-			"\12\52\1\uffff\2\52\1\uffff\24\52\1\51\uffdd\52",
-			"\12\52\1\uffff\2\52\1\uffff\31\52\1\53\uffd8\52",
+			"\11\45\2\uffff\1\45\1\46\1\uffff\22\45\1\uffff\uffdf\45",
+			"\11\47\1\51\1\uffff\1\47\1\51\1\uffff\22\47\1\51\133\47\1\50\uff83\47",
+			"\12\53\1\uffff\2\53\1\uffff\24\53\1\52\uffdd\53",
+			"\12\53\1\uffff\2\53\1\uffff\31\53\1\54\uffd8\53",
 			"",
 			"",
 			"",
-			"\1\54",
 			"\1\55",
 			"\1\56",
 			"\1\57",
 			"\1\60",
 			"\1\61",
 			"\1\62",
-			"\1\37",
 			"\1\63",
 			"\1\37",
+			"\1\64",
+			"\1\37",
 			"",
-			"\12\64",
+			"\11\22\2\uffff\1\22\2\uffff\22\22\1\uffff\15\22\1\41\1\22\12\40\uffc6"+
+			"\22",
+			"\12\65",
 			"",
 			"",
-			"\11\43\2\42\1\43\2\42\22\43\1\42\1\43\1\42\4\43\1\42\30\43\1\42\uffbf"+
-			"\43",
-			"\11\44\2\uffff\1\44\1\45\1\uffff\22\44\1\uffff\1\44\1\45\4\44\1\45\26"+
-			"\44\1\65\1\44\1\45\uffbf\44",
+			"\11\44\2\43\1\44\2\43\22\44\1\43\uffdf\44",
+			"\11\45\2\uffff\1\45\1\46\1\uffff\22\45\1\uffff\35\45\1\66\uffc1\45",
 			"",
-			"\11\46\1\50\1\uffff\1\46\1\50\1\uffff\22\46\1\50\1\46\1\50\4\46\1\50"+
-			"\30\46\1\50\73\46\1\47\uff83\46",
-			"\11\46\2\50\1\46\2\50\22\46\1\50\1\46\1\50\4\46\1\50\30\46\1\50\73\46"+
-			"\1\47\uff83\46",
+			"\11\47\1\51\1\uffff\1\47\1\51\1\uffff\22\47\1\51\133\47\1\50\uff83\47",
+			"\11\47\2\51\1\47\2\51\22\47\1\51\133\47\1\50\uff83\47",
 			"",
-			"\1\66",
+			"\1\67",
 			"",
-			"\1\66",
 			"\1\67",
 			"\1\70",
 			"\1\71",
@@ -1723,41 +1726,36 @@ public class GherkinLexer extends Lexer {
 			"\1\73",
 			"\1\74",
 			"\1\75",
-			"\1\75",
-			"\11\22\2\uffff\1\22\2\uffff\22\22\1\uffff\1\22\1\uffff\4\22\1\uffff"+
-			"\10\22\12\64\6\22\1\uffff\uffbf\22",
-			"\11\44\2\uffff\1\44\2\uffff\22\44\1\uffff\1\44\1\uffff\4\44\1\uffff"+
-			"\26\44\1\65\1\44\1\uffff\uffbf\44",
-			"",
 			"\1\76",
+			"\1\76",
+			"\11\22\2\uffff\1\22\2\uffff\22\22\1\uffff\17\22\12\65\uffc6\22",
+			"\11\45\2\uffff\1\45\2\uffff\22\45\1\uffff\35\45\1\66\uffc1\45",
+			"",
 			"\1\77",
 			"\1\100",
 			"\1\101",
-			"\1\75",
-			"\1\75",
-			"",
 			"\1\102",
+			"\1\76",
+			"\1\76",
+			"",
 			"\1\103",
 			"\1\104",
-			"\1\75",
 			"\1\105",
+			"\1\76",
 			"\1\106",
 			"\1\107",
 			"\1\110",
 			"\1\111",
-			"\1\113\70\uffff\1\112",
-			"\11\22\2\uffff\1\22\2\uffff\22\22\1\uffff\1\22\1\uffff\4\22\1\uffff"+
-			"\30\22\1\uffff\uffbf\22",
-			"\1\116\31\uffff\1\115",
-			"\1\117",
-			"\11\22\2\uffff\1\22\2\uffff\22\22\1\uffff\1\22\1\uffff\4\22\1\uffff"+
-			"\30\22\1\uffff\uffbf\22",
+			"\1\112",
+			"\1\114\70\uffff\1\113",
+			"\11\22\2\uffff\1\22\2\uffff\22\22\1\uffff\uffdf\22",
+			"\1\117\31\uffff\1\116",
+			"\1\120",
+			"\11\22\2\uffff\1\22\2\uffff\22\22\1\uffff\uffdf\22",
 			"",
-			"\11\22\2\uffff\1\22\2\uffff\22\22\1\uffff\1\22\1\uffff\4\22\1\uffff"+
-			"\30\22\1\uffff\uffbf\22",
+			"\11\22\2\uffff\1\22\2\uffff\22\22\1\uffff\uffdf\22",
 			"",
-			"\11\22\2\uffff\1\22\2\uffff\22\22\1\uffff\1\22\1\uffff\4\22\1\uffff"+
-			"\30\22\1\uffff\uffbf\22",
+			"\11\22\2\uffff\1\22\2\uffff\22\22\1\uffff\uffdf\22",
 			"",
 			""
 	};
@@ -1803,142 +1801,178 @@ public class GherkinLexer extends Lexer {
 					case 0 : 
 						int LA23_39 = input.LA(1);
 						s = -1;
-						if ( ((LA23_39 >= '\t' && LA23_39 <= '\n')||(LA23_39 >= '\f' && LA23_39 <= '\r')||LA23_39==' '||LA23_39=='\"'||LA23_39=='\''||LA23_39=='@') ) {s = 40;}
-						else if ( ((LA23_39 >= '\u0000' && LA23_39 <= '\b')||LA23_39=='\u000B'||(LA23_39 >= '\u000E' && LA23_39 <= '\u001F')||LA23_39=='!'||(LA23_39 >= '#' && LA23_39 <= '&')||(LA23_39 >= '(' && LA23_39 <= '?')||(LA23_39 >= 'A' && LA23_39 <= '{')||(LA23_39 >= '}' && LA23_39 <= '\uFFFF')) ) {s = 38;}
-						else if ( (LA23_39=='|') ) {s = 39;}
+						if ( (LA23_39=='|') ) {s = 40;}
+						else if ( ((LA23_39 >= '\u0000' && LA23_39 <= '\b')||LA23_39=='\u000B'||(LA23_39 >= '\u000E' && LA23_39 <= '\u001F')||(LA23_39 >= '!' && LA23_39 <= '{')||(LA23_39 >= '}' && LA23_39 <= '\uFFFF')) ) {s = 39;}
+						else if ( (LA23_39=='\t'||LA23_39=='\f'||LA23_39==' ') ) {s = 41;}
 						else s = 18;
 						if ( s>=0 ) return s;
 						break;
 
 					case 1 : 
-						int LA23_14 = input.LA(1);
+						int LA23_32 = input.LA(1);
 						s = -1;
-						if ( ((LA23_14 >= '\u0000' && LA23_14 <= '\b')||LA23_14=='\u000B'||(LA23_14 >= '\u000E' && LA23_14 <= '\u001F')||LA23_14=='!'||(LA23_14 >= '#' && LA23_14 <= '&')||(LA23_14 >= '(' && LA23_14 <= '?')||(LA23_14 >= 'A' && LA23_14 <= '\uFFFF')) ) {s = 36;}
-						else if ( (LA23_14=='\f'||LA23_14=='\"'||LA23_14=='\''||LA23_14=='@') ) {s = 37;}
-						else s = 18;
+						if ( (LA23_32=='.') ) {s = 33;}
+						else if ( ((LA23_32 >= '0' && LA23_32 <= '9')) ) {s = 32;}
+						else if ( ((LA23_32 >= '\u0000' && LA23_32 <= '\b')||LA23_32=='\u000B'||(LA23_32 >= '\u000E' && LA23_32 <= '\u001F')||(LA23_32 >= '!' && LA23_32 <= '-')||LA23_32=='/'||(LA23_32 >= ':' && LA23_32 <= '\uFFFF')) ) {s = 18;}
+						else s = 34;
 						if ( s>=0 ) return s;
 						break;
 
 					case 2 : 
-						int LA23_15 = input.LA(1);
+						int LA23_12 = input.LA(1);
 						s = -1;
-						if ( ((LA23_15 >= '\u0000' && LA23_15 <= '\b')||LA23_15=='\u000B'||(LA23_15 >= '\u000E' && LA23_15 <= '\u001F')||LA23_15=='!'||(LA23_15 >= '#' && LA23_15 <= '&')||(LA23_15 >= '(' && LA23_15 <= '?')||(LA23_15 >= 'A' && LA23_15 <= '{')||(LA23_15 >= '}' && LA23_15 <= '\uFFFF')) ) {s = 38;}
-						else if ( (LA23_15=='|') ) {s = 39;}
-						else if ( (LA23_15=='\t'||LA23_15=='\f'||LA23_15==' '||LA23_15=='\"'||LA23_15=='\''||LA23_15=='@') ) {s = 40;}
+						if ( ((LA23_12 >= '\t' && LA23_12 <= '\n')||(LA23_12 >= '\f' && LA23_12 <= '\r')||LA23_12==' ') ) {s = 35;}
+						else if ( ((LA23_12 >= '\u0000' && LA23_12 <= '\b')||LA23_12=='\u000B'||(LA23_12 >= '\u000E' && LA23_12 <= '\u001F')||(LA23_12 >= '!' && LA23_12 <= '\uFFFF')) ) {s = 36;}
 						else s = 18;
 						if ( s>=0 ) return s;
 						break;
 
 					case 3 : 
-						int LA23_17 = input.LA(1);
+						int LA23_78 = input.LA(1);
 						s = -1;
-						if ( (LA23_17=='\'') ) {s = 43;}
-						else if ( ((LA23_17 >= '\u0000' && LA23_17 <= '\t')||(LA23_17 >= '\u000B' && LA23_17 <= '\f')||(LA23_17 >= '\u000E' && LA23_17 <= '&')||(LA23_17 >= '(' && LA23_17 <= '\uFFFF')) ) {s = 42;}
+						if ( ((LA23_78 >= '\u0000' && LA23_78 <= '\b')||LA23_78=='\u000B'||(LA23_78 >= '\u000E' && LA23_78 <= '\u001F')||(LA23_78 >= '!' && LA23_78 <= '\uFFFF')) ) {s = 18;}
+						else s = 82;
 						if ( s>=0 ) return s;
 						break;
 
 					case 4 : 
-						int LA23_52 = input.LA(1);
+						int LA23_53 = input.LA(1);
 						s = -1;
-						if ( ((LA23_52 >= '0' && LA23_52 <= '9')) ) {s = 52;}
-						else if ( ((LA23_52 >= '\u0000' && LA23_52 <= '\b')||LA23_52=='\u000B'||(LA23_52 >= '\u000E' && LA23_52 <= '\u001F')||LA23_52=='!'||(LA23_52 >= '#' && LA23_52 <= '&')||(LA23_52 >= '(' && LA23_52 <= '/')||(LA23_52 >= ':' && LA23_52 <= '?')||(LA23_52 >= 'A' && LA23_52 <= '\uFFFF')) ) {s = 18;}
-						else s = 33;
+						if ( ((LA23_53 >= '0' && LA23_53 <= '9')) ) {s = 53;}
+						else if ( ((LA23_53 >= '\u0000' && LA23_53 <= '\b')||LA23_53=='\u000B'||(LA23_53 >= '\u000E' && LA23_53 <= '\u001F')||(LA23_53 >= '!' && LA23_53 <= '/')||(LA23_53 >= ':' && LA23_53 <= '\uFFFF')) ) {s = 18;}
+						else s = 34;
 						if ( s>=0 ) return s;
 						break;
 
 					case 5 : 
-						int LA23_75 = input.LA(1);
+						int LA23_36 = input.LA(1);
 						s = -1;
-						if ( ((LA23_75 >= '\u0000' && LA23_75 <= '\b')||LA23_75=='\u000B'||(LA23_75 >= '\u000E' && LA23_75 <= '\u001F')||LA23_75=='!'||(LA23_75 >= '#' && LA23_75 <= '&')||(LA23_75 >= '(' && LA23_75 <= '?')||(LA23_75 >= 'A' && LA23_75 <= '\uFFFF')) ) {s = 18;}
-						else s = 80;
+						if ( ((LA23_36 >= '\t' && LA23_36 <= '\n')||(LA23_36 >= '\f' && LA23_36 <= '\r')||LA23_36==' ') ) {s = 35;}
+						else if ( ((LA23_36 >= '\u0000' && LA23_36 <= '\b')||LA23_36=='\u000B'||(LA23_36 >= '\u000E' && LA23_36 <= '\u001F')||(LA23_36 >= '!' && LA23_36 <= '\uFFFF')) ) {s = 36;}
+						else s = 18;
 						if ( s>=0 ) return s;
 						break;
 
 					case 6 : 
-						int LA23_35 = input.LA(1);
+						int LA23_54 = input.LA(1);
 						s = -1;
-						if ( ((LA23_35 >= '\t' && LA23_35 <= '\n')||(LA23_35 >= '\f' && LA23_35 <= '\r')||LA23_35==' '||LA23_35=='\"'||LA23_35=='\''||LA23_35=='@') ) {s = 34;}
-						else if ( ((LA23_35 >= '\u0000' && LA23_35 <= '\b')||LA23_35=='\u000B'||(LA23_35 >= '\u000E' && LA23_35 <= '\u001F')||LA23_35=='!'||(LA23_35 >= '#' && LA23_35 <= '&')||(LA23_35 >= '(' && LA23_35 <= '?')||(LA23_35 >= 'A' && LA23_35 <= '\uFFFF')) ) {s = 35;}
-						else s = 18;
+						if ( (LA23_54=='>') ) {s = 54;}
+						else if ( ((LA23_54 >= '\u0000' && LA23_54 <= '\b')||LA23_54=='\u000B'||(LA23_54 >= '\u000E' && LA23_54 <= '\u001F')||(LA23_54 >= '!' && LA23_54 <= '=')||(LA23_54 >= '?' && LA23_54 <= '\uFFFF')) ) {s = 37;}
+						else s = 38;
 						if ( s>=0 ) return s;
 						break;
 
 					case 7 : 
-						int LA23_72 = input.LA(1);
+						int LA23_17 = input.LA(1);
 						s = -1;
-						if ( ((LA23_72 >= '\u0000' && LA23_72 <= '\b')||LA23_72=='\u000B'||(LA23_72 >= '\u000E' && LA23_72 <= '\u001F')||LA23_72=='!'||(LA23_72 >= '#' && LA23_72 <= '&')||(LA23_72 >= '(' && LA23_72 <= '?')||(LA23_72 >= 'A' && LA23_72 <= '\uFFFF')) ) {s = 18;}
-						else s = 76;
+						if ( (LA23_17=='\'') ) {s = 44;}
+						else if ( ((LA23_17 >= '\u0000' && LA23_17 <= '\t')||(LA23_17 >= '\u000B' && LA23_17 <= '\f')||(LA23_17 >= '\u000E' && LA23_17 <= '&')||(LA23_17 >= '(' && LA23_17 <= '\uFFFF')) ) {s = 43;}
 						if ( s>=0 ) return s;
 						break;
 
 					case 8 : 
-						int LA23_53 = input.LA(1);
+						int LA23_14 = input.LA(1);
 						s = -1;
-						if ( (LA23_53=='>') ) {s = 53;}
-						else if ( ((LA23_53 >= '\u0000' && LA23_53 <= '\b')||LA23_53=='\u000B'||(LA23_53 >= '\u000E' && LA23_53 <= '\u001F')||LA23_53=='!'||(LA23_53 >= '#' && LA23_53 <= '&')||(LA23_53 >= '(' && LA23_53 <= '=')||LA23_53=='?'||(LA23_53 >= 'A' && LA23_53 <= '\uFFFF')) ) {s = 36;}
-						else s = 37;
+						if ( ((LA23_14 >= '\u0000' && LA23_14 <= '\b')||LA23_14=='\u000B'||(LA23_14 >= '\u000E' && LA23_14 <= '\u001F')||(LA23_14 >= '!' && LA23_14 <= '\uFFFF')) ) {s = 37;}
+						else if ( (LA23_14=='\f') ) {s = 38;}
+						else s = 18;
 						if ( s>=0 ) return s;
 						break;
 
 					case 9 : 
-						int LA23_36 = input.LA(1);
+						int LA23_0 = input.LA(1);
 						s = -1;
-						if ( (LA23_36=='>') ) {s = 53;}
-						else if ( ((LA23_36 >= '\u0000' && LA23_36 <= '\b')||LA23_36=='\u000B'||(LA23_36 >= '\u000E' && LA23_36 <= '\u001F')||LA23_36=='!'||(LA23_36 >= '#' && LA23_36 <= '&')||(LA23_36 >= '(' && LA23_36 <= '=')||LA23_36=='?'||(LA23_36 >= 'A' && LA23_36 <= '\uFFFF')) ) {s = 36;}
-						else if ( (LA23_36=='\f'||LA23_36=='\"'||LA23_36=='\''||LA23_36=='@') ) {s = 37;}
-						else s = 18;
+						if ( (LA23_0=='F') ) {s = 1;}
+						else if ( (LA23_0=='S') ) {s = 2;}
+						else if ( (LA23_0=='E') ) {s = 3;}
+						else if ( (LA23_0=='G') ) {s = 4;}
+						else if ( (LA23_0=='W') ) {s = 5;}
+						else if ( (LA23_0=='T') ) {s = 6;}
+						else if ( (LA23_0=='A') ) {s = 7;}
+						else if ( (LA23_0=='B') ) {s = 8;}
+						else if ( (LA23_0=='I') ) {s = 9;}
+						else if ( (LA23_0=='-') ) {s = 10;}
+						else if ( ((LA23_0 >= '0' && LA23_0 <= '9')) ) {s = 11;}
+						else if ( (LA23_0=='#') ) {s = 12;}
+						else if ( (LA23_0=='@') ) {s = 13;}
+						else if ( (LA23_0=='<') ) {s = 14;}
+						else if ( (LA23_0=='|') ) {s = 15;}
+						else if ( (LA23_0=='\"') ) {s = 16;}
+						else if ( (LA23_0=='\'') ) {s = 17;}
+						else if ( ((LA23_0 >= '\u0000' && LA23_0 <= '\b')||LA23_0=='\u000B'||(LA23_0 >= '\u000E' && LA23_0 <= '\u001F')||LA23_0=='!'||(LA23_0 >= '$' && LA23_0 <= '&')||(LA23_0 >= '(' && LA23_0 <= ',')||(LA23_0 >= '.' && LA23_0 <= '/')||(LA23_0 >= ':' && LA23_0 <= ';')||(LA23_0 >= '=' && LA23_0 <= '?')||(LA23_0 >= 'C' && LA23_0 <= 'D')||LA23_0=='H'||(LA23_0 >= 'J' && LA23_0 <= 'R')||(LA23_0 >= 'U' && LA23_0 <= 'V')||(LA23_0 >= 'X' && LA23_0 <= '{')||(LA23_0 >= '}' && LA23_0 <= '\uFFFF')) ) {s = 18;}
+						else if ( (LA23_0=='\n'||(LA23_0 >= '\f' && LA23_0 <= '\r')) ) {s = 19;}
+						else if ( (LA23_0=='\t'||LA23_0==' ') ) {s = 20;}
 						if ( s>=0 ) return s;
 						break;
 
 					case 10 : 
-						int LA23_79 = input.LA(1);
+						int LA23_76 = input.LA(1);
 						s = -1;
-						if ( ((LA23_79 >= '\u0000' && LA23_79 <= '\b')||LA23_79=='\u000B'||(LA23_79 >= '\u000E' && LA23_79 <= '\u001F')||LA23_79=='!'||(LA23_79 >= '#' && LA23_79 <= '&')||(LA23_79 >= '(' && LA23_79 <= '?')||(LA23_79 >= 'A' && LA23_79 <= '\uFFFF')) ) {s = 18;}
-						else s = 80;
-						if ( s>=0 ) return s;
-						break;
-
-					case 11 : 
-						int LA23_16 = input.LA(1);
-						s = -1;
-						if ( (LA23_16=='\"') ) {s = 41;}
-						else if ( ((LA23_16 >= '\u0000' && LA23_16 <= '\t')||(LA23_16 >= '\u000B' && LA23_16 <= '\f')||(LA23_16 >= '\u000E' && LA23_16 <= '!')||(LA23_16 >= '#' && LA23_16 <= '\uFFFF')) ) {s = 42;}
-						if ( s>=0 ) return s;
-						break;
-
-					case 12 : 
-						int LA23_11 = input.LA(1);
-						s = -1;
-						if ( (LA23_11=='.') ) {s = 32;}
-						else if ( ((LA23_11 >= '0' && LA23_11 <= '9')) ) {s = 11;}
-						else if ( ((LA23_11 >= '\u0000' && LA23_11 <= '\b')||LA23_11=='\u000B'||(LA23_11 >= '\u000E' && LA23_11 <= '\u001F')||LA23_11=='!'||(LA23_11 >= '#' && LA23_11 <= '&')||(LA23_11 >= '(' && LA23_11 <= '-')||LA23_11=='/'||(LA23_11 >= ':' && LA23_11 <= '?')||(LA23_11 >= 'A' && LA23_11 <= '\uFFFF')) ) {s = 18;}
-						else s = 33;
-						if ( s>=0 ) return s;
-						break;
-
-					case 13 : 
-						int LA23_38 = input.LA(1);
-						s = -1;
-						if ( (LA23_38=='|') ) {s = 39;}
-						else if ( ((LA23_38 >= '\u0000' && LA23_38 <= '\b')||LA23_38=='\u000B'||(LA23_38 >= '\u000E' && LA23_38 <= '\u001F')||LA23_38=='!'||(LA23_38 >= '#' && LA23_38 <= '&')||(LA23_38 >= '(' && LA23_38 <= '?')||(LA23_38 >= 'A' && LA23_38 <= '{')||(LA23_38 >= '}' && LA23_38 <= '\uFFFF')) ) {s = 38;}
-						else if ( (LA23_38=='\t'||LA23_38=='\f'||LA23_38==' '||LA23_38=='\"'||LA23_38=='\''||LA23_38=='@') ) {s = 40;}
-						else s = 18;
-						if ( s>=0 ) return s;
-						break;
-
-					case 14 : 
-						int LA23_77 = input.LA(1);
-						s = -1;
-						if ( ((LA23_77 >= '\u0000' && LA23_77 <= '\b')||LA23_77=='\u000B'||(LA23_77 >= '\u000E' && LA23_77 <= '\u001F')||LA23_77=='!'||(LA23_77 >= '#' && LA23_77 <= '&')||(LA23_77 >= '(' && LA23_77 <= '?')||(LA23_77 >= 'A' && LA23_77 <= '\uFFFF')) ) {s = 18;}
+						if ( ((LA23_76 >= '\u0000' && LA23_76 <= '\b')||LA23_76=='\u000B'||(LA23_76 >= '\u000E' && LA23_76 <= '\u001F')||(LA23_76 >= '!' && LA23_76 <= '\uFFFF')) ) {s = 18;}
 						else s = 81;
 						if ( s>=0 ) return s;
 						break;
 
-					case 15 : 
-						int LA23_12 = input.LA(1);
+					case 11 : 
+						int LA23_11 = input.LA(1);
 						s = -1;
-						if ( ((LA23_12 >= '\t' && LA23_12 <= '\n')||(LA23_12 >= '\f' && LA23_12 <= '\r')||LA23_12==' '||LA23_12=='\"'||LA23_12=='\''||LA23_12=='@') ) {s = 34;}
-						else if ( ((LA23_12 >= '\u0000' && LA23_12 <= '\b')||LA23_12=='\u000B'||(LA23_12 >= '\u000E' && LA23_12 <= '\u001F')||LA23_12=='!'||(LA23_12 >= '#' && LA23_12 <= '&')||(LA23_12 >= '(' && LA23_12 <= '?')||(LA23_12 >= 'A' && LA23_12 <= '\uFFFF')) ) {s = 35;}
+						if ( (LA23_11=='.') ) {s = 33;}
+						else if ( ((LA23_11 >= '0' && LA23_11 <= '9')) ) {s = 32;}
+						else if ( ((LA23_11 >= '\u0000' && LA23_11 <= '\b')||LA23_11=='\u000B'||(LA23_11 >= '\u000E' && LA23_11 <= '\u001F')||(LA23_11 >= '!' && LA23_11 <= '-')||LA23_11=='/'||(LA23_11 >= ':' && LA23_11 <= '\uFFFF')) ) {s = 18;}
+						else s = 34;
+						if ( s>=0 ) return s;
+						break;
+
+					case 12 : 
+						int LA23_16 = input.LA(1);
+						s = -1;
+						if ( (LA23_16=='\"') ) {s = 42;}
+						else if ( ((LA23_16 >= '\u0000' && LA23_16 <= '\t')||(LA23_16 >= '\u000B' && LA23_16 <= '\f')||(LA23_16 >= '\u000E' && LA23_16 <= '!')||(LA23_16 >= '#' && LA23_16 <= '\uFFFF')) ) {s = 43;}
+						if ( s>=0 ) return s;
+						break;
+
+					case 13 : 
+						int LA23_73 = input.LA(1);
+						s = -1;
+						if ( ((LA23_73 >= '\u0000' && LA23_73 <= '\b')||LA23_73=='\u000B'||(LA23_73 >= '\u000E' && LA23_73 <= '\u001F')||(LA23_73 >= '!' && LA23_73 <= '\uFFFF')) ) {s = 18;}
+						else s = 77;
+						if ( s>=0 ) return s;
+						break;
+
+					case 14 : 
+						int LA23_37 = input.LA(1);
+						s = -1;
+						if ( (LA23_37=='>') ) {s = 54;}
+						else if ( ((LA23_37 >= '\u0000' && LA23_37 <= '\b')||LA23_37=='\u000B'||(LA23_37 >= '\u000E' && LA23_37 <= '\u001F')||(LA23_37 >= '!' && LA23_37 <= '=')||(LA23_37 >= '?' && LA23_37 <= '\uFFFF')) ) {s = 37;}
+						else if ( (LA23_37=='\f') ) {s = 38;}
+						else s = 18;
+						if ( s>=0 ) return s;
+						break;
+
+					case 15 : 
+						int LA23_80 = input.LA(1);
+						s = -1;
+						if ( ((LA23_80 >= '\u0000' && LA23_80 <= '\b')||LA23_80=='\u000B'||(LA23_80 >= '\u000E' && LA23_80 <= '\u001F')||(LA23_80 >= '!' && LA23_80 <= '\uFFFF')) ) {s = 18;}
+						else s = 81;
+						if ( s>=0 ) return s;
+						break;
+
+					case 16 : 
+						int LA23_15 = input.LA(1);
+						s = -1;
+						if ( ((LA23_15 >= '\u0000' && LA23_15 <= '\b')||LA23_15=='\u000B'||(LA23_15 >= '\u000E' && LA23_15 <= '\u001F')||(LA23_15 >= '!' && LA23_15 <= '{')||(LA23_15 >= '}' && LA23_15 <= '\uFFFF')) ) {s = 39;}
+						else if ( (LA23_15=='|') ) {s = 40;}
+						else if ( (LA23_15=='\t'||LA23_15=='\f'||LA23_15==' ') ) {s = 41;}
+						else s = 18;
+						if ( s>=0 ) return s;
+						break;
+
+					case 17 : 
+						int LA23_40 = input.LA(1);
+						s = -1;
+						if ( ((LA23_40 >= '\t' && LA23_40 <= '\n')||(LA23_40 >= '\f' && LA23_40 <= '\r')||LA23_40==' ') ) {s = 41;}
+						else if ( ((LA23_40 >= '\u0000' && LA23_40 <= '\b')||LA23_40=='\u000B'||(LA23_40 >= '\u000E' && LA23_40 <= '\u001F')||(LA23_40 >= '!' && LA23_40 <= '{')||(LA23_40 >= '}' && LA23_40 <= '\uFFFF')) ) {s = 39;}
+						else if ( (LA23_40=='|') ) {s = 40;}
 						else s = 18;
 						if ( s>=0 ) return s;
 						break;

@@ -40,7 +40,7 @@ public class IntegrationGherkinParser extends Parser{
 
     @Override
     public Result getResult(Task task) throws ParseException {
-        return new GherkinEditorParserResult(snapshot,gherkinParser);
+        return new IntegrationGherkingParserResult(gherkinParser,snapshot);
     }
 
     @Override
@@ -48,27 +48,5 @@ public class IntegrationGherkinParser extends Parser{
 
     @Override
     public void removeChangeListener(ChangeListener cl) {}
-    
-    public static class GherkinEditorParserResult extends Result {
 
-        private GherkinParser gherkingParser;
-        private boolean valid = true;
-
-        GherkinEditorParserResult(Snapshot snapshot, GherkinParser parser) {
-            super(snapshot);
-            this.gherkingParser = parser;
-        }
-
-        public GherkinParser getSqlParser()
-                throws ParseException {
-            if (!valid) {
-                throw new ParseException();
-            }
-            return gherkingParser;
-        }
-
-        protected void invalidate() {
-            valid = false;
-        }
-    }
 }

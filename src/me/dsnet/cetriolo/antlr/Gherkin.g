@@ -1,5 +1,9 @@
 grammar Gherkin;
 
+options {
+    output=AST;
+}
+
 @header{package me.dsnet.cetriolo.antlr.output;}
 @lexer::header{package me.dsnet.cetriolo.antlr.output;}
 
@@ -75,7 +79,7 @@ narrative
 stepdesc: (WORD|NUMBER|STRING|PHOLDER|STEP_KEY|FEAT_KEY|TAGNAME)+;	
 
 table   : (T_ROW)+ NL*;
-tag	: TAGNAME NL?;
+tag	: TAGNAME (WORD)* NL+;
  
  
 /*------------------------------------------------------------------
@@ -89,17 +93,14 @@ STEP_KEY:('Given ' | 'When ' | 'Then ' | 'And ' | 'But ');
 FEAT_KEY:('In order ' | 'As a ' | 'I want ');
 
 NUMBER  : '-'? ('0'..'9')+ ('.' ('0'..'9')+)?;
-COMMENT	: '#' (~('\n' | '\r'))* NL {skip();};
+COMMENT	: '#' (~('\n' | '\r'))* NL {$channel=HIDDEN;};
 TAGNAME	: '@' (~(' ' | '\t' | '\n' | '\r'))+ ;
 PHOLDER	: '<' (~('\t'|' '|'\r'|'\n'))+ '>';
 T_ROW   : '|' ((~('|' | '\n' | '\r'))* '|')+ (' ' | '\t')* NL;
 STRING	: ('"'((('\\')('b' | 't' | 'n' | 'f' | 'r' | 'u' | '"' | '\'' | '\\'))|(~('\\'|'"'|'\r'|'\n')))*'"')|
 	  ('\''((('\\')('b' | 't' | 'n' | 'f' | 'r' | 'u' | '"' | '\'' | '\\'))|(~('\\'|'\''|'\r'|'\n')))*'\'');
-WORD	: (~( '@'|' '|'\t'|'\n'|'\r'|'\''|'"'|'\u000C'))*;
-DOCSTR	: ((('"""') ('mio')* ('"""'))|(('\'\'\'') ('mio')* ('\'\'\'')) ) NL;
-/*
-terminal DOC_STRING: ('"""' -> '"""' | "'''" -> "'''") NL; | '\'\'\'' -> '\'\'\''
-WORD	: (~('@' | '|' | ' ' | '\t' | '\n' | '\r')) (~(' ' | '\t' | '\n' | '\r'))*;
-*/
+WORD	: (~( '@'|' '|'\t'|'\n'|'\r'|'\''|'"'|'\u000C'))(~(' ' | '\t'|NL ))*;
+DOCSTR	: ((('"""') (WORD)* ('"""'))|(('\'\'\'') (WORD)* ('\'\'\'')) ) NL;
+
 NL      :( '\r'|'\n'|'\u000C');
-WS      :( '\t'|' ')+ {skip();};
+WS      :( '\t'|' ')+ {$channel=HIDDEN;};
