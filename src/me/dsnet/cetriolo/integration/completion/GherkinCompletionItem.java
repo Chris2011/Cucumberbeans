@@ -26,34 +26,33 @@ import org.openide.util.Exceptions;
  *
  * @author SessonaD
  */
-public class GherkinCompletionItem implements CompletionItem {
+public class GherkinCompletionItem implements CompletionItem{
 
+    
     String text;
     private int caretOffset;
-    private int dotOffset;
 
-    public GherkinCompletionItem(String text, int caretOffset, int dotOffset) {
+    public GherkinCompletionItem(String text, int caretOffset) {
         this.text = text;
         this.caretOffset = caretOffset;
-        this.dotOffset = dotOffset;
     }
-
+    
     @Override
     public int getPreferredWidth(Graphics graphics, Font font) {
         return CompletionUtilities.getPreferredWidth(text, null, graphics, font);
     }
 
     @Override
-    public void render(Graphics g, Font defaultFont, Color defaultColor, Color backgroundColor, int width, int height, boolean selected) {
-        CompletionUtilities.renderHtml(null, text, null, g, defaultFont, (selected ? Color.white : Color.BLUE), width, height, selected);
+    public void render(Graphics g, Font defaultFont, Color defaultColor,Color backgroundColor, int width, int height, boolean selected) {
+        CompletionUtilities.renderHtml(null, text, null, g, defaultFont,(selected ? Color.white : Color.BLUE), width, height, selected);
     }
-
+    
     @Override
     public void defaultAction(JTextComponent jtc) {
         try {
             StyledDocument doc = (StyledDocument) jtc.getDocument();
-            doc.remove(dotOffset, caretOffset - dotOffset);
-            doc.insertString(dotOffset, text, null);
+            doc.insertString(caretOffset, text, null);
+            //This statement will close the code completion box:
             Completion.get().hideAll();
         } catch (BadLocationException ex) {
             Exceptions.printStackTrace(ex);
@@ -62,7 +61,10 @@ public class GherkinCompletionItem implements CompletionItem {
 
     @Override
     public void processKeyEvent(KeyEvent ke) {
+        
     }
+
+    
 
     @Override
     public CompletionTask createDocumentationTask() {
@@ -107,4 +109,5 @@ public class GherkinCompletionItem implements CompletionItem {
     public CharSequence getInsertPrefix() {
         return text;
     }
+    
 }
