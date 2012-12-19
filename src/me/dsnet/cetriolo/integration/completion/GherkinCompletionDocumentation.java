@@ -4,9 +4,11 @@
  */
 package me.dsnet.cetriolo.integration.completion;
 
+import java.net.MalformedURLException;
 import java.net.URL;
 import javax.swing.Action;
 import org.netbeans.spi.editor.completion.CompletionDocumentation;
+import org.openide.util.Exceptions;
 
 /**
  *
@@ -14,20 +16,24 @@ import org.netbeans.spi.editor.completion.CompletionDocumentation;
  */
 public class GherkinCompletionDocumentation implements CompletionDocumentation{
 
-    private GherkinCompletionItem item;
+    private GerkinCompletionNames keyword;
 
-    public GherkinCompletionDocumentation(GherkinCompletionItem item) {
-        this.item = item;
+    public GherkinCompletionDocumentation(GerkinCompletionNames keyword) {
+        this.keyword = keyword;
     }
     
      @Override
     public String getText() {
-        return "Information about " + item.text;
+        return keyword.getDocumentation();
     }
 
     @Override
     public URL getURL() {
-        return null;
+        try {
+            return new URL("http://cukes.info/");
+        } catch (MalformedURLException ex) {
+            return null;
+        }
     }
 
     @Override

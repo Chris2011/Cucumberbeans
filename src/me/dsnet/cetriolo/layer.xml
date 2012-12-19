@@ -30,6 +30,12 @@
                     </folder>
                 </folder>
             </folder>  
+<!--            <file name="me-dsnet-cetriolo-integration-palette-GherkinPaletteFactory-createPalette.instance">
+                    me.dsnet.cetriolo.integration.palette.GherkinPaletteFactory.createPalette()
+                    <attr
+                        methodvalue="me.dsnet.cetriolo.integration.palette.GherkinPaletteFactory.createPalette" name="instanceCreate"/>
+                    <attr name="instanceOf" stringvalue="org.netbeans.spi.palette.PaletteController"/>
+                </file>-->
 <!--            <folder name="FoldManager">
                 <file name="me-dsnet-cetriolo-integration-fold-GherkinFolderManagerFactory.instance"/>
             </folder>-->

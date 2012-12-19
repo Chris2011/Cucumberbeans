@@ -8,6 +8,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
+import javax.swing.ImageIcon;
 import javax.swing.JToolTip;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
@@ -21,6 +22,7 @@ import org.netbeans.spi.editor.completion.support.AsyncCompletionQuery;
 import org.netbeans.spi.editor.completion.support.AsyncCompletionTask;
 import org.netbeans.spi.editor.completion.support.CompletionUtilities;
 import org.openide.util.Exceptions;
+import org.openide.util.ImageUtilities;
 
 /**
  *
@@ -29,30 +31,46 @@ import org.openide.util.Exceptions;
 public class GherkinCompletionItem implements CompletionItem{
 
     
-    String text;
+    GerkinCompletionNames keyword;
     private int caretOffset;
-
-    public GherkinCompletionItem(String text, int caretOffset) {
-        this.text = text;
+    private int dotOffset;
+    private static ImageIcon stepIcon = new ImageIcon(ImageUtilities.loadImage("me/dsnet/cetriolo/icons/step.png"));
+    private static ImageIcon narrativeIcon = new ImageIcon(ImageUtilities.loadImage("me/dsnet/cetriolo/icons/narrative.png"));
+    private static ImageIcon blockIcon = new ImageIcon(ImageUtilities.loadImage("me/dsnet/cetriolo/icons/block.png"));
+    
+    public GherkinCompletionItem(GerkinCompletionNames keyword, int caretOffset, int dotOffset) {
+        this.keyword = keyword;
         this.caretOffset = caretOffset;
+        this.dotOffset = dotOffset;
     }
     
     @Override
     public int getPreferredWidth(Graphics graphics, Font font) {
-        return CompletionUtilities.getPreferredWidth(text, null, graphics, font);
+        return CompletionUtilities.getPreferredWidth(keyword.getDisplay(), null, graphics, font);
     }
 
     @Override
     public void render(Graphics g, Font defaultFont, Color defaultColor,Color backgroundColor, int width, int height, boolean selected) {
-        CompletionUtilities.renderHtml(null, text, null, g, defaultFont,(selected ? Color.white : Color.BLUE), width, height, selected);
+        ImageIcon icon = blockIcon;
+        if(keyword.getType().equals("step")){
+            icon=stepIcon;
+        }else if(keyword.getType().equals("narrative")){
+            icon = narrativeIcon;
+        }
+            
+        CompletionUtilities.renderHtml(icon, keyword.getDisplay(), null, g, defaultFont,(selected ? Color.white : Color.BLUE), width, height, selected);
     }
     
     @Override
     public void defaultAction(JTextComponent jtc) {
         try {
             StyledDocument doc = (StyledDocument) jtc.getDocument();
-            doc.insertString(caretOffset, text, null);
-            //This statement will close the code completion box:
+            System.out.println("dotoffset: " + dotOffset);
+            System.out.println("caretOffset: " + caretOffset);
+            int delta = dotOffset - caretOffset;
+            System.out.println("caretOffset - dotOffset:" +( delta));
+            doc.remove(caretOffset,  delta);
+            doc.insertString(dotOffset - (delta), keyword.getDisplay(), null);
             Completion.get().hideAll();
         } catch (BadLocationException ex) {
             Exceptions.printStackTrace(ex);
@@ -71,7 +89,7 @@ public class GherkinCompletionItem implements CompletionItem{
         return new AsyncCompletionTask(new AsyncCompletionQuery() {
             @Override
             protected void query(CompletionResultSet completionResultSet, Document document, int i) {
-                completionResultSet.setDocumentation(new GherkinCompletionDocumentation(GherkinCompletionItem.this));
+                completionResultSet.setDocumentation(new GherkinCompletionDocumentation(GherkinCompletionItem.this.keyword));
                 completionResultSet.finish();
             }
         });
@@ -83,7 +101,7 @@ public class GherkinCompletionItem implements CompletionItem{
             @Override
             protected void query(CompletionResultSet completionResultSet, Document document, int i) {
                 JToolTip toolTip = new JToolTip();
-                toolTip.setTipText("Press Enter to insert \"" + text + "\"");
+                toolTip.setTipText("Press Enter to insert \"" + keyword.getDisplay() + "\"");
                 completionResultSet.setToolTip(toolTip);
                 completionResultSet.finish();
             }
@@ -97,17 +115,17 @@ public class GherkinCompletionItem implements CompletionItem{
 
     @Override
     public int getSortPriority() {
-        return 0;
+        return keyword.getPriority();
     }
 
     @Override
     public CharSequence getSortText() {
-        return text;
+        return keyword.getDisplay();
     }
 
     @Override
     public CharSequence getInsertPrefix() {
-        return text;
+        return keyword.getDisplay();
     }
     
 }
