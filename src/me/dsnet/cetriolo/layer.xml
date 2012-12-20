@@ -14,6 +14,14 @@
             </folder>
         </folder>
     </folder>
+    <folder name="GherkinPalette">
+    <folder name="Items">
+        <attr name="SystemFileSystem.localizingBundle" stringvalue="me.dsnet.cetriolo.Bundle"/>
+        <file name="Item.xml" url="Item.xml">
+            <attr name="SystemFileSystem.localizingBundle" stringvalue="me.dsnet.cetriolo.Bundle"/>
+        </file>
+    </folder>
+</folder>
     <folder name="Editors">
         <folder name="text">
             <folder name="x-gherkin">                
@@ -30,16 +38,16 @@
                     </folder>
                 </folder>
             </folder>
+            <file name="me-dsnet-cetriolo-integration-palette-GherkinPaletteFactory-createPalette.instance">
+                    <!--me.dsnet.cetriolo.integration.palette.GherkinPaletteFactory.createPalette()-->
+                    <attr
+                        methodvalue="me.dsnet.cetriolo.integration.palette.GherkinPaletteFactory.createPalette" name="instanceCreate"/>
+                    <attr name="instanceOf" stringvalue="org.netbeans.spi.palette.PaletteController"/>
+                </file>
             <file name="me-dsnet-cetriolo-integration-occurrences-OccurrencesHighlighterFactory.instance">
                     <!--me.dsnet.cetriolo.integration.occurrences.GherkinOccurrencesHighlightsLayerFactory-->
                     <attr name="instanceOf" stringvalue="org.netbeans.spi.editor.highlighting.HighlightsLayerFactory"/>
                 </file>
-<!--            <file name="me-dsnet-cetriolo-integration-palette-GherkinPaletteFactory-createPalette.instance">
-                    me.dsnet.cetriolo.integration.palette.GherkinPaletteFactory.createPalette()
-                    <attr
-                        methodvalue="me.dsnet.cetriolo.integration.palette.GherkinPaletteFactory.createPalette" name="instanceCreate"/>
-                    <attr name="instanceOf" stringvalue="org.netbeans.spi.palette.PaletteController"/>
-                </file>-->
 <!--            <folder name="FoldManager">
                 <file name="me-dsnet-cetriolo-integration-fold-GherkinFolderManagerFactory.instance"/>
             </folder>-->
