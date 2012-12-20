@@ -17,12 +17,26 @@
     <folder name="GherkinPalette">
         <folder name="Blocks">
             <attr name="SystemFileSystem.localizingBundle" stringvalue="me.dsnet.cetriolo.Bundle"/>
-            <file name="PaletteFeature.xml" url="nbresloc:/me/dsnet/cetriolo/integration/palette/PaletteFeature.xml">
-                <attr name="SystemFileSystem.localizingBundle" stringvalue="me.dsnet.cetriolo.Bundle"/>
-            </file>
-            <file name="PaletteScenario.xml" url="nbresloc:/me/dsnet/cetriolo/integration/palette/PaletteScenario.xml">
-                <attr name="SystemFileSystem.localizingBundle" stringvalue="me.dsnet.cetriolo.Bundle"/>
-            </file>
+            <file name="PaletteFeature.xml" url="nbresloc:/me/dsnet/cetriolo/integration/palette/PaletteFeature.xml"></file>
+            <file name="PaletteScenario.xml" url="nbresloc:/me/dsnet/cetriolo/integration/palette/PaletteScenario.xml"></file>
+            <file name="PaletteScenarioOutline.xml" url="nbresloc:/me/dsnet/cetriolo/integration/palette/PaletteScenarioOutline.xml"></file>
+        </folder>
+        <folder name="Steps">
+            <file name="PaletteGiven.xml" url="nbresloc:/me/dsnet/cetriolo/integration/palette/PaletteGiven.xml"></file>
+            <file name="PaletteWhen.xml" url="nbresloc:/me/dsnet/cetriolo/integration/palette/PaletteWhen.xml"></file>
+            <file name="PaletteAnd.xml" url="nbresloc:/me/dsnet/cetriolo/integration/palette/PaletteAnd.xml"></file>
+            <file name="PaletteBut.xml" url="nbresloc:/me/dsnet/cetriolo/integration/palette/PaletteBut.xml"></file>
+            <file name="PaletteThen.xml" url="nbresloc:/me/dsnet/cetriolo/integration/palette/PaletteThen.xml"></file>
+        </folder>
+        <folder name="Narrative">
+            <file name="PaletteAsA.xml" url="nbresloc:/me/dsnet/cetriolo/integration/palette/PaletteAsA.xml"></file>
+            <file name="PaletteInOrder.xml" url="nbresloc:/me/dsnet/cetriolo/integration/palette/PaletteInOrder.xml"></file>
+            <file name="PaletteIWant.xml" url="nbresloc:/me/dsnet/cetriolo/integration/palette/PaletteIWant.xml"></file>
+        </folder>
+        <folder name="Other">
+            <file name="PaletteComment.xml" url="nbresloc:/me/dsnet/cetriolo/integration/palette/PaletteComment.xml"></file>
+            <file name="PaletteTable.xml" url="nbresloc:/me/dsnet/cetriolo/integration/palette/PaletteTable.xml"></file>
+            <file name="PalettePlaceHolder.xml" url="nbresloc:/me/dsnet/cetriolo/integration/palette/PalettePlaceHolder.xml"></file>
         </folder>
     </folder>
     <folder name="Editors">
