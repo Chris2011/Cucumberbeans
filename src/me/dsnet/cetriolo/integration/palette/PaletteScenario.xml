@@ -4,14 +4,14 @@
 
 <editor_palette_item version="1.0">
 
-    <body><![CDATA[ <br>  ]]></body>
+    <class name="me.dsnet.cetriolo.integration.palette.PaletteScenario" />
 
     <icon16 urlvalue="me/dsnet/cetriolo/icons/tea.png" />
     <icon32 urlvalue="me/dsnet/cetriolo/icons/tea32.png" />
    
     <inline-description>
-       <display-name>New Line</display-name>
-       <tooltip><![CDATA[ <br>  ]]></tooltip> 
+       <display-name>Scenario</display-name>
+       <tooltip><![CDATA[ Drag to the editor to add a new Scenario  ]]></tooltip> 
     </inline-description>
                
 </editor_palette_item>

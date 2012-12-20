@@ -15,13 +15,16 @@
         </folder>
     </folder>
     <folder name="GherkinPalette">
-    <folder name="Items">
-        <attr name="SystemFileSystem.localizingBundle" stringvalue="me.dsnet.cetriolo.Bundle"/>
-        <file name="Item.xml" url="Item.xml">
+        <folder name="Blocks">
             <attr name="SystemFileSystem.localizingBundle" stringvalue="me.dsnet.cetriolo.Bundle"/>
-        </file>
+            <file name="PaletteFeature.xml" url="nbresloc:/me/dsnet/cetriolo/integration/palette/PaletteFeature.xml">
+                <attr name="SystemFileSystem.localizingBundle" stringvalue="me.dsnet.cetriolo.Bundle"/>
+            </file>
+            <file name="PaletteScenario.xml" url="nbresloc:/me/dsnet/cetriolo/integration/palette/PaletteScenario.xml">
+                <attr name="SystemFileSystem.localizingBundle" stringvalue="me.dsnet.cetriolo.Bundle"/>
+            </file>
+        </folder>
     </folder>
-</folder>
     <folder name="Editors">
         <folder name="text">
             <folder name="x-gherkin">                
