@@ -29,7 +29,11 @@
                         </file>
                     </folder>
                 </folder>
-            </folder>  
+            </folder>
+            <file name="me-dsnet-cetriolo-integration-occurrences-OccurrencesHighlighterFactory.instance">
+                    <!--me.dsnet.cetriolo.integration.occurrences.GherkinOccurrencesHighlightsLayerFactory-->
+                    <attr name="instanceOf" stringvalue="org.netbeans.spi.editor.highlighting.HighlightsLayerFactory"/>
+                </file>
 <!--            <file name="me-dsnet-cetriolo-integration-palette-GherkinPaletteFactory-createPalette.instance">
                     me.dsnet.cetriolo.integration.palette.GherkinPaletteFactory.createPalette()
                     <attr

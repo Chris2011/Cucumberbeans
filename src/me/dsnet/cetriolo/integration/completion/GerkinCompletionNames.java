@@ -4,6 +4,9 @@
  */
 package me.dsnet.cetriolo.integration.completion;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author SessonaD
@@ -101,5 +104,17 @@ public enum GerkinCompletionNames {
 
     public int getPriority() {
         return priority;
+    }
+    
+    public static List<String> getKeywordsFormatching(){
+        List<String> keys = new ArrayList<String>();
+        for(GerkinCompletionNames name:GerkinCompletionNames.values()){
+            String disp=name.display.trim();
+            keys.add(disp);
+            if(disp.endsWith(":")){
+                keys.add(disp.substring(0, disp.length()-1));
+            }
+        }
+        return keys;
     }
 }
