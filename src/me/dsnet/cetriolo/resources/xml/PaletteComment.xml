@@ -6,8 +6,8 @@
 
     <class name="me.dsnet.cetriolo.integration.palette.PaletteComment" />
 
-    <icon16 urlvalue="me/dsnet/cetriolo/icons/tea.png" />
-    <icon32 urlvalue="me/dsnet/cetriolo/icons/tea32.png" />
+    <icon16 urlvalue="me/dsnet/cetriolo/resources/icons/tea.png" />
+    <icon32 urlvalue="me/dsnet/cetriolo/resources/icons/tea32.png" />
    
     <inline-description>
        <display-name>Comment</display-name>

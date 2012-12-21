@@ -2,6 +2,8 @@
 # Example of Cucumber .feature file
 #----------------------------------
 
+
+
 @RunWith 
 Feature: Search courses
     In order to ensure better utilization of courses potential students should be able to search for courses

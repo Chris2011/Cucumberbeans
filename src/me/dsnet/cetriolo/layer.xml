@@ -17,26 +17,26 @@
     <folder name="GherkinPalette">
         <folder name="Blocks">
             <attr name="SystemFileSystem.localizingBundle" stringvalue="me.dsnet.cetriolo.Bundle"/>
-            <file name="PaletteFeature.xml" url="nbresloc:/me/dsnet/cetriolo/integration/palette/PaletteFeature.xml"></file>
-            <file name="PaletteScenario.xml" url="nbresloc:/me/dsnet/cetriolo/integration/palette/PaletteScenario.xml"></file>
-            <file name="PaletteScenarioOutline.xml" url="nbresloc:/me/dsnet/cetriolo/integration/palette/PaletteScenarioOutline.xml"></file>
+            <file name="PaletteFeature.xml" url="nbresloc:/me/dsnet/cetriolo/resources/xml/PaletteFeature.xml"></file>
+            <file name="PaletteScenario.xml" url="nbresloc:/me/dsnet/cetriolo/resources/xml/PaletteScenario.xml"></file>
+            <file name="PaletteScenarioOutline.xml" url="nbresloc:/me/dsnet/cetriolo/resources/xml/PaletteScenarioOutline.xml"></file>
         </folder>
         <folder name="Steps">
-            <file name="PaletteGiven.xml" url="nbresloc:/me/dsnet/cetriolo/integration/palette/PaletteGiven.xml"></file>
-            <file name="PaletteWhen.xml" url="nbresloc:/me/dsnet/cetriolo/integration/palette/PaletteWhen.xml"></file>
-            <file name="PaletteAnd.xml" url="nbresloc:/me/dsnet/cetriolo/integration/palette/PaletteAnd.xml"></file>
-            <file name="PaletteBut.xml" url="nbresloc:/me/dsnet/cetriolo/integration/palette/PaletteBut.xml"></file>
-            <file name="PaletteThen.xml" url="nbresloc:/me/dsnet/cetriolo/integration/palette/PaletteThen.xml"></file>
+            <file name="PaletteGiven.xml" url="nbresloc:/me/dsnet/cetriolo/resources/xml/PaletteGiven.xml"></file>
+            <file name="PaletteWhen.xml" url="nbresloc:/me/dsnet/cetriolo/resources/xml/PaletteWhen.xml"></file>
+            <file name="PaletteAnd.xml" url="nbresloc:/me/dsnet/cetriolo/resources/xml/PaletteAnd.xml"></file>
+            <file name="PaletteBut.xml" url="nbresloc:/me/dsnet/cetriolo/resources/xml/PaletteBut.xml"></file>
+            <file name="PaletteThen.xml" url="nbresloc:/me/dsnet/cetriolo/resources/xml/PaletteThen.xml"></file>
         </folder>
         <folder name="Narrative">
-            <file name="PaletteAsA.xml" url="nbresloc:/me/dsnet/cetriolo/integration/palette/PaletteAsA.xml"></file>
-            <file name="PaletteInOrder.xml" url="nbresloc:/me/dsnet/cetriolo/integration/palette/PaletteInOrder.xml"></file>
-            <file name="PaletteIWant.xml" url="nbresloc:/me/dsnet/cetriolo/integration/palette/PaletteIWant.xml"></file>
+            <file name="PaletteAsA.xml" url="nbresloc:/me/dsnet/cetriolo/resources/xml/PaletteAsA.xml"></file>
+            <file name="PaletteInOrder.xml" url="nbresloc:/me/dsnet/cetriolo/resources/xml/PaletteInOrder.xml"></file>
+            <file name="PaletteIWant.xml" url="nbresloc:/me/dsnet/cetriolo/resources/xml/PaletteIWant.xml"></file>
         </folder>
         <folder name="Other">
-            <file name="PaletteComment.xml" url="nbresloc:/me/dsnet/cetriolo/integration/palette/PaletteComment.xml"></file>
-            <file name="PaletteTable.xml" url="nbresloc:/me/dsnet/cetriolo/integration/palette/PaletteTable.xml"></file>
-            <file name="PalettePlaceHolder.xml" url="nbresloc:/me/dsnet/cetriolo/integration/palette/PalettePlaceHolder.xml"></file>
+            <file name="PaletteComment.xml" url="nbresloc:/me/dsnet/cetriolo/resources/xml/PaletteComment.xml"></file>
+            <file name="PaletteTable.xml" url="nbresloc:/me/dsnet/cetriolo/resources/xml/PaletteTable.xml"></file>
+            <file name="PalettePlaceHolder.xml" url="nbresloc:/me/dsnet/cetriolo/resources/xml/PalettePlaceHolder.xml"></file>
         </folder>
     </folder>
     <folder name="Editors">
@@ -49,7 +49,7 @@
             <folder name="FontsColors">
                 <folder name="NetBeans">
                     <folder name="Defaults">
-                        <file name="FontAndColors.xml" url="FontAndColors.xml">
+                        <file name="FontAndColors.xml" url="nbresloc:/me/dsnet/cetriolo/resources/xml/FontAndColors.xml">
                             <attr name="SystemFileSystem.localizingBundle" stringvalue="me.dsnet.cetriolo.Bundle"/>
                         </file>
                     </folder>
@@ -270,7 +270,7 @@
                     </file>
                     <file name="me-dsnet-crumblecuc-GherkingDataObject.instance">
                         <!--me.dsnet.cetriolo.GherkingDataObject-->
-                        <attr name="iconBase" stringvalue="me/dsnet/cetriolo/icons/tea.png"/>
+                        <attr name="iconBase" stringvalue="me/dsnet/cetriolo/resources/icons/tea.png"/>
                         <attr intvalue="300" name="position"/>
                         <attr bundlevalue="me.dsnet.cetriolo.Bundle#LBL_Cuc_LOADER" name="displayName"/>
                         <attr methodvalue="org.openide.loaders.DataLoaderPool.factory" name="instanceCreate"/>

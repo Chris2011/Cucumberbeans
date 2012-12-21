@@ -34,9 +34,9 @@ public class GherkinCompletionItem implements CompletionItem{
     GerkinCompletionNames keyword;
     private int caretOffset;
     private int dotOffset;
-    private static ImageIcon stepIcon = new ImageIcon(ImageUtilities.loadImage("me/dsnet/cetriolo/icons/step.png"));
-    private static ImageIcon narrativeIcon = new ImageIcon(ImageUtilities.loadImage("me/dsnet/cetriolo/icons/narrative.png"));
-    private static ImageIcon blockIcon = new ImageIcon(ImageUtilities.loadImage("me/dsnet/cetriolo/icons/block.png"));
+    private static ImageIcon stepIcon = new ImageIcon(ImageUtilities.loadImage("me/dsnet/cetriolo/resources/icons/step.png"));
+    private static ImageIcon narrativeIcon = new ImageIcon(ImageUtilities.loadImage("me/dsnet/cetriolo/resources/icons/narrative.png"));
+    private static ImageIcon blockIcon = new ImageIcon(ImageUtilities.loadImage("me/dsnet/cetriolo/resources/icons/block.png"));
     
     public GherkinCompletionItem(GerkinCompletionNames keyword, int caretOffset, int dotOffset) {
         this.keyword = keyword;

@@ -20,7 +20,9 @@ abstract public class BasePaletteActiveEditor implements ActiveEditorDrop {
     public boolean handleTransfer(JTextComponent component) {
         String body = createBody();
         try {
-            GherkinPaletteUtils.insert(body, component);
+            if(body!=null){
+                GherkinPaletteUtils.insert(body, component);
+            }            
         } catch (BadLocationException ble) {
             return false;
         }
