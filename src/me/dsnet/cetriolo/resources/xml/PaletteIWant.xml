@@ -6,8 +6,8 @@
 
     <class name="me.dsnet.cetriolo.integration.palette.PaletteIWant" />
 
-    <icon16 urlvalue="me/dsnet/cetriolo/resources/icons/tea.png" />
-    <icon32 urlvalue="me/dsnet/cetriolo/resources/icons/tea32.png" />
+    <icon16 urlvalue="me/dsnet/cetriolo/resources/icons/narrative.png" />
+    <icon32 urlvalue="me/dsnet/cetriolo/resources/icons/narrative32.png" />
    
     <inline-description>
        <display-name>I Want</display-name>

@@ -5,6 +5,7 @@
 package me.dsnet.cetriolo.integration.palette.dialogues;
 
 import me.dsnet.cetriolo.integration.completion.GerkinCompletionNames;
+import org.openide.util.ImageUtilities;
 
 /**
  *
@@ -21,6 +22,9 @@ public class StepDialog extends javax.swing.JDialog {
         initComponents();
         stepLabelWord.setText(keywordTitle.display + " :");
         setTitle("Customize step definition - " + keywordTitle.display);
+        setIconImage(keywordTitle.getIcon(16));
+        jLabel1.setIcon(new javax.swing.ImageIcon(keywordTitle.getIcon(48)));
+        
     }
 
     public String getDescription() {
@@ -42,9 +46,11 @@ public class StepDialog extends javax.swing.JDialog {
         stepDescriptionLabel = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle(org.openide.util.NbBundle.getMessage(StepDialog.class, "StepDialog.title")); // NOI18N
+        setIconImage(null);
 
         org.openide.awt.Mnemonics.setLocalizedText(stepLabelWord, org.openide.util.NbBundle.getMessage(StepDialog.class, "StepDialog.stepLabelWord.text")); // NOI18N
 
@@ -68,6 +74,9 @@ public class StepDialog extends javax.swing.JDialog {
             }
         });
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/me/dsnet/cetriolo/resources/icons/narrative48.png"))); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(StepDialog.class, "StepDialog.jLabel1.text")); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -83,17 +92,22 @@ public class StepDialog extends javax.swing.JDialog {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)))
+                        .addComponent(jButton1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(84, 84, 84)
+                .addGap(25, 25, 25)
+                .addComponent(jLabel1)
+                .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(stepLabelWord)
                     .addComponent(stepDescriptionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
@@ -159,6 +173,7 @@ public class StepDialog extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField stepDescriptionLabel;
     private javax.swing.JLabel stepLabelWord;
     // End of variables declaration//GEN-END:variables

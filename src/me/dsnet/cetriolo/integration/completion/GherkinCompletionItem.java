@@ -34,9 +34,6 @@ public class GherkinCompletionItem implements CompletionItem{
     GerkinCompletionNames keyword;
     private int caretOffset;
     private int dotOffset;
-    private static ImageIcon stepIcon = new ImageIcon(ImageUtilities.loadImage("me/dsnet/cetriolo/resources/icons/step.png"));
-    private static ImageIcon narrativeIcon = new ImageIcon(ImageUtilities.loadImage("me/dsnet/cetriolo/resources/icons/narrative.png"));
-    private static ImageIcon blockIcon = new ImageIcon(ImageUtilities.loadImage("me/dsnet/cetriolo/resources/icons/block.png"));
     
     public GherkinCompletionItem(GerkinCompletionNames keyword, int caretOffset, int dotOffset) {
         this.keyword = keyword;
@@ -51,13 +48,7 @@ public class GherkinCompletionItem implements CompletionItem{
 
     @Override
     public void render(Graphics g, Font defaultFont, Color defaultColor,Color backgroundColor, int width, int height, boolean selected) {
-        ImageIcon icon = blockIcon;
-        if(keyword.getType().equals("step")){
-            icon=stepIcon;
-        }else if(keyword.getType().equals("narrative")){
-            icon = narrativeIcon;
-        }
-            
+        ImageIcon icon = new ImageIcon(keyword.getIcon(16));            
         CompletionUtilities.renderHtml(icon, keyword.getDisplay(), null, g, defaultFont,(selected ? Color.white : Color.BLUE), width, height, selected);
     }
     
@@ -65,10 +56,10 @@ public class GherkinCompletionItem implements CompletionItem{
     public void defaultAction(JTextComponent jtc) {
         try {
             StyledDocument doc = (StyledDocument) jtc.getDocument();
-            System.out.println("dotoffset: " + dotOffset);
-            System.out.println("caretOffset: " + caretOffset);
+//            System.out.println("dotoffset: " + dotOffset);
+//            System.out.println("caretOffset: " + caretOffset);
             int delta = dotOffset - caretOffset;
-            System.out.println("caretOffset - dotOffset:" +( delta));
+//            System.out.println("caretOffset - dotOffset:" +( delta));
             doc.remove(caretOffset,  delta);
             doc.insertString(dotOffset - (delta), keyword.getDisplay(), null);
             Completion.get().hideAll();
