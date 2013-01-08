@@ -22,7 +22,7 @@ import org.openide.util.Exceptions;
  */
 public class GherkinCompletionProvider implements CompletionProvider {
 
-    static GerkinCompletionNames[] keywords = GerkinCompletionNames.values();
+    static GherkinCompletionNames[] keywords = GherkinCompletionNames.values();
     
     @Override
     public CompletionTask createTask(int queryType, JTextComponent jtc) {
@@ -48,7 +48,7 @@ public class GherkinCompletionProvider implements CompletionProvider {
                 } catch (BadLocationException ex) {
                     Exceptions.printStackTrace(ex);
                 }
-                for (GerkinCompletionNames keyword : keywords) {
+                for (GherkinCompletionNames keyword : keywords) {
                     final String keywordText = keyword.getWord();
                     if (!keywordText.equals("") && keywordText.toLowerCase().startsWith(filter.toLowerCase())) {
                         completionResultSet.addItem(new GherkinCompletionItem(keyword, startOffset, caretOffset));

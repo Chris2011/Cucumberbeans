@@ -6,7 +6,7 @@ package me.dsnet.cetriolo.integration.palette;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import me.dsnet.cetriolo.integration.completion.GerkinCompletionNames;
+import me.dsnet.cetriolo.integration.completion.GherkinCompletionNames;
 import me.dsnet.cetriolo.integration.palette.dialogues.NarrativeDialog;
 
 /**
@@ -18,7 +18,7 @@ public class PaletteInOrder extends BasePaletteActiveEditor {
     @Override
     public String createBody() {
         try {
-            NarrativeDialog dialogue = new NarrativeDialog(null, true, GerkinCompletionNames.IN_ORDER);
+            NarrativeDialog dialogue = new NarrativeDialog(null, true, GherkinCompletionNames.IN_ORDER);
             //center on screen
             final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
             final int x = (screenSize.width - dialogue.getWidth()) / 2;
@@ -30,7 +30,7 @@ public class PaletteInOrder extends BasePaletteActiveEditor {
             if(userCommand==null){
                 return null;
             }else{
-                return GerkinCompletionNames.IN_ORDER.getDisplay() + userCommand;
+                return GherkinCompletionNames.IN_ORDER.getDisplay() + userCommand;
             }
                        
         } catch (Exception e) {

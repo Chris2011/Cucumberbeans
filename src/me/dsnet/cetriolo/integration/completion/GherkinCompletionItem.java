@@ -31,11 +31,11 @@ import org.openide.util.ImageUtilities;
 public class GherkinCompletionItem implements CompletionItem{
 
     
-    GerkinCompletionNames keyword;
+    GherkinCompletionNames keyword;
     private int caretOffset;
     private int dotOffset;
     
-    public GherkinCompletionItem(GerkinCompletionNames keyword, int caretOffset, int dotOffset) {
+    public GherkinCompletionItem(GherkinCompletionNames keyword, int caretOffset, int dotOffset) {
         this.keyword = keyword;
         this.caretOffset = caretOffset;
         this.dotOffset = dotOffset;

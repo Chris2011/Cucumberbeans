@@ -16,7 +16,7 @@ import javax.swing.text.AttributeSet;
 import javax.swing.text.Document;
 import javax.swing.text.JTextComponent;
 import javax.swing.text.StyleConstants;
-import me.dsnet.cetriolo.integration.completion.GerkinCompletionNames;
+import me.dsnet.cetriolo.integration.completion.GherkinCompletionNames;
 import org.netbeans.api.editor.settings.AttributesUtilities;
 import org.netbeans.modules.editor.NbEditorUtilities;
 import org.netbeans.spi.editor.highlighting.support.OffsetsBag;
@@ -37,7 +37,7 @@ public class OccurrencesHighlighter implements CaretListener {
     private final RequestProcessor rp;
     private final static int DELAY = 100;
     private RequestProcessor.Task refreshTask;
-    static List<String> keywords=GerkinCompletionNames.getKeywordsFormatching();
+    static List<String> keywords=GherkinCompletionNames.getKeywordsFormatching();
 
     public OccurrencesHighlighter(Document doc) {
         rp = new RequestProcessor(OccurrencesHighlighter.class);

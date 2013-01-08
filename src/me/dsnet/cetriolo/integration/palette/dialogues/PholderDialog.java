@@ -4,27 +4,29 @@
  */
 package me.dsnet.cetriolo.integration.palette.dialogues;
 
-import me.dsnet.cetriolo.integration.completion.GerkinCompletionNames;
-import org.openide.util.ImageUtilities;
+import java.awt.Color;
+import me.dsnet.cetriolo.integration.completion.GherkinCompletionNames;
 
 /**
  *
  * @author SessonaD
  */
-public class StepDialog extends javax.swing.JDialog {
+public class PholderDialog extends javax.swing.JDialog {
     
     String description = null;
+    boolean docVisible=true;
     /**
      * Creates new form StepDialog
      */
-    public StepDialog(java.awt.Frame parent, boolean modal, GerkinCompletionNames keywordTitle) {
+    public PholderDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);        
-        initComponents();
-        stepLabelWord.setText(keywordTitle.display + " :");
-        setTitle("Customize step definition - " + keywordTitle.display);
-        setIconImage(keywordTitle.getIcon(16));
-        jLabel1.setIcon(new javax.swing.ImageIcon(keywordTitle.getIcon(48)));
-        
+        initComponents();        
+        setTitle("Insert placeholder");
+        setIconImage(GherkinCompletionNames.AND.getIcon(16));
+        jLabel1.setIcon(new javax.swing.ImageIcon(GherkinCompletionNames.AND.getIcon(64)));
+        //jTextArea1.setText(keywordTitle.getDocumentation());
+        stepDescriptionLabel.setText("insert a placeholder name...");
+        stepDescriptionLabel.setFont(new java.awt.Font("Tahoma", 2, 11));
     }
 
     public String getDescription() {
@@ -47,16 +49,31 @@ public class StepDialog extends javax.swing.JDialog {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle(org.openide.util.NbBundle.getMessage(StepDialog.class, "StepDialog.title")); // NOI18N
+        setTitle(org.openide.util.NbBundle.getMessage(PholderDialog.class, "PholderDialog.title")); // NOI18N
         setIconImage(null);
 
-        org.openide.awt.Mnemonics.setLocalizedText(stepLabelWord, org.openide.util.NbBundle.getMessage(StepDialog.class, "StepDialog.stepLabelWord.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(stepLabelWord, org.openide.util.NbBundle.getMessage(PholderDialog.class, "PholderDialog.stepLabelWord.text")); // NOI18N
 
-        stepDescriptionLabel.setText(org.openide.util.NbBundle.getMessage(StepDialog.class, "StepDialog.stepDescriptionLabel.text")); // NOI18N
+        stepDescriptionLabel.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        stepDescriptionLabel.setForeground(new java.awt.Color(102, 102, 102));
+        stepDescriptionLabel.setText(org.openide.util.NbBundle.getMessage(PholderDialog.class, "PholderDialog.stepDescriptionLabel.text")); // NOI18N
+        stepDescriptionLabel.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+                stepDescriptionLabelCaretPositionChanged(evt);
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+            }
+        });
+        stepDescriptionLabel.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                stepDescriptionLabelKeyPressed(evt);
+            }
+        });
 
-        org.openide.awt.Mnemonics.setLocalizedText(jButton1, org.openide.util.NbBundle.getMessage(StepDialog.class, "StepDialog.jButton1.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(jButton1, org.openide.util.NbBundle.getMessage(PholderDialog.class, "PholderDialog.jButton1.text")); // NOI18N
         jButton1.setBorderPainted(false);
         jButton1.setFocusPainted(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -65,7 +82,7 @@ public class StepDialog extends javax.swing.JDialog {
             }
         });
 
-        org.openide.awt.Mnemonics.setLocalizedText(jButton2, org.openide.util.NbBundle.getMessage(StepDialog.class, "StepDialog.jButton2.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(jButton2, org.openide.util.NbBundle.getMessage(PholderDialog.class, "PholderDialog.jButton2.text")); // NOI18N
         jButton2.setBorderPainted(false);
         jButton2.setFocusPainted(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -74,8 +91,10 @@ public class StepDialog extends javax.swing.JDialog {
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/me/dsnet/cetriolo/resources/icons/narrative48.png"))); // NOI18N
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(StepDialog.class, "StepDialog.jLabel1.text")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/me/dsnet/cetriolo/resources/icons/narrative-asa64.png"))); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(PholderDialog.class, "PholderDialog.jLabel1.text")); // NOI18N
+
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel2, org.openide.util.NbBundle.getMessage(PholderDialog.class, "PholderDialog.jLabel2.text")); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -85,29 +104,35 @@ public class StepDialog extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(stepLabelWord)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(stepDescriptionLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton1))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(stepDescriptionLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(stepLabelWord)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel2)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel1)
-                .addGap(45, 45, 45)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(stepLabelWord)
-                    .addComponent(stepDescriptionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(stepDescriptionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(stepLabelWord)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
@@ -129,6 +154,15 @@ public class StepDialog extends javax.swing.JDialog {
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void stepDescriptionLabelKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_stepDescriptionLabelKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_stepDescriptionLabelKeyPressed
+
+    private void stepDescriptionLabelCaretPositionChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_stepDescriptionLabelCaretPositionChanged
+        // TODO add your handling code here:
+        //stepDescriptionLabel.setForeground(Color.BLACK);
+    }//GEN-LAST:event_stepDescriptionLabelCaretPositionChanged
+    
     /**
      * @param args the command line arguments
      */
@@ -146,20 +180,20 @@ public class StepDialog extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(StepDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PholderDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(StepDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PholderDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(StepDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PholderDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(StepDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PholderDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                StepDialog dialog = new StepDialog(new javax.swing.JFrame(), true, null);
+                PholderDialog dialog = new PholderDialog(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -174,6 +208,7 @@ public class StepDialog extends javax.swing.JDialog {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField stepDescriptionLabel;
     private javax.swing.JLabel stepLabelWord;
     // End of variables declaration//GEN-END:variables

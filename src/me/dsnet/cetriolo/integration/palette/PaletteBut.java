@@ -6,8 +6,8 @@ package me.dsnet.cetriolo.integration.palette;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import me.dsnet.cetriolo.integration.completion.GerkinCompletionNames;
-import me.dsnet.cetriolo.integration.palette.dialogues.StepDialog;
+import me.dsnet.cetriolo.integration.completion.GherkinCompletionNames;
+import me.dsnet.cetriolo.integration.palette.dialogues.StepsDialog;
 
 /**
  *
@@ -18,7 +18,7 @@ public class PaletteBut extends BasePaletteActiveEditor {
     @Override
     public String createBody() {
         try {
-            StepDialog dialogue = new StepDialog(null, true, GerkinCompletionNames.BUT);
+            StepsDialog dialogue = new StepsDialog(null, true, GherkinCompletionNames.BUT);
             //center on screen
             final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
             final int x = (screenSize.width - dialogue.getWidth()) / 2;
@@ -30,7 +30,7 @@ public class PaletteBut extends BasePaletteActiveEditor {
             if(userCommand==null){
                 return null;
             }else{
-                return GerkinCompletionNames.BUT.getDisplay() + userCommand;
+                return GherkinCompletionNames.BUT.getDisplay() + userCommand;
             }
                        
         } catch (Exception e) {

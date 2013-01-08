@@ -11,18 +11,18 @@ import me.dsnet.cetriolo.integration.completion.GherkinCompletionNames;
  *
  * @author SessonaD
  */
-public class NarrativeDialog extends javax.swing.JDialog {
+public class StepsDialog extends javax.swing.JDialog {
     
     String description = null;
     boolean docVisible=true;
     /**
      * Creates new form StepDialog
      */
-    public NarrativeDialog(java.awt.Frame parent, boolean modal, GherkinCompletionNames keywordTitle) {
+    public StepsDialog(java.awt.Frame parent, boolean modal, GherkinCompletionNames keywordTitle) {
         super(parent, modal);        
         initComponents();
         stepLabelWord.setText(" " +keywordTitle.display + " :");
-        setTitle("Customize narrative - " + keywordTitle.display);
+        setTitle("Customize step definition - " + keywordTitle.display);
         setIconImage(keywordTitle.getIcon(16));
         jLabel1.setIcon(new javax.swing.ImageIcon(keywordTitle.getIcon(64)));
         //jTextArea1.setText(keywordTitle.getDocumentation());
@@ -58,14 +58,14 @@ public class NarrativeDialog extends javax.swing.JDialog {
         showdoclabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle(org.openide.util.NbBundle.getMessage(NarrativeDialog.class, "NarrativeDialog.title")); // NOI18N
+        setTitle(org.openide.util.NbBundle.getMessage(StepsDialog.class, "StepsDialog.title")); // NOI18N
         setIconImage(null);
 
-        org.openide.awt.Mnemonics.setLocalizedText(stepLabelWord, org.openide.util.NbBundle.getMessage(NarrativeDialog.class, "NarrativeDialog.stepLabelWord.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(stepLabelWord, org.openide.util.NbBundle.getMessage(StepsDialog.class, "StepsDialog.stepLabelWord.text")); // NOI18N
 
         stepDescriptionLabel.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
         stepDescriptionLabel.setForeground(new java.awt.Color(102, 102, 102));
-        stepDescriptionLabel.setText(org.openide.util.NbBundle.getMessage(NarrativeDialog.class, "NarrativeDialog.stepDescriptionLabel.text")); // NOI18N
+        stepDescriptionLabel.setText(org.openide.util.NbBundle.getMessage(StepsDialog.class, "StepsDialog.stepDescriptionLabel.text")); // NOI18N
         stepDescriptionLabel.addInputMethodListener(new java.awt.event.InputMethodListener() {
             public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
                 stepDescriptionLabelCaretPositionChanged(evt);
@@ -79,7 +79,7 @@ public class NarrativeDialog extends javax.swing.JDialog {
             }
         });
 
-        org.openide.awt.Mnemonics.setLocalizedText(jButton1, org.openide.util.NbBundle.getMessage(NarrativeDialog.class, "NarrativeDialog.jButton1.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(jButton1, org.openide.util.NbBundle.getMessage(StepsDialog.class, "StepsDialog.jButton1.text")); // NOI18N
         jButton1.setBorderPainted(false);
         jButton1.setFocusPainted(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -88,7 +88,7 @@ public class NarrativeDialog extends javax.swing.JDialog {
             }
         });
 
-        org.openide.awt.Mnemonics.setLocalizedText(jButton2, org.openide.util.NbBundle.getMessage(NarrativeDialog.class, "NarrativeDialog.jButton2.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(jButton2, org.openide.util.NbBundle.getMessage(StepsDialog.class, "StepsDialog.jButton2.text")); // NOI18N
         jButton2.setBorderPainted(false);
         jButton2.setFocusPainted(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -98,7 +98,7 @@ public class NarrativeDialog extends javax.swing.JDialog {
         });
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/me/dsnet/cetriolo/resources/icons/narrative-asa64.png"))); // NOI18N
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(NarrativeDialog.class, "NarrativeDialog.jLabel1.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(StepsDialog.class, "StepsDialog.jLabel1.text")); // NOI18N
 
         docScrollPane.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         docScrollPane.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
@@ -106,12 +106,12 @@ public class NarrativeDialog extends javax.swing.JDialog {
 
         docEditorPane.setEditable(false);
         docEditorPane.setContentType("text/html"); // NOI18N
-        docEditorPane.setText(org.openide.util.NbBundle.getMessage(NarrativeDialog.class, "NarrativeDialog.docEditorPane.text")); // NOI18N
+        docEditorPane.setText(org.openide.util.NbBundle.getMessage(StepsDialog.class, "StepsDialog.docEditorPane.text")); // NOI18N
         docScrollPane.setViewportView(docEditorPane);
 
         showdoclabel.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
         showdoclabel.setForeground(new java.awt.Color(0, 51, 255));
-        org.openide.awt.Mnemonics.setLocalizedText(showdoclabel, org.openide.util.NbBundle.getMessage(NarrativeDialog.class, "NarrativeDialog.showdoclabel.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(showdoclabel, org.openide.util.NbBundle.getMessage(StepsDialog.class, "StepsDialog.showdoclabel.text")); // NOI18N
         showdoclabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 showdoclabelMouseClicked(evt);
@@ -214,20 +214,20 @@ public class NarrativeDialog extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NarrativeDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StepsDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NarrativeDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StepsDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NarrativeDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StepsDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NarrativeDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StepsDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                NarrativeDialog dialog = new NarrativeDialog(new javax.swing.JFrame(), true, null);
+                StepsDialog dialog = new StepsDialog(new javax.swing.JFrame(), true, null);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

@@ -16,9 +16,9 @@ import org.openide.util.Exceptions;
  */
 public class GherkinCompletionDocumentation implements CompletionDocumentation{
 
-    private GerkinCompletionNames keyword;
+    private GherkinCompletionNames keyword;
 
-    public GherkinCompletionDocumentation(GerkinCompletionNames keyword) {
+    public GherkinCompletionDocumentation(GherkinCompletionNames keyword) {
         this.keyword = keyword;
     }
     
