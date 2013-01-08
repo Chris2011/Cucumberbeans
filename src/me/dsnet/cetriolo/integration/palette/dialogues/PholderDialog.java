@@ -6,6 +6,7 @@ package me.dsnet.cetriolo.integration.palette.dialogues;
 
 import java.awt.Color;
 import me.dsnet.cetriolo.integration.completion.GherkinCompletionNames;
+import org.openide.util.ImageUtilities;
 
 /**
  *
@@ -22,8 +23,8 @@ public class PholderDialog extends javax.swing.JDialog {
         super(parent, modal);        
         initComponents();        
         setTitle("Insert placeholder");
-        setIconImage(GherkinCompletionNames.AND.getIcon(16));
-        jLabel1.setIcon(new javax.swing.ImageIcon(GherkinCompletionNames.AND.getIcon(64)));
+        setIconImage(ImageUtilities.loadImage("me/dsnet/cetriolo/resources/icons/place.png"));
+        jLabel1.setIcon(new javax.swing.ImageIcon(ImageUtilities.loadImage("me/dsnet/cetriolo/resources/icons/place64.png")));
         //jTextArea1.setText(keywordTitle.getDocumentation());
         stepDescriptionLabel.setText("insert a placeholder name...");
         stepDescriptionLabel.setFont(new java.awt.Font("Tahoma", 2, 11));
@@ -91,7 +92,7 @@ public class PholderDialog extends javax.swing.JDialog {
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/me/dsnet/cetriolo/resources/icons/narrative-asa64.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/me/dsnet/cetriolo/resources/icons/place64.png"))); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(PholderDialog.class, "PholderDialog.jLabel1.text")); // NOI18N
 
         org.openide.awt.Mnemonics.setLocalizedText(jLabel2, org.openide.util.NbBundle.getMessage(PholderDialog.class, "PholderDialog.jLabel2.text")); // NOI18N

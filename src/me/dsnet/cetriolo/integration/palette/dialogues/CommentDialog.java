@@ -4,8 +4,8 @@
  */
 package me.dsnet.cetriolo.integration.palette.dialogues;
 
-import java.awt.Color;
 import me.dsnet.cetriolo.integration.completion.GherkinCompletionNames;
+import org.openide.util.ImageUtilities;
 
 /**
  *
@@ -22,8 +22,8 @@ public class CommentDialog extends javax.swing.JDialog {
         super(parent, modal);        
         initComponents();        
         setTitle("Insert comment");
-        setIconImage(GherkinCompletionNames.AND.getIcon(16));
-        jLabel1.setIcon(new javax.swing.ImageIcon(GherkinCompletionNames.AND.getIcon(64)));
+        setIconImage(ImageUtilities.loadImage("me/dsnet/cetriolo/resources/icons/tag.png"));
+        jLabel1.setIcon(new javax.swing.ImageIcon(ImageUtilities.loadImage("me/dsnet/cetriolo/resources/icons/tag64.png")));
         
     }
 
@@ -74,7 +74,7 @@ public class CommentDialog extends javax.swing.JDialog {
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/me/dsnet/cetriolo/resources/icons/narrative-asa64.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/me/dsnet/cetriolo/resources/icons/tag64.png"))); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(CommentDialog.class, "CommentDialog.jLabel1.text")); // NOI18N
 
         commentArea.setColumns(20);

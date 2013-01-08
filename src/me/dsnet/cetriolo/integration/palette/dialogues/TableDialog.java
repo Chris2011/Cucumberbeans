@@ -6,6 +6,7 @@ package me.dsnet.cetriolo.integration.palette.dialogues;
 
 import java.awt.Color;
 import me.dsnet.cetriolo.integration.completion.GherkinCompletionNames;
+import org.openide.util.ImageUtilities;
 
 /**
  *
@@ -21,22 +22,23 @@ public class TableDialog extends javax.swing.JDialog {
     public TableDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);        
         initComponents();        
-        setTitle("Insert comment");
-        setIconImage(GherkinCompletionNames.AND.getIcon(16));
-        jLabel1.setIcon(new javax.swing.ImageIcon(GherkinCompletionNames.AND.getIcon(64)));
-        //jTextArea1.setText(keywordTitle.getDocumentation());
-        docEditorPane.setContentType("text/html");
-        docEditorPane.setText("");
-        stepDescriptionLabel.setText("insert any comment...");
-        stepDescriptionLabel.setFont(new java.awt.Font("Tahoma", 2, 11));
-        hideshowdoc();
+        setTitle("Insert table");
+        setIconImage(ImageUtilities.loadImage("me/dsnet/cetriolo/resources/icons/table.png"));
+        jLabel1.setIcon(new javax.swing.ImageIcon(ImageUtilities.loadImage("me/dsnet/cetriolo/resources/icons/table64.png")));
+        jComboBox1.setSelectedIndex(2);
+        jComboBox1.setSelectedIndex(0);
+        jTable1.setModel(new CustomTableModel(3, 1));
     }
 
     public String getDescription() {
         return description;
     }
 
-    
+    private void updatetablesize(){
+        int newRows = jComboBox2.getSelectedIndex() + 1;
+        int newCols = jComboBox1.getSelectedIndex() + 1;
+        jTable1.setModel(new CustomTableModel( newCols,newRows));
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -48,35 +50,21 @@ public class TableDialog extends javax.swing.JDialog {
     private void initComponents() {
 
         stepLabelWord = new javax.swing.JLabel();
-        stepDescriptionLabel = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        docScrollPane = new javax.swing.JScrollPane();
-        docEditorPane = new javax.swing.JEditorPane();
-        showdoclabel = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox();
+        jComboBox2 = new javax.swing.JComboBox();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle(org.openide.util.NbBundle.getMessage(TableDialog.class, "TableDialog.title")); // NOI18N
         setIconImage(null);
 
         org.openide.awt.Mnemonics.setLocalizedText(stepLabelWord, org.openide.util.NbBundle.getMessage(TableDialog.class, "TableDialog.stepLabelWord.text")); // NOI18N
-
-        stepDescriptionLabel.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
-        stepDescriptionLabel.setForeground(new java.awt.Color(102, 102, 102));
-        stepDescriptionLabel.setText(org.openide.util.NbBundle.getMessage(TableDialog.class, "TableDialog.stepDescriptionLabel.text")); // NOI18N
-        stepDescriptionLabel.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-                stepDescriptionLabelCaretPositionChanged(evt);
-            }
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
-            }
-        });
-        stepDescriptionLabel.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                stepDescriptionLabelKeyPressed(evt);
-            }
-        });
 
         org.openide.awt.Mnemonics.setLocalizedText(jButton1, org.openide.util.NbBundle.getMessage(TableDialog.class, "TableDialog.jButton1.text")); // NOI18N
         jButton1.setBorderPainted(false);
@@ -96,26 +84,43 @@ public class TableDialog extends javax.swing.JDialog {
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/me/dsnet/cetriolo/resources/icons/narrative-asa64.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/me/dsnet/cetriolo/resources/icons/table64.png"))); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(TableDialog.class, "TableDialog.jLabel1.text")); // NOI18N
 
-        docScrollPane.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        docScrollPane.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        docScrollPane.setHorizontalScrollBar(null);
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel2, org.openide.util.NbBundle.getMessage(TableDialog.class, "TableDialog.jLabel2.text")); // NOI18N
 
-        docEditorPane.setEditable(false);
-        docEditorPane.setContentType("text/html"); // NOI18N
-        docEditorPane.setText(org.openide.util.NbBundle.getMessage(TableDialog.class, "TableDialog.docEditorPane.text")); // NOI18N
-        docScrollPane.setViewportView(docEditorPane);
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel3, org.openide.util.NbBundle.getMessage(TableDialog.class, "TableDialog.jLabel3.text")); // NOI18N
 
-        showdoclabel.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
-        showdoclabel.setForeground(new java.awt.Color(0, 51, 255));
-        org.openide.awt.Mnemonics.setLocalizedText(showdoclabel, org.openide.util.NbBundle.getMessage(TableDialog.class, "TableDialog.showdoclabel.text")); // NOI18N
-        showdoclabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                showdoclabelMouseClicked(evt);
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" }));
+        jComboBox1.setFocusable(false);
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
             }
         });
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" }));
+        jComboBox2.setFocusable(false);
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jTable1.setFillsViewportHeight(true);
+        jTable1.setGridColor(new java.awt.Color(204, 204, 204));
+        jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -124,21 +129,24 @@ public class TableDialog extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(docScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 523, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(showdoclabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 305, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton1))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(10, 10, 10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(stepDescriptionLabel)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(stepLabelWord)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                            .addComponent(stepLabelWord)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -149,15 +157,20 @@ public class TableDialog extends javax.swing.JDialog {
                     .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(stepLabelWord)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(stepDescriptionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(88, 88, 88)
-                .addComponent(docScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(showdoclabel))
+                    .addComponent(jButton2))
                 .addContainerGap())
         );
 
@@ -171,31 +184,49 @@ public class TableDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        description = stepDescriptionLabel.getText();
+        StringBuilder sb = new StringBuilder("\n");
+        int rows = jTable1.getModel().getRowCount();
+        int columns = jTable1.getModel().getColumnCount();        
+        String[][] model = new String [rows][columns];
+        int[] maxs= new int[columns];
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                String found= (String)jTable1.getModel().getValueAt(i, j); 
+                model[i][j] = found;
+                if (found!=null && maxs[j]<found.length()){
+                    maxs[j] = found.length();
+                }
+            }                        
+        }     
+        for (int i = 0; i < rows; i++) {
+            sb.append("|");
+            for (int j = 0; j < columns; j++) {
+                String toInsert = model[i][j] == null?"":model[i][j];
+                sb.append(" ");
+                sb.append(toInsert);
+                if(maxs[j] >  toInsert.length()){
+                    for (int k = 0; k < maxs[j] -  toInsert.length(); k++) {
+                       sb.append(" ");
+                    }
+                }
+                sb.append("|");
+            }     
+            sb.append("\n");
+        }
+        
+        description = sb.toString();
         setVisible(false);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void showdoclabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showdoclabelMouseClicked
-        hideshowdoc();
-    }//GEN-LAST:event_showdoclabelMouseClicked
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        updatetablesize();
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
-    private void stepDescriptionLabelKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_stepDescriptionLabelKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_stepDescriptionLabelKeyPressed
-
-    private void stepDescriptionLabelCaretPositionChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_stepDescriptionLabelCaretPositionChanged
-        // TODO add your handling code here:
-        //stepDescriptionLabel.setForeground(Color.BLACK);
-    }//GEN-LAST:event_stepDescriptionLabelCaretPositionChanged
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        updatetablesize();
+    }//GEN-LAST:event_jComboBox2ActionPerformed
     
-    private void hideshowdoc(){
-        docVisible = !docVisible;
-        docEditorPane.setVisible(docVisible);
-        docScrollPane.setVisible(docVisible);
-        showdoclabel.setText(docVisible ? "(- hide documentation)":"(+ show documentation)");
-        this.pack();
-    }
     /**
      * @param args the command line arguments
      */
@@ -238,13 +269,15 @@ public class TableDialog extends javax.swing.JDialog {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JEditorPane docEditorPane;
-    private javax.swing.JScrollPane docScrollPane;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JComboBox jComboBox2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel showdoclabel;
-    private javax.swing.JTextField stepDescriptionLabel;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel stepLabelWord;
     // End of variables declaration//GEN-END:variables
 }
