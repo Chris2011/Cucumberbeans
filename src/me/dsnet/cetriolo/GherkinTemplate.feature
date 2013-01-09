@@ -15,7 +15,8 @@ Feature: Search courses
         Then he should find zero, one or more coursesAnd the ninja should run away
         Example: The user searches for "scala" and find the result:
             | Course code | Course Description | Avail  |
-            | A001        | scala guide        | Yes    |
+            | A001        | Antlr guide        | Yes    |
+            | B205        | Parsers and Lexers | No     |
 
     Scenario: Search by topic
         Given there are 240 <courses> which do not have the topic "biology"
@@ -23,6 +24,4 @@ Feature: Search courses
         When I search for "biology"
         But I search for "biology"
         Then I should see the following courses:
-            | Course code | Course Description | Avail  |
-            | A001        | Antlr guide        | Yes    |
-            | B205        | Parsers and Lexers | No     |
+            

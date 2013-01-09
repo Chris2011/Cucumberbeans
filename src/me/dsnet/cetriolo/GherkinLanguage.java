@@ -5,7 +5,9 @@
 package me.dsnet.cetriolo;
 
 import me.dsnet.cetriolo.antlr.integration.GherkinTokenId;
+import me.dsnet.cetriolo.integration.fold.GherkinStructureScanner;
 import org.netbeans.api.lexer.Language;
+import org.netbeans.modules.csl.api.StructureScanner;
 import org.netbeans.modules.csl.spi.DefaultLanguageConfig;
 /**
  *
@@ -23,4 +25,15 @@ public class GherkinLanguage extends DefaultLanguageConfig{
     public String getDisplayName() {
         return "Cucumber";
     }
+
+    @Override
+    public boolean hasStructureScanner() {
+        return true;
+    }
+
+    @Override
+    public StructureScanner getStructureScanner() {
+        return new GherkinStructureScanner();
+    }
+
 }
