@@ -43,11 +43,34 @@ public class GherkinStructureScanner implements StructureScanner{
                 TokenHierarchy<GherkinTokenId> th = (TokenHierarchy<GherkinTokenId>) pr.getSnapshot().getTokenHierarchy();
                 TokenSequence<GherkinTokenId> ts = th.tokenSequence(GherkinTokenId.getLanguage());
                 List<OffsetRange> ranges = new ArrayList<OffsetRange>();
+                
+                List<Integer> startingBlocks = new ArrayList<Integer>();
                 while (ts.moveNext()) {
                     Token<GherkinTokenId> token = ts.token();
-                    System.out.println("### tok id:" + token.id());
-                    System.out.println("### tok: " + token.toString());
+                    if(token.id().primaryCategory().equals("keyword")){
+                        while(ts.moveNext()){
+                            token = ts.token();
+                            if(token.id().name().equals("NL")){
+                                break;
+                            }
+                        }
+                        startingBlocks.add(token.offset(th));                        
+                    }                       
                 }
+                
+                
+                
+                Integer[] blocks= startingBlocks.toArray(new Integer[0]);
+                for (int i = 0; i < blocks.length; i++) {
+                    if(i  == (blocks.length-1)){
+                        ranges.add(new OffsetRange(blocks[i], findEnd(ts, th) ));
+                    }else{
+                        ranges.add(new OffsetRange(blocks[i], blocks[i] + 100));
+                    }
+                }
+                
+                
+                
                 folds.put("codeblocks", ranges);
             }catch(Exception e){
                 System.out.println("############## Exception in structure scanner");
@@ -55,34 +78,30 @@ public class GherkinStructureScanner implements StructureScanner{
             }
             return folds;
         }
-        
-        /**
-         * if (pr == null) {
-            return Collections.emptyMap();
+    }
+    
+    public int findEnd(TokenSequence<GherkinTokenId> ts,TokenHierarchy<GherkinTokenId> th){
+        ts.moveEnd();
+        ts.movePrevious();
+        Token<GherkinTokenId> token = ts.token();
+        while (ts.movePrevious()) {
+            token = ts.token();
+            if (!token.id().primaryCategory().equals("whitespace")) {
+                break;
+            }
         }
-        try {
-            Map<String, List<OffsetRange>> folds = new HashMap<String, List<OffsetRange>>();
-            BaseDocument document = (BaseDocument) pr.getSnapshot().getSource().getDocument(true);
-            TokenHierarchy<CoffeeScriptTokenId> th = (TokenHierarchy<CoffeeScriptTokenId>) pr.getSnapshot().getTokenHierarchy();
-            TokenSequence<CoffeeScriptTokenId> ts = th.tokenSequence(CoffeeScriptLanguage.getLanguage());
-            List<OffsetRange> ranges = new ArrayList<OffsetRange>();
-            Deque<IdentRegion> indents = new ArrayDeque<IdentRegion>();
-         */
-        
-        
-        /**
-         * OffsetRange range = new OffsetRange(10, 280);
-        OffsetRange range2 = new OffsetRange(400, 600);
-        ArrayList<OffsetRange> list = new ArrayList<OffsetRange>();
-        * list.add(range);
-        list.add(range2);
-        * ret.put("codeblocks", list);
-        return ret;
-        * 
-        * 
-         */
+        return (token.offset(th) + token.length());
     }
 
+    public static void printToken(Token token){
+            System.out.println("\n\n### tok id:" + token.id());
+                    System.out.println("### tok name:" + token.id().name());
+                    System.out.println("### tok cat:" + token.id().primaryCategory());
+                    System.out.println("### tok ordinal:" + token.id().ordinal());
+                    System.out.println("### tok lenght:" + token.length()); 
+                    System.out.println("### tok lenght:" + token.text()); 
+        }
+    
     @Override
     public Configuration getConfiguration() {
         System.out.println("############## here 2");

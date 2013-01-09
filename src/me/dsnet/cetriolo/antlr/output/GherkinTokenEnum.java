@@ -19,7 +19,7 @@ public enum GherkinTokenEnum {
     NUMBER(10, "Number"),
     PHOLDER(11, "Placeholder"),
     SCENARIO(12, "keyword"),
-    SCEN_OUT(13, "Stepkeyword"),
+    SCEN_OUT(13, "keyword"),
     STEP_KEY(14, "Stepkeyword"),
     STRING(15, "string"),
     TAGNAME(16, "Tag"),
