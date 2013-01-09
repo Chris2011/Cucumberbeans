@@ -7,18 +7,15 @@ Feature: Search courses
     In order to ensure better utilization of courses potential students should be able to search for courses
     As a  would like that many many users sign up to this amazing website that i just developed and tested and
     I want that 
-    As a great ninja commander,
-    I want my ninjas to decide wherther to take on an opponent
 
     Scenario Outline: This is a title for scenario outline.
         Remember that this section is completely optional and gives you the outline for all following 
         scenarios. 
-        Given the user is an asshole	# gfhgfhf
-
-        And mauri e baravop
-        Then he should find zero, one or more courses
-        
-
+        Given the user is an asshole
+        Then he should find zero, one or more coursesAnd the ninja should run away
+        Example: The user searches for "scala" and find the result:
+            | Course code | Course Description | Avail  |
+            | A001        | scala guide        | Yes    |
 
     Scenario: Search by topic
         Given there are 240 <courses> which do not have the topic "biology"

@@ -184,7 +184,7 @@ public class TableDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        StringBuilder sb = new StringBuilder("\n");
+        StringBuilder sb = new StringBuilder("\n\t\t\t");
         int rows = jTable1.getModel().getRowCount();
         int columns = jTable1.getModel().getColumnCount();        
         String[][] model = new String [rows][columns];
@@ -211,7 +211,7 @@ public class TableDialog extends javax.swing.JDialog {
                 }
                 sb.append("|");
             }     
-            sb.append("\n");
+            sb.append("\n\t\t\t");
         }
         
         description = sb.toString();
