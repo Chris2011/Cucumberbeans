@@ -26,7 +26,25 @@ public class GherkinStructureScanner implements StructureScanner{
 
     @Override
     public List<? extends StructureItem> scan(ParserResult pr) {
+        System.out.println("######################################################   here");
         List<StructureItem> items = new ArrayList<StructureItem>();
+        try{
+            if (pr == null) {
+            return items;
+        }else{
+            TokenHierarchy<GherkinTokenId> th = (TokenHierarchy<GherkinTokenId>) pr.getSnapshot().getTokenHierarchy();
+            TokenSequence<GherkinTokenId> ts = th.tokenSequence(GherkinTokenId.getLanguage());
+            while (ts.moveNext()) {
+                Token<GherkinTokenId> token = ts.token();
+                    if(token.id().primaryCategory().equals("keyword")){
+                        items.add(new FeatureStructureItem(token,th));
+                    }
+            }
+        }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        
         return items;
     }
 
@@ -75,14 +93,12 @@ public class GherkinStructureScanner implements StructureScanner{
                     if(i  == (blocks.length-1)){
                         ranges.add(new OffsetRange(blocks[i], findEnd(ts, th) ));
                     }else{
-                        ranges.add(new OffsetRange(blocks[i], tuttISuccessiviAlPrimo(blocks[i+1],ts, th)));
+                        ranges.add(new OffsetRange(blocks[i], findBeginning(blocks[i+1],ts, th)));
                     }
                 }
                 folds.put("codeblocks", ranges);
                 folds.put("comments", commentranges);
                 ts.moveStart();
-                
-            
             }catch(Exception e){
                 e.printStackTrace();
             }
@@ -90,7 +106,7 @@ public class GherkinStructureScanner implements StructureScanner{
         }
     }
     
-    public int tuttISuccessiviAlPrimo(int offset,TokenSequence<GherkinTokenId> ts,TokenHierarchy<GherkinTokenId> th){
+    private int findBeginning(int offset,TokenSequence<GherkinTokenId> ts,TokenHierarchy<GherkinTokenId> th){
         ts.move(offset -1);
         Token<GherkinTokenId> token = ts.token();
         //find first keyword
@@ -114,7 +130,7 @@ public class GherkinStructureScanner implements StructureScanner{
         return (token.offset(th) + token.length() - trim);
     }
     
-    public int findEnd(TokenSequence<GherkinTokenId> ts,TokenHierarchy<GherkinTokenId> th){
+    private int findEnd(TokenSequence<GherkinTokenId> ts,TokenHierarchy<GherkinTokenId> th){
         ts.moveEnd();
         ts.movePrevious();
         Token<GherkinTokenId> token = ts.token();
