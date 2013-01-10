@@ -25,3 +25,8 @@ Feature: Search courses
         But I search for "biology"
         Then I should see the following courses:
             
+	Scenario: weaker opponent
+		sdfsfsd
+		Given fdsf
+		When sdfsdf
+		Then sdf

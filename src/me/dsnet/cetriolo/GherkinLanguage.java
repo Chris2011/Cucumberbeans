@@ -34,11 +34,6 @@ public class GherkinLanguage extends DefaultLanguageConfig{
     }
     
     @Override
-    public Parser getParser() {
-        return null;
-    }
-    
-    @Override
     public boolean hasStructureScanner() {
         return true;
     }

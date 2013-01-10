@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import me.dsnet.cetriolo.antlr.integration.GherkinTokenId;
+import me.dsnet.cetriolo.integration.completion.GherkinCompletionNames;
 import org.netbeans.api.lexer.Token;
 import org.netbeans.api.lexer.TokenHierarchy;
 import org.netbeans.api.lexer.TokenSequence;
@@ -26,26 +27,73 @@ public class GherkinStructureScanner implements StructureScanner{
 
     @Override
     public List<? extends StructureItem> scan(ParserResult pr) {
-        System.out.println("######################################################   here");
         List<StructureItem> items = new ArrayList<StructureItem>();
         try{
             if (pr == null) {
             return items;
-        }else{
+        }else{            
             TokenHierarchy<GherkinTokenId> th = (TokenHierarchy<GherkinTokenId>) pr.getSnapshot().getTokenHierarchy();
-            TokenSequence<GherkinTokenId> ts = th.tokenSequence(GherkinTokenId.getLanguage());
+            TokenSequence<GherkinTokenId> ts = th.tokenSequence(GherkinTokenId.getLanguage()); 
+            GherkingStructureItem feature = null;
+            GherkingStructureItem currentScenario = null;
             while (ts.moveNext()) {
                 Token<GherkinTokenId> token = ts.token();
-                    if(token.id().primaryCategory().equals("keyword")){
-                        items.add(new FeatureStructureItem(token,th));
+                //printToken(token);
+                if (token.id().name().equals("FEATURE")) {                    
+                    int start = token.offset(th);
+                    String titolo = getTitle(ts);
+                    feature = new GherkingStructureItem(start,start +1,titolo,GherkinCompletionNames.FEATURE);
+                }else if(feature !=null && token.id().name().equals("SCEN_OUT")){
+                    int start = token.offset(th);
+                    String titolo = getTitle(ts);
+                    currentScenario = new GherkingStructureItem(start,start +1,titolo,GherkinCompletionNames.SCENOUT);
+                    feature.addChild(currentScenario);
+                }else if(feature !=null && token.id().name().equals("SCENARIO")){
+                    int start = token.offset(th);
+                    String titolo = getTitle(ts);
+                    currentScenario = new GherkingStructureItem(start,start +1,titolo,GherkinCompletionNames.SCENARIO);
+                    feature.addChild(currentScenario);
+                }else if(feature !=null && currentScenario != null &&token.id().primaryCategory().equals("Stepkeyword")){
+                    String text = token.text().toString();
+                    GherkinCompletionNames type = null;
+                    if(text.equals("Given ")){           
+                        type = GherkinCompletionNames.GIVEN;
+                    }else if(text.equals("When ")){       
+                        type = GherkinCompletionNames.WHEN;
+                    }else if(text.equals("Then ")){
+                        type = GherkinCompletionNames.THEN;
+                    }else if(text.equals("And ")){
+                        type = GherkinCompletionNames.AND;
+                    }else if(text.equals("But ")){
+                        type = GherkinCompletionNames.BUT;
+                    }else{
+                        type = GherkinCompletionNames.GIVEN;
                     }
+                    int start = token.offset(th);
+                    String titolo = getTitle(ts);
+                    currentScenario.addChild(new GherkingStructureItem(start,start +1,titolo,type));
+                }
             }
+            items.add(feature);
         }
         }catch(Exception e){
             e.printStackTrace();
-        }
-        
+        }        
         return items;
+    }
+    
+    private static String getTitle(TokenSequence<GherkinTokenId> ts){
+        StringBuilder sb = new StringBuilder();
+        while (ts.moveNext()){
+            Token<GherkinTokenId> token = ts.token();
+            if (token.id().name().equals("NL")) {
+                break;
+            }else if (token.id().primaryCategory().equals("Text")){
+                sb.append(token.text());
+                sb.append(" ");
+            }
+        }
+        return sb.toString();
     }
 
     @Override
@@ -63,7 +111,7 @@ public class GherkinStructureScanner implements StructureScanner{
                 //find starting points
                 List<Integer> startingBlocks = new ArrayList<Integer>();
                 while (ts.moveNext()) {
-                    Token<GherkinTokenId> token = ts.token();
+                    Token<GherkinTokenId> token = ts.token();                    
                     if(token.id().primaryCategory().equals("keyword")){
                         while(ts.moveNext()){
                             token = ts.token();
@@ -143,14 +191,14 @@ public class GherkinStructureScanner implements StructureScanner{
         return (token.offset(th) + token.length());
     }
 
-//    public static void printToken(Token token) {
-//        System.out.println("\n\n### tok id:" + token.id());
-//        System.out.println("### tok name:" + token.id().name());
-//        System.out.println("### tok cat:" + token.id().primaryCategory());
-//        System.out.println("### tok ordinal:" + token.id().ordinal());
-//        System.out.println("### tok lenght:" + token.length());
-//        System.out.println("### tok lenght:" + token.text());
-//    }
+    public static void printToken(Token token) {
+        System.out.println("\n\n### tok id:" + token.id());
+        System.out.println("### tok name:" + token.id().name());
+        System.out.println("### tok cat:" + token.id().primaryCategory());
+        System.out.println("### tok ordinal:" + token.id().ordinal());
+        System.out.println("### tok lenght:" + token.length());
+        System.out.println("### tok lenght:" + token.text());
+    }
     
     @Override
     public Configuration getConfiguration() {
