@@ -311,16 +311,22 @@
     </folder>
     <folder name="Templates">
         <folder name="Cucumber">
-            <file name="GherkinTemplate.feature" url="nbresloc:/me/dsnet/cetriolo/resources/xml/GherkinTemplate.feature">
-                <!--me.dsnet.cetriolo-->
+            <file name="GherkinSimple.feature" url="nbresloc:/me/dsnet/cetriolo/resources/xml/GherkinSimple.feature">
+                <attr boolvalue="true" name="template"/> 
+                <attr name="SystemFileSystem.localizingBundle" stringvalue="me.dsnet.cetriolo.resources.xml.Bundle"/>   
+                <attr name="templateWizardURL" urlvalue="nbresloc:/me/dsnet/cetriolo/resources/xml/SimpleDescription.html"/>           
+            </file>   
+            <file name="GherkinFull.feature" url="nbresloc:/me/dsnet/cetriolo/resources/xml/GherkinFull.feature">
                 <attr boolvalue="true" name="template"/>
-            </file>            
+                <attr name="SystemFileSystem.localizingBundle" stringvalue="me.dsnet.cetriolo.resources.xml.Bundle"/>
+                <attr name="templateWizardURL" urlvalue="nbresloc:/me/dsnet/cetriolo/resources/xml/FullDescription.html"/>
+            </file>                        
         </folder>
     </folder> 
     <folder name="OptionsDialog">
         <folder name="PreviewExamples">
             <folder name="text">
-                <file name="x-gherkin" url="nbresloc:/me/dsnet/cetriolo/resources/xml/GherkinTemplate.feature"/>
+                <file name="x-gherkin" url="nbresloc:/me/dsnet/cetriolo/resources/xml/GherkinFull.feature"/>
             </folder>
         </folder>
     </folder>   
