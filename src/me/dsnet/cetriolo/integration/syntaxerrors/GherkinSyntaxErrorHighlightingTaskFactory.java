@@ -17,7 +17,6 @@ public class GherkinSyntaxErrorHighlightingTaskFactory extends TaskFactory {
 
     @Override
     public Collection create (Snapshot snapshot) {
-        System.out.println("******** init syntax highlight");
         return Collections.singleton (new GherkinSyntaxErrorHighlightingTask());
     }
 

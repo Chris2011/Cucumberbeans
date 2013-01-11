@@ -60,7 +60,7 @@
             <attr name="SystemFileSystem.localizingBundle" stringvalue="me.dsnet.cetriolo.Bundle"/>
             <file name="me-dsnet-cetriolo-antlr-integration-IntegrationGherkinParserFactory.instance"/>
             <file name="me-dsnet-cetriolo-integration-syntaxerrors-GherkinSyntaxErrorHighlightingTaskFactory.instance"/>
-<!--            <file name="me-dsnet-cetriolo-integration-reformat-GherkinReformatTaskFactory.instance"/>-->
+            <file name="me-dsnet-cetriolo-integration-reformat-GherkinReformatTaskFactory.instance"/>
             <folder name="FontsColors">
                 <folder name="NetBeans">
                     <folder name="Defaults">

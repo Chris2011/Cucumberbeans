@@ -1,7 +1,7 @@
 #----------------------------------
 # Example of Cucumber .feature file
 #----------------------------------
-
+    
 @RunWith 
 Feature: Search courses
     In order to ensure better utilization of courses potential students should be able to search for courses
@@ -24,9 +24,4 @@ Feature: Search courses
         When I search for "biology"
         But I search for "biology"
         Then I should see the following courses:
-            
-	Scenario: weaker opponent
-		sdfsfsd
-		Given fdsf
-		When sdfsdf
-		Then sdf
+        
