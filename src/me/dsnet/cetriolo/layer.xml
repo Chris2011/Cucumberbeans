@@ -320,7 +320,7 @@
     <folder name="OptionsDialog">
         <folder name="PreviewExamples">
             <folder name="text">
-                <file name="x-gherkin" url="GherkinTemplate.feature"/>
+                <file name="x-gherkin" url="nbresloc:/me/dsnet/cetriolo/resources/xml/GherkinTemplate.feature"/>
             </folder>
         </folder>
     </folder>   

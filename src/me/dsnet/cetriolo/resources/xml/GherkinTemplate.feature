@@ -3,25 +3,28 @@
 #----------------------------------
     
 @RunWith 
-Feature: Search courses
-    In order to ensure better utilization of courses potential students should be able to search for courses
-    As a  would like that many many users sign up to this amazing website that i just developed and tested and
-    I want that 
+Feature: Fight or flight
+   In order to increase the ninja survival rate,
+   As a ninja commander
+   I want my 3 ninjas to decide whether to take on an opponent based on their skill levels
 
-    Scenario Outline: This is a title for scenario outline.
-        Remember that this section is completely optional and gives you the outline for all following 
-        scenarios. 
-        Given the user is an asshole
-        Then he should find zero, one or more coursesAnd the ninja should run away
-        Example: The user searches for "scala" and find the result:
-            | Course code | Course Description | Avail  |
-            | A001        | Antlr guide        | Yes    |
-            | B205        | Parsers and Lexers | No     |
+   Scenario: Simple Chuck
+      Given the ninja has a third level black-belt 
+      When attacked by "Chuck Norris"
+      Then the ninja should apologise 
 
-    Scenario: Search by topic
-        Given there are 240 <courses> which do not have the topic "biology"
-        And there are 2 courses A001, B205 that this each have "biology" as one of the topics
-        When I search for "biology"
-        But I search for "biology"
-        Then I should see the following courses:
-        
+   Scenario: Angry Chuck
+      Given the ninja has a third level black-belt 
+      But the ninja has never fought Chuck Norris before 
+      When attacked by "Chuck Norris"
+      Then the ninja should apologise 
+      And the ninja should run away
+
+   Scenario Outline: third-level ninjas engage samurai
+      Given the ninja has a <belt-level> level black-belt 
+      When attacked by <opponent>
+      Then the ninja should <expected-action> 
+      Examples:
+         | belt level| opponent    | expected action    |
+         | third     | a samurai   | engage the opponent|
+         | third     | Chuck Norris| run for his life   |       
