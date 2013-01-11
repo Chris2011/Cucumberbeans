@@ -285,7 +285,7 @@
                     </file>
                     <file name="me-dsnet-crumblecuc-GherkingDataObject.instance">
                         <!--me.dsnet.cetriolo.GherkingDataObject-->
-                        <attr name="iconBase" stringvalue="me/dsnet/cetriolo/resources/icons/tea.png"/>
+                        <attr name="iconBase" stringvalue="me/dsnet/cetriolo/resources/icons/cucdoc.png"/>
                         <attr intvalue="300" name="position"/>
                         <attr bundlevalue="me.dsnet.cetriolo.Bundle#LBL_Cuc_LOADER" name="displayName"/>
                         <attr methodvalue="org.openide.loaders.DataLoaderPool.factory" name="instanceCreate"/>

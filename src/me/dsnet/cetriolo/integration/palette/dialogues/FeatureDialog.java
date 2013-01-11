@@ -103,7 +103,7 @@ public class FeatureDialog extends javax.swing.JDialog {
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/me/dsnet/cetriolo/resources/icons/block64.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/me/dsnet/cetriolo/resources/icons/cuc64.png"))); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(FeatureDialog.class, "FeatureDialog.jLabel1.text")); // NOI18N
 
         docScrollPane.setBorder(javax.swing.BorderFactory.createEtchedBorder());

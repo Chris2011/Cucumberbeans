@@ -6,8 +6,8 @@
 
     <class name="me.dsnet.cetriolo.integration.palette.PaletteFeature" />
 
-    <icon16 urlvalue="me/dsnet/cetriolo/resources/icons/block.png" />
-    <icon32 urlvalue="me/dsnet/cetriolo/resources/icons/block32.png" />
+    <icon16 urlvalue="me/dsnet/cetriolo/resources/icons/cuc.png" />
+    <icon32 urlvalue="me/dsnet/cetriolo/resources/icons/cuc32.png" />
    
     <inline-description>
        <display-name>Feature</display-name>
