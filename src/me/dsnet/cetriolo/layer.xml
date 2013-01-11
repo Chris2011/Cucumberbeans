@@ -311,7 +311,7 @@
     </folder>
     <folder name="Templates">
         <folder name="Cucumber">
-            <file name="GherkinTemplate.feature" url="nbresloc:/me/dsnet/cetriolo/GherkinTemplate.feature">
+            <file name="GherkinTemplate.feature" url="nbresloc:/me/dsnet/cetriolo/resources/xml/GherkinTemplate.feature">
                 <!--me.dsnet.cetriolo-->
                 <attr boolvalue="true" name="template"/>
             </file>            
