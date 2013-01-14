@@ -99,10 +99,6 @@
           <ResourceString bundle="me/dsnet/cetriolo/integration/palette/dialogues/Bundle.properties" key="PholderDialog.stepDescriptionLabel.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
         </Property>
       </Properties>
-      <Events>
-        <EventHandler event="caretPositionChanged" listener="java.awt.event.InputMethodListener" parameters="java.awt.event.InputMethodEvent" handler="stepDescriptionLabelCaretPositionChanged"/>
-        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="stepDescriptionLabelKeyPressed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="okButton">
       <Properties>

@@ -63,18 +63,6 @@ public class PholderDialog extends javax.swing.JDialog {
         stepDescriptionLabel.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
         stepDescriptionLabel.setForeground(new java.awt.Color(102, 102, 102));
         stepDescriptionLabel.setText(org.openide.util.NbBundle.getMessage(PholderDialog.class, "PholderDialog.stepDescriptionLabel.text")); // NOI18N
-        stepDescriptionLabel.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-                stepDescriptionLabelCaretPositionChanged(evt);
-            }
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
-            }
-        });
-        stepDescriptionLabel.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                stepDescriptionLabelKeyPressed(evt);
-            }
-        });
 
         org.openide.awt.Mnemonics.setLocalizedText(okButton, org.openide.util.NbBundle.getMessage(PholderDialog.class, "PholderDialog.okButton.text")); // NOI18N
         okButton.setBorderPainted(false);
@@ -162,15 +150,6 @@ public class PholderDialog extends javax.swing.JDialog {
         setVisible(false);
         dispose();
     }//GEN-LAST:event_okButtonActionPerformed
-
-    private void stepDescriptionLabelKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_stepDescriptionLabelKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_stepDescriptionLabelKeyPressed
-
-    private void stepDescriptionLabelCaretPositionChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_stepDescriptionLabelCaretPositionChanged
-        // TODO add your handling code here:
-        //stepDescriptionLabel.setForeground(Color.BLACK);
-    }//GEN-LAST:event_stepDescriptionLabelCaretPositionChanged
     
     /**
      * @param args the command line arguments

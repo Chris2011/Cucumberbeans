@@ -55,7 +55,7 @@ public class GherkinStructureScanner implements StructureScanner{
                     feature.addChild(currentScenario);
                 }else if(feature !=null && currentScenario != null &&token.id().primaryCategory().equals("Stepkeyword")){
                     String text = token.text().toString();
-                    GherkinCompletionNames type = null;
+                    GherkinCompletionNames type;
                     if(text.equals("Given ")){           
                         type = GherkinCompletionNames.GIVEN;
                     }else if(text.equals("When ")){       
@@ -67,7 +67,7 @@ public class GherkinStructureScanner implements StructureScanner{
                     }else if(text.equals("But ")){
                         type = GherkinCompletionNames.BUT;
                     }else{
-                        type = GherkinCompletionNames.GIVEN;
+                        continue;
                     }
                     int start = token.offset(th);
                     String titolo = getTitle(ts);
@@ -76,9 +76,7 @@ public class GherkinStructureScanner implements StructureScanner{
             }
             items.add(feature);
         }
-        }catch(Exception e){
-            e.printStackTrace();
-        }        
+        }catch(Exception e){}        
         return items;
     }
     
@@ -147,9 +145,7 @@ public class GherkinStructureScanner implements StructureScanner{
                 folds.put("codeblocks", ranges);
                 folds.put("comments", commentranges);
                 ts.moveStart();
-            }catch(Exception e){
-                e.printStackTrace();
-            }
+            }catch(Exception e){}
             return folds;
         }
     }

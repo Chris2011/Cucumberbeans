@@ -25,8 +25,7 @@ import org.openide.util.Exceptions;
  * @author SessonaD
  */
 public class GherkinSyntaxErrorHighlightingTask extends ParserResultTask{
-//TODO 1) Integrate parser into NetBeans Platform
-//TODO Extend the NetBeans Platform parser to integrate ANTLR.
+
     @Override
     public void run(Result r, SchedulerEvent se) {
         try {
