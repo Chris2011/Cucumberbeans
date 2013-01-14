@@ -5,6 +5,7 @@
 package me.dsnet.cetriolo.integration.palette.dialogues;
 
 import java.awt.Color;
+import java.awt.Font;
 import me.dsnet.cetriolo.integration.completion.GherkinCompletionNames;
 
 /**
@@ -14,7 +15,7 @@ import me.dsnet.cetriolo.integration.completion.GherkinCompletionNames;
 public class ScenarioDialog extends javax.swing.JDialog {
     
     String description = null;
-    boolean docVisible=true;
+    boolean docVisible=false;
     GherkinCompletionNames keyword;
     /**
      * Creates new form StepDialog
@@ -33,8 +34,10 @@ public class ScenarioDialog extends javax.swing.JDialog {
         docEditorPane.setContentType("text/html");
         docEditorPane.setText(keyword.getDocumentation());
         featureTitle.setText(keyword.getExample());
-        featureTitle.setFont(new java.awt.Font("Tahoma", 2, 11));
-        hideshowdoc();
+        featureTitle.setFont(new java.awt.Font("Tahoma", Font.ITALIC, 11));
+        docEditorPane.setVisible(docVisible);
+        docScrollPane.setVisible(docVisible);
+        this.pack();
     }
 
     public String getDescription() {
@@ -54,12 +57,11 @@ public class ScenarioDialog extends javax.swing.JDialog {
 
         scenTitle = new javax.swing.JLabel();
         featureTitle = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        okButton = new javax.swing.JButton();
+        cancelButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         docScrollPane = new javax.swing.JScrollPane();
         docEditorPane = new javax.swing.JEditorPane();
-        showdoclabel = new javax.swing.JLabel();
         scenDesc = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         scenarioStepsArea = new javax.swing.JTextArea();
@@ -71,6 +73,7 @@ public class ScenarioDialog extends javax.swing.JDialog {
         scenSteps = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
+        helpButton = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle(org.openide.util.NbBundle.getMessage(ScenarioDialog.class, "ScenarioDialog.title")); // NOI18N
@@ -81,34 +84,36 @@ public class ScenarioDialog extends javax.swing.JDialog {
         featureTitle.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
         featureTitle.setForeground(new java.awt.Color(102, 102, 102));
         featureTitle.setText(org.openide.util.NbBundle.getMessage(ScenarioDialog.class, "ScenarioDialog.featureTitle.text")); // NOI18N
-        featureTitle.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-                featureTitleCaretPositionChanged(evt);
+        featureTitle.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                featureTitleFocusGained(evt);
             }
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
-            }
-        });
-        featureTitle.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                featureTitleKeyPressed(evt);
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                featureTitleFocusLost(evt);
             }
         });
 
-        org.openide.awt.Mnemonics.setLocalizedText(jButton1, org.openide.util.NbBundle.getMessage(ScenarioDialog.class, "ScenarioDialog.jButton1.text")); // NOI18N
-        jButton1.setBorderPainted(false);
-        jButton1.setFocusPainted(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        org.openide.awt.Mnemonics.setLocalizedText(okButton, org.openide.util.NbBundle.getMessage(ScenarioDialog.class, "ScenarioDialog.okButton.text")); // NOI18N
+        okButton.setBorderPainted(false);
+        okButton.setFocusPainted(false);
+        okButton.setMaximumSize(new java.awt.Dimension(46, 24));
+        okButton.setMinimumSize(new java.awt.Dimension(46, 24));
+        okButton.setPreferredSize(new java.awt.Dimension(46, 24));
+        okButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                okButtonActionPerformed(evt);
             }
         });
 
-        org.openide.awt.Mnemonics.setLocalizedText(jButton2, org.openide.util.NbBundle.getMessage(ScenarioDialog.class, "ScenarioDialog.jButton2.text")); // NOI18N
-        jButton2.setBorderPainted(false);
-        jButton2.setFocusPainted(false);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        org.openide.awt.Mnemonics.setLocalizedText(cancelButton, org.openide.util.NbBundle.getMessage(ScenarioDialog.class, "ScenarioDialog.cancelButton.text")); // NOI18N
+        cancelButton.setBorderPainted(false);
+        cancelButton.setFocusPainted(false);
+        cancelButton.setMaximumSize(new java.awt.Dimension(64, 24));
+        cancelButton.setMinimumSize(new java.awt.Dimension(64, 24));
+        cancelButton.setPreferredSize(new java.awt.Dimension(64, 24));
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                cancelButtonActionPerformed(evt);
             }
         });
 
@@ -123,15 +128,6 @@ public class ScenarioDialog extends javax.swing.JDialog {
         docEditorPane.setContentType("text/html"); // NOI18N
         docEditorPane.setText(org.openide.util.NbBundle.getMessage(ScenarioDialog.class, "ScenarioDialog.docEditorPane.text")); // NOI18N
         docScrollPane.setViewportView(docEditorPane);
-
-        showdoclabel.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
-        showdoclabel.setForeground(new java.awt.Color(0, 51, 255));
-        org.openide.awt.Mnemonics.setLocalizedText(showdoclabel, org.openide.util.NbBundle.getMessage(ScenarioDialog.class, "ScenarioDialog.showdoclabel.text")); // NOI18N
-        showdoclabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                showdoclabelMouseClicked(evt);
-            }
-        });
 
         org.openide.awt.Mnemonics.setLocalizedText(scenDesc, org.openide.util.NbBundle.getMessage(ScenarioDialog.class, "ScenarioDialog.scenDesc.text")); // NOI18N
 
@@ -195,6 +191,18 @@ public class ScenarioDialog extends javax.swing.JDialog {
             }
         });
 
+        helpButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/me/dsnet/cetriolo/resources/icons/help.png"))); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(helpButton, org.openide.util.NbBundle.getMessage(ScenarioDialog.class, "ScenarioDialog.helpButton.text")); // NOI18N
+        helpButton.setBorderPainted(false);
+        helpButton.setFocusPainted(false);
+        helpButton.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        helpButton.setRequestFocusEnabled(false);
+        helpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                helpButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -204,11 +212,12 @@ public class ScenarioDialog extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(docScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(showdoclabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 311, Short.MAX_VALUE)
-                        .addComponent(jButton2)
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(okButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1))
+                        .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(helpButton))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
@@ -231,7 +240,7 @@ public class ScenarioDialog extends javax.swing.JDialog {
                                         .addComponent(jButton6)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jButton7)))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addGap(0, 95, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -259,49 +268,36 @@ public class ScenarioDialog extends javax.swing.JDialog {
                     .addComponent(jButton3)
                     .addComponent(jButton6)
                     .addComponent(jButton7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addComponent(docScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(showdoclabel))
+                    .addComponent(okButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(helpButton))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
         description = null;
         setVisible(false);
         dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_cancelButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        StringBuilder sb= new StringBuilder((keyword ==  GherkinCompletionNames.SCENARIO)?"\n\tScenario: ":"\n\tScenario Outline: ");
+    private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
+        StringBuilder sb= new StringBuilder((keyword ==  GherkinCompletionNames.SCENARIO)?"\n   Scenario: ":"\n   Scenario Outline: ");
         sb.append(featureTitle.getText());
-        sb.append("\n\t\t");
-        sb.append(scenarioDescArea.getText().replaceAll("\n", "\n\t\t"));
-        sb.append("\n\t\t");
-        sb.append(scenarioStepsArea.getText().replaceAll("\n", "\n\t\t"));
+        sb.append("\n      ");
+        sb.append(scenarioDescArea.getText().replaceAll("\n", "\n      "));
+        sb.append("\n      ");
+        sb.append(scenarioStepsArea.getText().replaceAll("\n", "\n      "));
         description = sb.toString();
         setVisible(false);
         dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void showdoclabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showdoclabelMouseClicked
-        hideshowdoc();
-    }//GEN-LAST:event_showdoclabelMouseClicked
-
-    private void featureTitleKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_featureTitleKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_featureTitleKeyPressed
-
-    private void featureTitleCaretPositionChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_featureTitleCaretPositionChanged
-        // TODO add your handling code here:
-        //stepDescriptionLabel.setForeground(Color.BLACK);
-    }//GEN-LAST:event_featureTitleCaretPositionChanged
+    }//GEN-LAST:event_okButtonActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         addNarrative("When ");
@@ -322,6 +318,23 @@ public class ScenarioDialog extends javax.swing.JDialog {
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         addNarrative("And ");
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void helpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpButtonActionPerformed
+        docVisible = !docVisible;
+        docEditorPane.setVisible(docVisible);
+        docScrollPane.setVisible(docVisible);
+        this.pack();
+    }//GEN-LAST:event_helpButtonActionPerformed
+
+    private void featureTitleFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_featureTitleFocusGained
+        featureTitle.setFont(new java.awt.Font("Tahoma", Font.PLAIN, 11));
+        featureTitle.setForeground(Color.BLACK);
+    }//GEN-LAST:event_featureTitleFocusGained
+
+    private void featureTitleFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_featureTitleFocusLost
+        featureTitle.setFont(new java.awt.Font("Tahoma", Font.ITALIC, 11));
+        featureTitle.setForeground(new Color(102, 102, 102));
+    }//GEN-LAST:event_featureTitleFocusLost
     
     private void addNarrative(String keyWord){
         if(scenarioStepsArea.getText() != null && !scenarioStepsArea.getText().isEmpty()){
@@ -332,13 +345,6 @@ public class ScenarioDialog extends javax.swing.JDialog {
         scenarioStepsArea.requestFocusInWindow();
     }
     
-    private void hideshowdoc(){
-        docVisible = !docVisible;
-        docEditorPane.setVisible(docVisible);
-        docScrollPane.setVisible(docVisible);
-        showdoclabel.setText(docVisible ? "(- hide documentation)":"(+ show documentation)");
-        this.pack();
-    }
     /**
      * @param args the command line arguments
      */
@@ -381,11 +387,11 @@ public class ScenarioDialog extends javax.swing.JDialog {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cancelButton;
     private javax.swing.JEditorPane docEditorPane;
     private javax.swing.JScrollPane docScrollPane;
     private javax.swing.JTextField featureTitle;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JToggleButton helpButton;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -394,11 +400,11 @@ public class ScenarioDialog extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JButton okButton;
     private javax.swing.JLabel scenDesc;
     private javax.swing.JLabel scenSteps;
     private javax.swing.JLabel scenTitle;
     private javax.swing.JTextArea scenarioDescArea;
     private javax.swing.JTextArea scenarioStepsArea;
-    private javax.swing.JLabel showdoclabel;
     // End of variables declaration//GEN-END:variables
 }

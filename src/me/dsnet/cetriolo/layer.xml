@@ -311,16 +311,26 @@
     </folder>
     <folder name="Templates">
         <folder name="Cucumber">
+            <file name="GherkinEmpty.feature" url="nbresloc:/me/dsnet/cetriolo/resources/xml/GherkinEmpty.feature">
+                <attr boolvalue="true" name="template"/>
+                <attr name="SystemFileSystem.localizingBundle" stringvalue="me.dsnet.cetriolo.resources.xml.Bundle"/>
+                <attr name="templateWizardURL" urlvalue="nbresloc:/me/dsnet/cetriolo/resources/xml/DescriptionEmpty.html"/>
+            </file>  
             <file name="GherkinSimple.feature" url="nbresloc:/me/dsnet/cetriolo/resources/xml/GherkinSimple.feature">
                 <attr boolvalue="true" name="template"/> 
                 <attr name="SystemFileSystem.localizingBundle" stringvalue="me.dsnet.cetriolo.resources.xml.Bundle"/>   
-                <attr name="templateWizardURL" urlvalue="nbresloc:/me/dsnet/cetriolo/resources/xml/SimpleDescription.html"/>           
+                <attr name="templateWizardURL" urlvalue="nbresloc:/me/dsnet/cetriolo/resources/xml/DescriptionSimple.html"/>           
             </file>   
             <file name="GherkinFull.feature" url="nbresloc:/me/dsnet/cetriolo/resources/xml/GherkinFull.feature">
                 <attr boolvalue="true" name="template"/>
                 <attr name="SystemFileSystem.localizingBundle" stringvalue="me.dsnet.cetriolo.resources.xml.Bundle"/>
-                <attr name="templateWizardURL" urlvalue="nbresloc:/me/dsnet/cetriolo/resources/xml/FullDescription.html"/>
-            </file>                        
+                <attr name="templateWizardURL" urlvalue="nbresloc:/me/dsnet/cetriolo/resources/xml/DescriptionFull.html"/>
+            </file>  
+            <file name="GherkinEmpty.future" url="nbresloc:/me/dsnet/cetriolo/resources/xml/GherkinEmpty.future">
+                <attr boolvalue="true" name="template"/>
+                <attr name="SystemFileSystem.localizingBundle" stringvalue="me.dsnet.cetriolo.resources.xml.Bundle"/>
+                <attr name="templateWizardURL" urlvalue="nbresloc:/me/dsnet/cetriolo/resources/xml/DescriptionFuture.html"/>
+            </file>              
         </folder>
     </folder> 
     <folder name="OptionsDialog">

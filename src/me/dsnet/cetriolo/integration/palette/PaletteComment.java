@@ -40,7 +40,7 @@ public class PaletteComment extends BasePaletteActiveEditor {
         StringBuilder sb = new StringBuilder();
         String[] lines = initialtext.split("\n");
         for(String line:lines){
-            sb.append("\t# ");
+            sb.append("# ");
             sb.append(line);
             sb.append("\n");
         }

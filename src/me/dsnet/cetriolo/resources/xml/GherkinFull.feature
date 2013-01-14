@@ -32,7 +32,7 @@ Feature: Fight or flight
 
    # A scenario outline using placeholders
    Scenario Outline: third-level ninjas engage samurai
-      Given the ninja has a <belt-level> level black-belt 
+      Given the ninja has a <belt-level> level black-belt  
       When attacked by <opponent>
       Then the ninja should <expected-action> 
       Examples:

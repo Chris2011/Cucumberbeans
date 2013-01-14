@@ -5,6 +5,7 @@
 package me.dsnet.cetriolo.integration.palette.dialogues;
 
 import java.awt.Color;
+import java.awt.Font;
 import me.dsnet.cetriolo.integration.completion.GherkinCompletionNames;
 
 /**
@@ -14,7 +15,7 @@ import me.dsnet.cetriolo.integration.completion.GherkinCompletionNames;
 public class StepsDialog extends javax.swing.JDialog {
     
     String description = null;
-    boolean docVisible=true;
+    boolean docVisible=false;
     /**
      * Creates new form StepDialog
      */
@@ -25,12 +26,13 @@ public class StepsDialog extends javax.swing.JDialog {
         setTitle("Customize step definition - " + keywordTitle.display);
         setIconImage(keywordTitle.getIcon(16));
         jLabel1.setIcon(new javax.swing.ImageIcon(keywordTitle.getIcon(64)));
-        //jTextArea1.setText(keywordTitle.getDocumentation());
         docEditorPane.setContentType("text/html");
         docEditorPane.setText(keywordTitle.getDocumentation());
         stepDescriptionLabel.setText(keywordTitle.getExample());
-        stepDescriptionLabel.setFont(new java.awt.Font("Tahoma", 2, 11));
-        hideshowdoc();
+        stepDescriptionLabel.setFont(new java.awt.Font("Tahoma", Font.ITALIC, 11));
+        docEditorPane.setVisible(docVisible);
+        docScrollPane.setVisible(docVisible);
+        this.pack();
     }
 
     public String getDescription() {
@@ -50,12 +52,12 @@ public class StepsDialog extends javax.swing.JDialog {
 
         stepLabelWord = new javax.swing.JLabel();
         stepDescriptionLabel = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        okButton = new javax.swing.JButton();
+        cancelButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         docScrollPane = new javax.swing.JScrollPane();
         docEditorPane = new javax.swing.JEditorPane();
-        showdoclabel = new javax.swing.JLabel();
+        helpButton = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle(org.openide.util.NbBundle.getMessage(StepsDialog.class, "StepsDialog.title")); // NOI18N
@@ -66,38 +68,42 @@ public class StepsDialog extends javax.swing.JDialog {
         stepDescriptionLabel.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
         stepDescriptionLabel.setForeground(new java.awt.Color(102, 102, 102));
         stepDescriptionLabel.setText(org.openide.util.NbBundle.getMessage(StepsDialog.class, "StepsDialog.stepDescriptionLabel.text")); // NOI18N
-        stepDescriptionLabel.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-                stepDescriptionLabelCaretPositionChanged(evt);
+        stepDescriptionLabel.setRequestFocusEnabled(false);
+        stepDescriptionLabel.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                stepDescriptionLabelFocusGained(evt);
             }
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
-            }
-        });
-        stepDescriptionLabel.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                stepDescriptionLabelKeyPressed(evt);
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                stepDescriptionLabelFocusLost(evt);
             }
         });
 
-        org.openide.awt.Mnemonics.setLocalizedText(jButton1, org.openide.util.NbBundle.getMessage(StepsDialog.class, "StepsDialog.jButton1.text")); // NOI18N
-        jButton1.setBorderPainted(false);
-        jButton1.setFocusPainted(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        org.openide.awt.Mnemonics.setLocalizedText(okButton, org.openide.util.NbBundle.getMessage(StepsDialog.class, "StepsDialog.okButton.text")); // NOI18N
+        okButton.setBorderPainted(false);
+        okButton.setFocusPainted(false);
+        okButton.setMaximumSize(new java.awt.Dimension(46, 24));
+        okButton.setMinimumSize(new java.awt.Dimension(46, 24));
+        okButton.setPreferredSize(new java.awt.Dimension(46, 24));
+        okButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                okButtonActionPerformed(evt);
             }
         });
 
-        org.openide.awt.Mnemonics.setLocalizedText(jButton2, org.openide.util.NbBundle.getMessage(StepsDialog.class, "StepsDialog.jButton2.text")); // NOI18N
-        jButton2.setBorderPainted(false);
-        jButton2.setFocusPainted(false);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        org.openide.awt.Mnemonics.setLocalizedText(cancelButton, org.openide.util.NbBundle.getMessage(StepsDialog.class, "StepsDialog.cancelButton.text")); // NOI18N
+        cancelButton.setBorderPainted(false);
+        cancelButton.setFocusPainted(false);
+        cancelButton.setMaximumSize(new java.awt.Dimension(64, 24));
+        cancelButton.setMinimumSize(new java.awt.Dimension(64, 24));
+        cancelButton.setPreferredSize(new java.awt.Dimension(64, 24));
+        cancelButton.setRequestFocusEnabled(false);
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                cancelButtonActionPerformed(evt);
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/me/dsnet/cetriolo/resources/icons/narrative-asa64.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/me/dsnet/cetriolo/resources/icons/step64.png"))); // NOI18N
         org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(StepsDialog.class, "StepsDialog.jLabel1.text")); // NOI18N
 
         docScrollPane.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -109,12 +115,15 @@ public class StepsDialog extends javax.swing.JDialog {
         docEditorPane.setText(org.openide.util.NbBundle.getMessage(StepsDialog.class, "StepsDialog.docEditorPane.text")); // NOI18N
         docScrollPane.setViewportView(docEditorPane);
 
-        showdoclabel.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
-        showdoclabel.setForeground(new java.awt.Color(0, 51, 255));
-        org.openide.awt.Mnemonics.setLocalizedText(showdoclabel, org.openide.util.NbBundle.getMessage(StepsDialog.class, "StepsDialog.showdoclabel.text")); // NOI18N
-        showdoclabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                showdoclabelMouseClicked(evt);
+        helpButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/me/dsnet/cetriolo/resources/icons/help.png"))); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(helpButton, org.openide.util.NbBundle.getMessage(StepsDialog.class, "StepsDialog.helpButton.text")); // NOI18N
+        helpButton.setBorderPainted(false);
+        helpButton.setFocusPainted(false);
+        helpButton.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        helpButton.setRequestFocusEnabled(false);
+        helpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                helpButtonActionPerformed(evt);
             }
         });
 
@@ -127,19 +136,20 @@ public class StepsDialog extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(docScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(showdoclabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 305, Short.MAX_VALUE)
-                        .addComponent(jButton2)
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(okButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1))
+                        .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(helpButton))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(stepDescriptionLabel)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(stepLabelWord)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addComponent(stepLabelWord, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
+                                .addGap(422, 422, 422)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -153,50 +163,48 @@ public class StepsDialog extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(stepDescriptionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(docScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
-                .addGap(7, 7, 7)
+                .addComponent(docScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(showdoclabel))
+                    .addComponent(helpButton)
+                    .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(okButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
         description = null;
         setVisible(false);
         dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_cancelButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
         description = stepDescriptionLabel.getText();
         setVisible(false);
         dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_okButtonActionPerformed
 
-    private void showdoclabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showdoclabelMouseClicked
-        hideshowdoc();
-    }//GEN-LAST:event_showdoclabelMouseClicked
+    private void stepDescriptionLabelFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_stepDescriptionLabelFocusGained
+        stepDescriptionLabel.setFont(new java.awt.Font("Tahoma", Font.PLAIN, 11));
+        stepDescriptionLabel.setForeground(Color.BLACK);
+    }//GEN-LAST:event_stepDescriptionLabelFocusGained
 
-    private void stepDescriptionLabelKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_stepDescriptionLabelKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_stepDescriptionLabelKeyPressed
+    private void stepDescriptionLabelFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_stepDescriptionLabelFocusLost
+        stepDescriptionLabel.setFont(new java.awt.Font("Tahoma", Font.ITALIC, 11));
+        stepDescriptionLabel.setForeground(new Color(102, 102, 102));
+    }//GEN-LAST:event_stepDescriptionLabelFocusLost
 
-    private void stepDescriptionLabelCaretPositionChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_stepDescriptionLabelCaretPositionChanged
-        // TODO add your handling code here:
-        //stepDescriptionLabel.setForeground(Color.BLACK);
-    }//GEN-LAST:event_stepDescriptionLabelCaretPositionChanged
-    
-    private void hideshowdoc(){
+    private void helpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpButtonActionPerformed
         docVisible = !docVisible;
         docEditorPane.setVisible(docVisible);
         docScrollPane.setVisible(docVisible);
-        showdoclabel.setText(docVisible ? "(- hide documentation)":"(+ show documentation)");
         this.pack();
-    }
+    }//GEN-LAST:event_helpButtonActionPerformed
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -238,13 +246,14 @@ public class StepsDialog extends javax.swing.JDialog {
             }
         });
     }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cancelButton;
     private javax.swing.JEditorPane docEditorPane;
     private javax.swing.JScrollPane docScrollPane;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JToggleButton helpButton;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel showdoclabel;
+    private javax.swing.JButton okButton;
     private javax.swing.JTextField stepDescriptionLabel;
     private javax.swing.JLabel stepLabelWord;
     // End of variables declaration//GEN-END:variables

@@ -4,8 +4,6 @@
  */
 package me.dsnet.cetriolo.integration.palette.dialogues;
 
-import java.awt.Color;
-import me.dsnet.cetriolo.integration.completion.GherkinCompletionNames;
 import org.openide.util.ImageUtilities;
 
 /**
@@ -25,9 +23,9 @@ public class TableDialog extends javax.swing.JDialog {
         setTitle("Insert table");
         setIconImage(ImageUtilities.loadImage("me/dsnet/cetriolo/resources/icons/table.png"));
         jLabel1.setIcon(new javax.swing.ImageIcon(ImageUtilities.loadImage("me/dsnet/cetriolo/resources/icons/table64.png")));
+        jTable1.setModel(new CustomTableModel(3, 1));
         jComboBox1.setSelectedIndex(2);
         jComboBox1.setSelectedIndex(0);
-        jTable1.setModel(new CustomTableModel(3, 1));
     }
 
     public String getDescription() {
@@ -50,8 +48,8 @@ public class TableDialog extends javax.swing.JDialog {
     private void initComponents() {
 
         stepLabelWord = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        okButton = new javax.swing.JButton();
+        cancelButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -66,21 +64,27 @@ public class TableDialog extends javax.swing.JDialog {
 
         org.openide.awt.Mnemonics.setLocalizedText(stepLabelWord, org.openide.util.NbBundle.getMessage(TableDialog.class, "TableDialog.stepLabelWord.text")); // NOI18N
 
-        org.openide.awt.Mnemonics.setLocalizedText(jButton1, org.openide.util.NbBundle.getMessage(TableDialog.class, "TableDialog.jButton1.text")); // NOI18N
-        jButton1.setBorderPainted(false);
-        jButton1.setFocusPainted(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        org.openide.awt.Mnemonics.setLocalizedText(okButton, org.openide.util.NbBundle.getMessage(TableDialog.class, "TableDialog.okButton.text")); // NOI18N
+        okButton.setBorderPainted(false);
+        okButton.setFocusPainted(false);
+        okButton.setMaximumSize(new java.awt.Dimension(46, 24));
+        okButton.setMinimumSize(new java.awt.Dimension(46, 24));
+        okButton.setPreferredSize(new java.awt.Dimension(46, 24));
+        okButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                okButtonActionPerformed(evt);
             }
         });
 
-        org.openide.awt.Mnemonics.setLocalizedText(jButton2, org.openide.util.NbBundle.getMessage(TableDialog.class, "TableDialog.jButton2.text")); // NOI18N
-        jButton2.setBorderPainted(false);
-        jButton2.setFocusPainted(false);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        org.openide.awt.Mnemonics.setLocalizedText(cancelButton, org.openide.util.NbBundle.getMessage(TableDialog.class, "TableDialog.cancelButton.text")); // NOI18N
+        cancelButton.setBorderPainted(false);
+        cancelButton.setFocusPainted(false);
+        cancelButton.setMaximumSize(new java.awt.Dimension(64, 24));
+        cancelButton.setMinimumSize(new java.awt.Dimension(64, 24));
+        cancelButton.setPreferredSize(new java.awt.Dimension(64, 24));
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                cancelButtonActionPerformed(evt);
             }
         });
 
@@ -132,9 +136,9 @@ public class TableDialog extends javax.swing.JDialog {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 523, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton2)
+                        .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1))
+                        .addComponent(okButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(10, 10, 10)
@@ -166,25 +170,25 @@ public class TableDialog extends javax.swing.JDialog {
                             .addComponent(jLabel3)
                             .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(okButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
         description = null;
         setVisible(false);
         dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_cancelButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        StringBuilder sb = new StringBuilder("\n\t\t\t");
+    private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
+        StringBuilder sb = new StringBuilder("\n         ");
         int rows = jTable1.getModel().getRowCount();
         int columns = jTable1.getModel().getColumnCount();        
         String[][] model = new String [rows][columns];
@@ -211,13 +215,13 @@ public class TableDialog extends javax.swing.JDialog {
                 }
                 sb.append("|");
             }     
-            sb.append("\n\t\t\t");
+            sb.append("\n         ");
         }
         
         description = sb.toString();
         setVisible(false);
         dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_okButtonActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         updatetablesize();
@@ -269,8 +273,7 @@ public class TableDialog extends javax.swing.JDialog {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton cancelButton;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox2;
     private javax.swing.JLabel jLabel1;
@@ -278,6 +281,7 @@ public class TableDialog extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JButton okButton;
     private javax.swing.JLabel stepLabelWord;
     // End of variables declaration//GEN-END:variables
 }

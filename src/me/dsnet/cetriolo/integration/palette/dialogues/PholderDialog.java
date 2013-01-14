@@ -5,6 +5,7 @@
 package me.dsnet.cetriolo.integration.palette.dialogues;
 
 import java.awt.Color;
+import java.awt.Font;
 import me.dsnet.cetriolo.integration.completion.GherkinCompletionNames;
 import org.openide.util.ImageUtilities;
 
@@ -26,8 +27,9 @@ public class PholderDialog extends javax.swing.JDialog {
         setIconImage(ImageUtilities.loadImage("me/dsnet/cetriolo/resources/icons/place.png"));
         jLabel1.setIcon(new javax.swing.ImageIcon(ImageUtilities.loadImage("me/dsnet/cetriolo/resources/icons/place64.png")));
         //jTextArea1.setText(keywordTitle.getDocumentation());
-        stepDescriptionLabel.setText("insert a placeholder name...");
-        stepDescriptionLabel.setFont(new java.awt.Font("Tahoma", 2, 11));
+        stepDescriptionLabel.setText("ninja");
+        stepDescriptionLabel.setFont(new java.awt.Font("Tahoma", Font.PLAIN, 11));
+        stepDescriptionLabel.setForeground(Color.BLACK);
     }
 
     public String getDescription() {
@@ -47,8 +49,8 @@ public class PholderDialog extends javax.swing.JDialog {
 
         stepLabelWord = new javax.swing.JLabel();
         stepDescriptionLabel = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        okButton = new javax.swing.JButton();
+        cancelButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -74,21 +76,27 @@ public class PholderDialog extends javax.swing.JDialog {
             }
         });
 
-        org.openide.awt.Mnemonics.setLocalizedText(jButton1, org.openide.util.NbBundle.getMessage(PholderDialog.class, "PholderDialog.jButton1.text")); // NOI18N
-        jButton1.setBorderPainted(false);
-        jButton1.setFocusPainted(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        org.openide.awt.Mnemonics.setLocalizedText(okButton, org.openide.util.NbBundle.getMessage(PholderDialog.class, "PholderDialog.okButton.text")); // NOI18N
+        okButton.setBorderPainted(false);
+        okButton.setFocusPainted(false);
+        okButton.setMaximumSize(new java.awt.Dimension(46, 24));
+        okButton.setMinimumSize(new java.awt.Dimension(46, 24));
+        okButton.setPreferredSize(new java.awt.Dimension(46, 24));
+        okButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                okButtonActionPerformed(evt);
             }
         });
 
-        org.openide.awt.Mnemonics.setLocalizedText(jButton2, org.openide.util.NbBundle.getMessage(PholderDialog.class, "PholderDialog.jButton2.text")); // NOI18N
-        jButton2.setBorderPainted(false);
-        jButton2.setFocusPainted(false);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        org.openide.awt.Mnemonics.setLocalizedText(cancelButton, org.openide.util.NbBundle.getMessage(PholderDialog.class, "PholderDialog.cancelButton.text")); // NOI18N
+        cancelButton.setBorderPainted(false);
+        cancelButton.setFocusPainted(false);
+        cancelButton.setMaximumSize(new java.awt.Dimension(64, 24));
+        cancelButton.setMinimumSize(new java.awt.Dimension(64, 24));
+        cancelButton.setPreferredSize(new java.awt.Dimension(64, 24));
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                cancelButtonActionPerformed(evt);
             }
         });
 
@@ -106,9 +114,9 @@ public class PholderDialog extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton2)
+                        .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1))
+                        .addComponent(okButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -135,25 +143,25 @@ public class PholderDialog extends javax.swing.JDialog {
                         .addComponent(stepLabelWord)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(okButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
         description = null;
         setVisible(false);
         dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_cancelButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
         description = stepDescriptionLabel.getText();
         setVisible(false);
         dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_okButtonActionPerformed
 
     private void stepDescriptionLabelKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_stepDescriptionLabelKeyPressed
         // TODO add your handling code here:
@@ -206,10 +214,10 @@ public class PholderDialog extends javax.swing.JDialog {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton cancelButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton okButton;
     private javax.swing.JTextField stepDescriptionLabel;
     private javax.swing.JLabel stepLabelWord;
     // End of variables declaration//GEN-END:variables
