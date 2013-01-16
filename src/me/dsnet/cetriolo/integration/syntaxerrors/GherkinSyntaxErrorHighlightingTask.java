@@ -7,13 +7,11 @@ package me.dsnet.cetriolo.integration.syntaxerrors;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.text.Document;
-import javax.swing.text.StyledDocument;
 import me.dsnet.cetriolo.antlr.integration.GherkinTokenId;
 import me.dsnet.cetriolo.antlr.integration.IntegrationGherkingParserResult;
 import me.dsnet.cetriolo.antlr.output.GherkinParser.SyntaxError;
 import me.dsnet.cetriolo.integration.hints.ExpectingFeatureFix;
 import org.antlr.runtime.RecognitionException;
-import org.netbeans.api.lexer.Token;
 import org.netbeans.api.lexer.TokenHierarchy;
 import org.netbeans.api.lexer.TokenSequence;
 import org.netbeans.modules.parsing.spi.Parser.Result;
@@ -50,25 +48,23 @@ public class GherkinSyntaxErrorHighlightingTask extends ParserResultTask{
                 int line = exception.line;
                 if (line <= 0) {
                     continue;
-                }
-                
-                //set fixes
-                List<Fix> fixes = new ArrayList<Fix>();
+                }                
+                //get offset and fixes where can apply
                 int offset = getTokenExceptionOffset(ts,exception);
-                fixes.add(new ExpectingFeatureFix(document,message,offset));
-                
-                ErrorDescription errorDescription = ErrorDescriptionFactory.createErrorDescription(
-                        Severity.ERROR,
-                        message,
-                        fixes,
-                        document,
-                        line);
+                List<Fix> fixes = getFixesWherePossible(ts, exception, offset, document, message);
+                ErrorDescription errorDescription = ErrorDescriptionFactory.createErrorDescription(Severity.ERROR,message,fixes,document,line);
                 errors.add(errorDescription);
             }
             HintsController.setErrors(document, "feature", errors);               
         }catch (Exception ex1) {
-            Exceptions.printStackTrace (ex1);
+            //Exceptions.printStackTrace (ex1);
         }
+    }
+    
+    private List<Fix> getFixesWherePossible(TokenSequence<GherkinTokenId> ts,RecognitionException exception,int offset,Document document,String message){
+        List<Fix> fixes = new ArrayList<Fix>();
+        fixes.add(new ExpectingFeatureFix(document,message,offset));
+        return fixes;
     }
     
     private int getTokenExceptionOffset(TokenSequence<GherkinTokenId> ts,RecognitionException exception){
