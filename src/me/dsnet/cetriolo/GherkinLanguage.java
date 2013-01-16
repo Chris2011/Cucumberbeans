@@ -23,7 +23,7 @@ public class GherkinLanguage extends DefaultLanguageConfig{
     @Override
     public Language getLexerLanguage() {
         return GherkinTokenId.getLanguage();
-    }
+    } 
 
     @Override
     public String getDisplayName() {
