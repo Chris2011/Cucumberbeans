@@ -18,6 +18,8 @@ import org.netbeans.modules.parsing.spi.Parser;
 
 public class GherkinLanguage extends DefaultLanguageConfig{
     
+    private static final String LINE_COMMENT_PREFIX = "# ";
+    
     @Override
     public Language getLexerLanguage() {
         return GherkinTokenId.getLanguage();
@@ -26,6 +28,11 @@ public class GherkinLanguage extends DefaultLanguageConfig{
     @Override
     public String getDisplayName() {
         return "Cucumber";
+    }
+    
+    @Override
+    public String getLineCommentPrefix() {
+        return LINE_COMMENT_PREFIX;
     }
 
     @Override
