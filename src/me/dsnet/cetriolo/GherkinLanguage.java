@@ -5,12 +5,10 @@
 package me.dsnet.cetriolo;
 
 import me.dsnet.cetriolo.antlr.integration.GherkinTokenId;
-import me.dsnet.cetriolo.antlr.output.GherkinParser;
 import me.dsnet.cetriolo.integration.fold.GherkinStructureScanner;
 import org.netbeans.api.lexer.Language;
 import org.netbeans.modules.csl.api.StructureScanner;
 import org.netbeans.modules.csl.spi.DefaultLanguageConfig;
-import org.netbeans.modules.parsing.spi.Parser;
 /**
  *
  * @author SessonaD
