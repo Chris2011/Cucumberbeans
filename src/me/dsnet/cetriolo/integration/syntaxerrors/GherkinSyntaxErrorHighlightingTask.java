@@ -9,7 +9,7 @@ import java.util.List;
 import javax.swing.text.Document;
 import me.dsnet.cetriolo.antlr.integration.GherkinTokenId;
 import me.dsnet.cetriolo.antlr.integration.IntegrationGherkingParserResult;
-import me.dsnet.cetriolo.antlr.output.GherkinParser.SyntaxError;
+import me.dsnet.cetriolo.antlr.output.SyntaxError;
 import me.dsnet.cetriolo.integration.hints.ExpectingFeatureFix;
 import org.antlr.runtime.RecognitionException;
 import org.netbeans.api.lexer.TokenHierarchy;
@@ -42,36 +42,54 @@ public class GherkinSyntaxErrorHighlightingTask extends ParserResultTask{
             //get token sequence to find out offset of token where the excetion was found
             TokenHierarchy<GherkinTokenId> th = (TokenHierarchy<GherkinTokenId>) r.getSnapshot().getTokenHierarchy();
             TokenSequence<GherkinTokenId> ts = th.tokenSequence(GherkinTokenId.getLanguage());
-            for (SyntaxError syntaxError : syntaxErrors) {                
-                RecognitionException exception = syntaxError.exception;
-                String message = syntaxError.message;                
-                int line = exception.line;
-                if (line <= 0) {
+            for (SyntaxError syntaxError : syntaxErrors) {        
+                printException(syntaxError); 
+                if (syntaxError.getLine() <= 0) {
                     continue;
                 }                
                 //get offset and fixes where can apply
-                int offset = getTokenExceptionOffset(ts,exception);
-                List<Fix> fixes = getFixesWherePossible(ts, exception, offset, document, message);
-                ErrorDescription errorDescription = ErrorDescriptionFactory.createErrorDescription(Severity.ERROR,message,fixes,document,line);
+                int offset = getTokenExceptionOffset(ts,syntaxError);
+                List<Fix> fixes = getFixesWherePossible(document,syntaxError, offset);
+                ErrorDescription errorDescription = ErrorDescriptionFactory.createErrorDescription(Severity.ERROR,syntaxError.getMessageToDispaly(),fixes,document,syntaxError.getLine());
                 errors.add(errorDescription);
             }
             HintsController.setErrors(document, "feature", errors);               
         }catch (Exception ex1) {
-            //Exceptions.printStackTrace (ex1);
+            Exceptions.printStackTrace (ex1);
         }
     }
     
-    private List<Fix> getFixesWherePossible(TokenSequence<GherkinTokenId> ts,RecognitionException exception,int offset,Document document,String message){
+    private List<Fix> getFixesWherePossible(Document document,SyntaxError error,int offset){
         List<Fix> fixes = new ArrayList<Fix>();
-        fixes.add(new ExpectingFeatureFix(document,message,offset));
+        printException(error);
+        if(error.getErrorType() == SyntaxError.ErrorType.MISSING_FEATURE){
+            fixes.add(new ExpectingFeatureFix(document,offset));
+        }else{
+            printException(error);
+        }        
         return fixes;
     }
     
-    private int getTokenExceptionOffset(TokenSequence<GherkinTokenId> ts,RecognitionException exception){
-        int index = exception.index;
-        ts.moveIndex(index);
-        ts.moveNext();
-        return ts.offset();
+    private void printException(SyntaxError error){
+        RecognitionException ex=error.getException();
+        System.out.println("---------------------------------------------------");
+        System.out.println("\ngetLocalizedMessage: " + ex.getLocalizedMessage());
+        System.out.println("\ngetMessage: " + ex.getMessage());
+        System.out.println("\ngetCause: " + ex.getCause());
+        System.out.println("\nerror message: " + error.getMessage());
+    }
+    
+    private int getTokenExceptionOffset(TokenSequence<GherkinTokenId> ts, SyntaxError error) {
+        try{
+            int index = error.getIndex();
+            ts.moveIndex(index);
+            ts.moveNext();
+            return ts.offset();
+        }catch(Exception e){
+            System.out.println("no more tokens");
+            ts.movePrevious();
+            return ts.offset();
+        }
     }
 
     @Override

@@ -11,21 +11,11 @@ options {
 	public List<SyntaxError> syntaxErrors = new ArrayList<SyntaxError>();
 
 	@Override
-	public String getErrorMessage(RecognitionException e, String[] tokenNames) {
-		String message = super.getErrorMessage(e, tokenNames);
-		SyntaxError syntaxError = new SyntaxError();
-		syntaxError.exception = e;
-		syntaxError.message = message;
-		syntaxErrors.add(syntaxError);
-		return message;
-	}
-
-	public static class SyntaxError {
-		public RecognitionException exception;
-		public String message;
-		public int line;
-		public int charPositionInLine;
-	}
+        public String getErrorMessage(RecognitionException e, String[] tokenNames) {
+            String message = super.getErrorMessage(e, tokenNames);
+            syntaxErrors.add(new SyntaxError(e,message));
+            return message;
+        }
 }
 
 /*------------------------------------------------------------------

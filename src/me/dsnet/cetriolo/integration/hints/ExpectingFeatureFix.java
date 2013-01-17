@@ -16,21 +16,18 @@ import org.netbeans.spi.editor.hints.Fix;
  * @author sessonad
  */
 public class ExpectingFeatureFix implements Fix{
-
-    String errorText;
+    
     Document document;
     int offset;
     
-    public ExpectingFeatureFix(Document document,String errorText, int offset) {        
-        this.errorText=errorText;
+    public ExpectingFeatureFix(Document document, int offset) {            
         this.document=document;
         this.offset = offset;
-        System.out.println("Fixing error feature built.");
     }
     
     @Override
     public String getText() {
-        return "fix the " + errorText;
+        return "Add a \"Feature:\" block ..." ;
     }
 
     @Override
