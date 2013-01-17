@@ -31,6 +31,8 @@ public class GherkinParser extends Parser {
     public static final int T_ROW = 17;
     public static final int WORD = 18;
     public static final int WS = 19;
+    
+    
 
     // delegates
     public Parser[] getDelegates() {
@@ -69,6 +71,7 @@ public class GherkinParser extends Parser {
     @Override
     public String getErrorMessage(RecognitionException e, String[] tokenNames) {
         String message = super.getErrorMessage(e, tokenNames);
+        System.out.println("token: " + e.node);
         syntaxErrors.add(new SyntaxError(e,message));
         return message;
     }
@@ -271,7 +274,9 @@ public class GherkinParser extends Parser {
             retval.tree = (Object) adaptor.rulePostProcessing(root_0);
             adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
 
-        } catch (RecognitionException re) {
+        } catch (RecognitionException re) {       
+            System.out.println("get delegates #####################################################################");
+            re.node=GherkinTokenEnum.SCENARIO;
             reportError(re);
             recover(input, re);
             retval.tree = (Object) adaptor.errorNode(input, retval.start, input.LT(-1), re);
@@ -482,7 +487,9 @@ public class GherkinParser extends Parser {
             retval.tree = (Object) adaptor.rulePostProcessing(root_0);
             adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
 
-        } catch (RecognitionException re) {
+        } catch (RecognitionException re) {     
+            System.out.println("scenario #####################################################################");
+            re.node=GherkinTokenEnum.SCENARIO;
             reportError(re);
             recover(input, re);
             retval.tree = (Object) adaptor.errorNode(input, retval.start, input.LT(-1), re);
@@ -710,6 +717,7 @@ public class GherkinParser extends Parser {
             adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
 
         } catch (RecognitionException re) {
+            System.out.println("scen out #####################################################################");
             reportError(re);
             recover(input, re);
             retval.tree = (Object) adaptor.errorNode(input, retval.start, input.LT(-1), re);
@@ -871,6 +879,7 @@ public class GherkinParser extends Parser {
             adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
 
         } catch (RecognitionException re) {
+            System.out.println("examples #####################################################################");
             reportError(re);
             recover(input, re);
             retval.tree = (Object) adaptor.errorNode(input, retval.start, input.LT(-1), re);
@@ -1058,6 +1067,7 @@ public class GherkinParser extends Parser {
             adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
 
         } catch (RecognitionException re) {
+            System.out.println("step #####################################################################");
             reportError(re);
             recover(input, re);
             retval.tree = (Object) adaptor.errorNode(input, retval.start, input.LT(-1), re);
@@ -1146,6 +1156,7 @@ public class GherkinParser extends Parser {
             adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
 
         } catch (RecognitionException re) {
+            System.out.println("title #####################################################################");
             reportError(re);
             recover(input, re);
             retval.tree = (Object) adaptor.errorNode(input, retval.start, input.LT(-1), re);
@@ -1295,6 +1306,7 @@ public class GherkinParser extends Parser {
             adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
 
         } catch (RecognitionException re) {
+            System.out.println("narrative #####################################################################");
             reportError(re);
             recover(input, re);
             retval.tree = (Object) adaptor.errorNode(input, retval.start, input.LT(-1), re);
@@ -1374,6 +1386,7 @@ public class GherkinParser extends Parser {
             adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
 
         } catch (RecognitionException re) {
+            System.out.println("stepdesc #####################################################################");
             reportError(re);
             recover(input, re);
             retval.tree = (Object) adaptor.errorNode(input, retval.start, input.LT(-1), re);
@@ -1479,6 +1492,7 @@ public class GherkinParser extends Parser {
             adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
 
         } catch (RecognitionException re) {
+            System.out.println("table #####################################################################");
             reportError(re);
             recover(input, re);
             retval.tree = (Object) adaptor.errorNode(input, retval.start, input.LT(-1), re);
@@ -1591,6 +1605,7 @@ public class GherkinParser extends Parser {
             adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
 
         } catch (RecognitionException re) {
+            System.out.println("tag #####################################################################");
             reportError(re);
             recover(input, re);
             retval.tree = (Object) adaptor.errorNode(input, retval.start, input.LT(-1), re);

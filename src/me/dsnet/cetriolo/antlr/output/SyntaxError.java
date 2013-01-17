@@ -19,9 +19,11 @@ public class SyntaxError {
     int charPositionInLine;
     int index;
     ErrorType errorType;
+    GherkinTokenEnum rule;
     
     public enum ErrorType{        
-        MISSING_FEATURE
+        MISSING_FEATURE,
+        MISSING_SCENARIO
     }    
     
     public SyntaxError(RecognitionException exception, String message) {
@@ -30,6 +32,9 @@ public class SyntaxError {
         this.line = exception.line;
         this.charPositionInLine = exception.charPositionInLine;
         this.index= exception.index;
+        if(exception.node instanceof GherkinTokenEnum){
+            this.rule = (GherkinTokenEnum)exception.node;
+        }
         if(message.startsWith("missing FEATURE")){
             this.errorType=ErrorType.MISSING_FEATURE;
             String tokenFound = message.substring("missing FEATURE at ".length());
@@ -37,6 +42,11 @@ public class SyntaxError {
         }else if(message.startsWith("mismatched input '<EOF>' expecting FEATURE")){
             this.errorType=ErrorType.MISSING_FEATURE;
             this.messageToDispaly = "End of file reached, a 'Feature:' is required.";
+        }else if(message.startsWith("required (...)+ loop")){
+            if(rule == GherkinTokenEnum.SCENARIO){
+                this.errorType=ErrorType.MISSING_SCENARIO;
+                this.messageToDispaly = "End of file reached, a 'Scenario:' or 'Scenario Outline:' is required.";
+            }
         }
     }
 

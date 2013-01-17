@@ -10,7 +10,9 @@ import javax.swing.text.Document;
 import me.dsnet.cetriolo.antlr.integration.GherkinTokenId;
 import me.dsnet.cetriolo.antlr.integration.IntegrationGherkingParserResult;
 import me.dsnet.cetriolo.antlr.output.SyntaxError;
+import me.dsnet.cetriolo.integration.completion.GherkinCompletionNames;
 import me.dsnet.cetriolo.integration.hints.ExpectingFeatureFix;
+import me.dsnet.cetriolo.integration.hints.ExpectingScenarioFix;
 import org.antlr.runtime.RecognitionException;
 import org.netbeans.api.lexer.TokenHierarchy;
 import org.netbeans.api.lexer.TokenSequence;
@@ -64,6 +66,9 @@ public class GherkinSyntaxErrorHighlightingTask extends ParserResultTask{
         printException(error);
         if(error.getErrorType() == SyntaxError.ErrorType.MISSING_FEATURE){
             fixes.add(new ExpectingFeatureFix(document,offset));
+        }else if(error.getErrorType() == SyntaxError.ErrorType.MISSING_SCENARIO){
+            fixes.add(new ExpectingScenarioFix(document, offset, GherkinCompletionNames.SCENARIO));
+            fixes.add(new ExpectingScenarioFix(document, offset, GherkinCompletionNames.SCENOUT));
         }else{
             printException(error);
         }        

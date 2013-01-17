@@ -291,8 +291,11 @@ public class ScenarioDialog extends javax.swing.JDialog {
         StringBuilder sb= new StringBuilder((keyword ==  GherkinCompletionNames.SCENARIO)?"\n   Scenario: ":"\n   Scenario Outline: ");
         sb.append(featureTitle.getText());
         sb.append("\n      ");
-        sb.append(scenarioDescArea.getText().replaceAll("\n", "\n      "));
-        sb.append("\n      ");
+        String desc=scenarioDescArea.getText();
+        if(desc!=null && !desc.isEmpty()){
+            sb.append(desc.replaceAll("\n", "\n      "));
+            sb.append("\n      ");
+        }        
         sb.append(scenarioStepsArea.getText().replaceAll("\n", "\n      "));
         description = sb.toString();
         setVisible(false);
