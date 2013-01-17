@@ -13,7 +13,9 @@ import me.dsnet.cetriolo.antlr.output.SyntaxError;
 import me.dsnet.cetriolo.integration.completion.GherkinCompletionNames;
 import me.dsnet.cetriolo.integration.hints.ExpectingFeatureFix;
 import me.dsnet.cetriolo.integration.hints.ExpectingScenarioFix;
+import me.dsnet.cetriolo.integration.hints.ExpectingStepDescriptionFix;
 import me.dsnet.cetriolo.integration.hints.ExpectingStepFix;
+import me.dsnet.cetriolo.integration.hints.ExpectingTitleFix;
 import org.antlr.runtime.RecognitionException;
 import org.netbeans.api.lexer.TokenHierarchy;
 import org.netbeans.api.lexer.TokenSequence;
@@ -53,7 +55,8 @@ public class GherkinSyntaxErrorHighlightingTask extends ParserResultTask{
                 //get offset and fixes where can apply
                 int offset = getTokenExceptionOffset(ts,syntaxError);
                 List<Fix> fixes = getFixesWherePossible(document,syntaxError, offset);
-                ErrorDescription errorDescription = ErrorDescriptionFactory.createErrorDescription(Severity.ERROR,syntaxError.getMessageToDispaly(),fixes,document,syntaxError.getLine());
+                String description = syntaxError.getMessageToDispaly();
+                ErrorDescription errorDescription = ErrorDescriptionFactory.createErrorDescription(Severity.ERROR,(description == null)?"":description,fixes,document,syntaxError.getLine());
                 errors.add(errorDescription);
             }
             HintsController.setErrors(document, "feature", errors);               
@@ -76,9 +79,11 @@ public class GherkinSyntaxErrorHighlightingTask extends ParserResultTask{
             fixes.add(new ExpectingStepFix(document, offset, GherkinCompletionNames.THEN));
             fixes.add(new ExpectingStepFix(document, offset, GherkinCompletionNames.AND));
             fixes.add(new ExpectingStepFix(document, offset, GherkinCompletionNames.BUT));
-        }else{
-            printException(error);
-        }        
+        }else if (error.getErrorType() == SyntaxError.ErrorType.MISSING_TITLE){
+            fixes.add(new ExpectingTitleFix(document, offset));
+        }else if (error.getErrorType() == SyntaxError.ErrorType.MISSING_STEP_DESC){
+            fixes.add(new ExpectingStepDescriptionFix(document, offset));
+        }    
         return fixes;
     }
     

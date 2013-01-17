@@ -7,8 +7,7 @@ package me.dsnet.cetriolo.integration.hints;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import javax.swing.text.Document;
-import me.dsnet.cetriolo.integration.completion.GherkinCompletionNames;
-import me.dsnet.cetriolo.integration.palette.dialogues.StepsDialog;
+import me.dsnet.cetriolo.integration.palette.dialogues.TitleDialog;
 import org.netbeans.spi.editor.hints.ChangeInfo;
 import org.netbeans.spi.editor.hints.Fix;
 
@@ -16,21 +15,19 @@ import org.netbeans.spi.editor.hints.Fix;
  *
  * @author sessonad
  */
-public class ExpectingStepFix implements Fix{
+public class ExpectingTitleFix implements Fix{
     
     Document document;
     int offset;
-    GherkinCompletionNames type;
     
-    public ExpectingStepFix(Document document, int offset,GherkinCompletionNames type) {            
+    public ExpectingTitleFix(Document document, int offset) {            
         this.document=document;
         this.offset = offset;
-        this.type=type;
     }
     
     @Override
     public String getText() {
-        return "Add a \""+type.getDisplay()+"\" step ..." ;
+        return "Add a title ..." ;
     }
 
     @Override
@@ -45,7 +42,7 @@ public class ExpectingStepFix implements Fix{
     
     public String createBody() {
         try {
-            StepsDialog dialogue = new StepsDialog(null, true, type);
+            TitleDialog dialogue = new TitleDialog(null, true,"Title:");
             //center on screen
             final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
             final int x = (screenSize.width - dialogue.getWidth()) / 2;
@@ -57,7 +54,7 @@ public class ExpectingStepFix implements Fix{
             if(userCommand==null || userCommand.isEmpty()){
                 return null;
             }else{
-                return "      " + userCommand + "\n";
+                return userCommand ;
             }                       
         } catch (Exception e) {
             return null;

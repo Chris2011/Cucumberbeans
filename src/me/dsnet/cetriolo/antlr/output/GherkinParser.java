@@ -80,6 +80,10 @@ public class GherkinParser extends Parser {
                 type=GherkinTokenEnum.SCENARIO;
             }else if (methodName.equals("scenario")){
                 type=GherkinTokenEnum.STEP_KEY;
+            }else if (methodName.equals("title")){
+                type=GherkinTokenEnum.FEATURE;
+            }else if (methodName.equals("stepdesc")){
+                type=GherkinTokenEnum.DOCSTR;
             }
         }       
         syntaxErrors.add(new SyntaxError(e,message,type));
