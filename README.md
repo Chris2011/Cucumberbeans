@@ -18,3 +18,4 @@ Cucumber lets software development teams describe how software should behave in 
 * **Code Folding** (Folding on blocks like Feature, Scenario ...)
 * **Code Formatting** (Triggered by Alt+Shift+F)
 * **Language Templates** to create new .feature and .future files
+* **Hints** to fix grammar errors
