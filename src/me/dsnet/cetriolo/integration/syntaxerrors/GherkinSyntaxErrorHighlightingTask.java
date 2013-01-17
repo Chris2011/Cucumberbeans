@@ -13,6 +13,7 @@ import me.dsnet.cetriolo.antlr.output.SyntaxError;
 import me.dsnet.cetriolo.integration.completion.GherkinCompletionNames;
 import me.dsnet.cetriolo.integration.hints.ExpectingFeatureFix;
 import me.dsnet.cetriolo.integration.hints.ExpectingScenarioFix;
+import me.dsnet.cetriolo.integration.hints.ExpectingStepFix;
 import org.antlr.runtime.RecognitionException;
 import org.netbeans.api.lexer.TokenHierarchy;
 import org.netbeans.api.lexer.TokenSequence;
@@ -69,6 +70,12 @@ public class GherkinSyntaxErrorHighlightingTask extends ParserResultTask{
         }else if(error.getErrorType() == SyntaxError.ErrorType.MISSING_SCENARIO){
             fixes.add(new ExpectingScenarioFix(document, offset, GherkinCompletionNames.SCENARIO));
             fixes.add(new ExpectingScenarioFix(document, offset, GherkinCompletionNames.SCENOUT));
+        }else if(error.getErrorType() == SyntaxError.ErrorType.MISSING_STEP){
+            fixes.add(new ExpectingStepFix(document, offset, GherkinCompletionNames.GIVEN));
+            fixes.add(new ExpectingStepFix(document, offset, GherkinCompletionNames.WHEN));
+            fixes.add(new ExpectingStepFix(document, offset, GherkinCompletionNames.THEN));
+            fixes.add(new ExpectingStepFix(document, offset, GherkinCompletionNames.AND));
+            fixes.add(new ExpectingStepFix(document, offset, GherkinCompletionNames.BUT));
         }else{
             printException(error);
         }        

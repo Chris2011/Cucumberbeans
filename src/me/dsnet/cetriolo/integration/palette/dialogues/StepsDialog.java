@@ -16,12 +16,14 @@ public class StepsDialog extends javax.swing.JDialog {
     
     String description = null;
     boolean docVisible=false;
+    GherkinCompletionNames keyword;
     /**
      * Creates new form StepDialog
      */
     public StepsDialog(java.awt.Frame parent, boolean modal, GherkinCompletionNames keywordTitle) {
         super(parent, modal);        
         initComponents();
+        this.keyword=keywordTitle;
         stepLabelWord.setText(" " +keywordTitle.display + " :");
         setTitle("Customize step definition - " + keywordTitle.display);
         setIconImage(keywordTitle.getIcon(16));
@@ -182,7 +184,7 @@ public class StepsDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
-        description = stepDescriptionLabel.getText();
+        description = keyword.getDisplay() + stepDescriptionLabel.getText();
         setVisible(false);
         dispose();
     }//GEN-LAST:event_okButtonActionPerformed

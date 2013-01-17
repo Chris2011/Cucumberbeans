@@ -8,7 +8,7 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import javax.swing.text.Document;
 import me.dsnet.cetriolo.integration.completion.GherkinCompletionNames;
-import me.dsnet.cetriolo.integration.palette.dialogues.ScenarioDialog;
+import me.dsnet.cetriolo.integration.palette.dialogues.StepsDialog;
 import org.netbeans.spi.editor.hints.ChangeInfo;
 import org.netbeans.spi.editor.hints.Fix;
 
@@ -16,13 +16,13 @@ import org.netbeans.spi.editor.hints.Fix;
  *
  * @author sessonad
  */
-public class ExpectingScenarioFix implements Fix{
+public class ExpectingStepFix implements Fix{
     
     Document document;
     int offset;
     GherkinCompletionNames type;
     
-    public ExpectingScenarioFix(Document document, int offset,GherkinCompletionNames type) {            
+    public ExpectingStepFix(Document document, int offset,GherkinCompletionNames type) {            
         this.document=document;
         this.offset = offset;
         this.type=type;
@@ -30,7 +30,7 @@ public class ExpectingScenarioFix implements Fix{
     
     @Override
     public String getText() {
-        return "Add a \""+type.getDisplay()+"\" block ..." ;
+        return "Add a \""+type.getDisplay()+"\" step ..." ;
     }
 
     @Override
@@ -45,7 +45,7 @@ public class ExpectingScenarioFix implements Fix{
     
     public String createBody() {
         try {
-            ScenarioDialog dialogue = new ScenarioDialog(null, true, type);
+            StepsDialog dialogue = new StepsDialog(null, true, type);
             //center on screen
             final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
             final int x = (screenSize.width - dialogue.getWidth()) / 2;
@@ -57,7 +57,7 @@ public class ExpectingScenarioFix implements Fix{
             if(userCommand==null || userCommand.isEmpty()){
                 return null;
             }else{
-                return "\n      " + userCommand + "\n";
+                return userCommand + "\n      ";
             }                       
         } catch (Exception e) {
             return null;

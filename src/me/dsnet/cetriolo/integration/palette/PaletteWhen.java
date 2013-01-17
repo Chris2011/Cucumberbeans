@@ -30,7 +30,7 @@ public class PaletteWhen extends BasePaletteActiveEditor {
             if(userCommand==null){
                 return null;
             }else{
-                return GherkinCompletionNames.WHEN.getDisplay() + userCommand;
+                return  userCommand;
             }
                        
         } catch (Exception e) {

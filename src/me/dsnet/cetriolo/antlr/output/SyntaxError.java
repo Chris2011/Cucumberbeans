@@ -23,18 +23,18 @@ public class SyntaxError {
     
     public enum ErrorType{        
         MISSING_FEATURE,
-        MISSING_SCENARIO
+        MISSING_SCENARIO,
+        MISSING_STEP
     }    
     
-    public SyntaxError(RecognitionException exception, String message) {
+    public SyntaxError(RecognitionException exception, String message,GherkinTokenEnum type) {
         this.exception = exception;
         this.message = message;
         this.line = exception.line;
         this.charPositionInLine = exception.charPositionInLine;
         this.index= exception.index;
-        if(exception.node instanceof GherkinTokenEnum){
-            this.rule = (GherkinTokenEnum)exception.node;
-        }
+        this.rule = type;
+
         if(message.startsWith("missing FEATURE")){
             this.errorType=ErrorType.MISSING_FEATURE;
             String tokenFound = message.substring("missing FEATURE at ".length());
@@ -46,6 +46,9 @@ public class SyntaxError {
             if(rule == GherkinTokenEnum.SCENARIO){
                 this.errorType=ErrorType.MISSING_SCENARIO;
                 this.messageToDispaly = "End of file reached, a 'Scenario:' or 'Scenario Outline:' is required.";
+            }else if (rule == GherkinTokenEnum.STEP_KEY){
+                this.errorType=ErrorType.MISSING_STEP;
+                this.messageToDispaly = "A step ('Given:' or 'When:' or 'Then:' or 'And:' or 'But') is required.";
             }
         }
     }
