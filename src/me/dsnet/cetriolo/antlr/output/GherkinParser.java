@@ -69,24 +69,37 @@ public class GherkinParser extends Parser {
     public List<SyntaxError> syntaxErrors = new ArrayList<SyntaxError>();
 
     @Override
-    public String getErrorMessage(RecognitionException e, String[] tokenNames) {
-        String message = super.getErrorMessage(e, tokenNames);
-        GherkinTokenEnum type= null;
-        StackTraceElement firstelem = e.getStackTrace()[0];
+    public String getErrorMessage(RecognitionException ex, String[] tokenNames) {
+        String message = super.getErrorMessage(ex, tokenNames);
+        SyntaxError.ErrorType type= null;
+        StackTraceElement firstelem = ex.getStackTrace()[0];
         String methodName= firstelem.getMethodName();
-        if(methodName!=null){
+        ex.printStackTrace();
+        
+        
+        if(ex instanceof NoViableAltException){
+            NoViableAltException e = (NoViableAltException)ex;
+            String grammarDesc = e.grammarDecisionDescription;
+            if(grammarDesc.contains("scenario | scenario_outline")){
+                type=SyntaxError.ErrorType.NOT_VIABLE_SCENARIO;
+            }else if(grammarDesc.contains(" step ")){
+                type=SyntaxError.ErrorType.NOT_VIABLE_FEATURE;
+            }      
+        }else if(ex instanceof MismatchedTokenException){
+            type=SyntaxError.ErrorType.MISMATCHED_FEATURE;
+        }else if(methodName!=null){
             System.out.println("stack trace: " + methodName);
             if(methodName.equals("feature")){
-                type=GherkinTokenEnum.SCENARIO;
+                type=SyntaxError.ErrorType.MISSING_SCENARIO;
             }else if (methodName.equals("scenario")){
-                type=GherkinTokenEnum.STEP_KEY;
+                type=SyntaxError.ErrorType.MISSING_STEP;
             }else if (methodName.equals("title")){
-                type=GherkinTokenEnum.FEATURE;
+                type=SyntaxError.ErrorType.MISSING_TITLE;
             }else if (methodName.equals("stepdesc")){
-                type=GherkinTokenEnum.DOCSTR;
+                type=SyntaxError.ErrorType.MISSING_STEP_DESC;
             }
         }       
-        syntaxErrors.add(new SyntaxError(e,message,type));
+        syntaxErrors.add(new SyntaxError(ex,message,type));
         return message;
     }
 

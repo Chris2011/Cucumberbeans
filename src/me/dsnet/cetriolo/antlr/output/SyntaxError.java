@@ -4,6 +4,8 @@
  */
 package me.dsnet.cetriolo.antlr.output;
 
+import org.antlr.runtime.MismatchedTokenException;
+import org.antlr.runtime.NoViableAltException;
 import org.antlr.runtime.RecognitionException;
 
 /**
@@ -19,25 +21,37 @@ public class SyntaxError {
     int charPositionInLine;
     int index;
     ErrorType errorType;
-    GherkinTokenEnum rule;
     
     public enum ErrorType{        
         MISSING_FEATURE,
         MISSING_SCENARIO,
         MISSING_STEP,
         MISSING_STEP_DESC,
-        MISSING_TITLE
+        MISSING_TITLE,
+        NOT_VIABLE_SCENARIO,
+        NOT_VIABLE_FEATURE,
+        MISMATCHED_FEATURE
     }    
     
-    public SyntaxError(RecognitionException exception, String message,GherkinTokenEnum type) {
+    public SyntaxError(RecognitionException exception, String message,ErrorType type) {
         this.exception = exception;
         this.message = message;
         this.line = exception.line;
         this.charPositionInLine = exception.charPositionInLine;
         this.index= exception.index;
-        this.rule = type;
-
-        if(message.startsWith("missing FEATURE")){
+        this.errorType = type;
+        if(exception instanceof NoViableAltException){
+            if(errorType == ErrorType.NOT_VIABLE_SCENARIO){
+                String tokenFound = message.substring("no viable alternative at input ".length());
+                this.messageToDispaly = tokenFound +" was found, but either 'Scenario:' or 'Scenario Outline:' is expected here.";
+            }else if(errorType == ErrorType.NOT_VIABLE_FEATURE){
+                String tokenFound = message.substring("no viable alternative at input ".length());
+                this.messageToDispaly = tokenFound +" was found, but it wasn't expected here.";
+            }
+        }else if (errorType == ErrorType.MISMATCHED_FEATURE){
+            String tokenExpected = message.substring(message.lastIndexOf(" "));
+            this.messageToDispaly = "Expecting " + tokenExpected;
+        }else if(message.startsWith("missing FEATURE")){
             this.errorType=ErrorType.MISSING_FEATURE;
             String tokenFound = message.substring("missing FEATURE at ".length());
             this.messageToDispaly = "A 'Feature:' was expected here, but "+tokenFound+" was found.";
@@ -45,18 +59,15 @@ public class SyntaxError {
             this.errorType=ErrorType.MISSING_FEATURE;
             this.messageToDispaly = "End of file reached, a 'Feature:' is required.";
         }else if(message.startsWith("required (...)+ loop")){
-            if(rule == GherkinTokenEnum.SCENARIO){
-                this.errorType=ErrorType.MISSING_SCENARIO;
+            if(errorType == ErrorType.MISSING_SCENARIO){
                 this.messageToDispaly = "End of file reached, a 'Scenario:' or 'Scenario Outline:' is required.";
-            }else if (rule == GherkinTokenEnum.STEP_KEY){
-                this.errorType=ErrorType.MISSING_STEP;
+            }else if (errorType == ErrorType.MISSING_STEP){
                 this.messageToDispaly = "A step ('Given:' or 'When:' or 'Then:' or 'And:' or 'But') is required.";
-            }else if(rule == GherkinTokenEnum.DOCSTR){
-                this.errorType=ErrorType.MISSING_STEP_DESC;
+            }else if(errorType == ErrorType.MISSING_STEP){
                 this.messageToDispaly = "The step definition is missing.";
             }
-        }else if(message.startsWith("mismatched input") && rule == GherkinTokenEnum.FEATURE){
-            this.errorType=ErrorType.MISSING_TITLE;
+        }else if(message.startsWith("mismatched input") && errorType == ErrorType.MISSING_TITLE){
+            
             this.messageToDispaly = "The title is missing.";
         }
     }

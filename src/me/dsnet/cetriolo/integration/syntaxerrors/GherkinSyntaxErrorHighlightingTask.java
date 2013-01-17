@@ -11,12 +11,14 @@ import me.dsnet.cetriolo.antlr.integration.GherkinTokenId;
 import me.dsnet.cetriolo.antlr.integration.IntegrationGherkingParserResult;
 import me.dsnet.cetriolo.antlr.output.SyntaxError;
 import me.dsnet.cetriolo.integration.completion.GherkinCompletionNames;
+import me.dsnet.cetriolo.integration.hints.DeleteLineFix;
 import me.dsnet.cetriolo.integration.hints.ExpectingFeatureFix;
 import me.dsnet.cetriolo.integration.hints.ExpectingScenarioFix;
 import me.dsnet.cetriolo.integration.hints.ExpectingStepDescriptionFix;
 import me.dsnet.cetriolo.integration.hints.ExpectingStepFix;
 import me.dsnet.cetriolo.integration.hints.ExpectingTitleFix;
 import org.antlr.runtime.RecognitionException;
+import org.netbeans.api.lexer.Token;
 import org.netbeans.api.lexer.TokenHierarchy;
 import org.netbeans.api.lexer.TokenSequence;
 import org.netbeans.modules.parsing.spi.Parser.Result;
@@ -47,14 +49,13 @@ public class GherkinSyntaxErrorHighlightingTask extends ParserResultTask{
             //get token sequence to find out offset of token where the excetion was found
             TokenHierarchy<GherkinTokenId> th = (TokenHierarchy<GherkinTokenId>) r.getSnapshot().getTokenHierarchy();
             TokenSequence<GherkinTokenId> ts = th.tokenSequence(GherkinTokenId.getLanguage());
-            for (SyntaxError syntaxError : syntaxErrors) {        
-                printException(syntaxError); 
+            for (SyntaxError syntaxError : syntaxErrors) { 
                 if (syntaxError.getLine() <= 0) {
                     continue;
                 }                
                 //get offset and fixes where can apply
                 int offset = getTokenExceptionOffset(ts,syntaxError);
-                List<Fix> fixes = getFixesWherePossible(document,syntaxError, offset);
+                List<Fix> fixes = getFixesWherePossible(ts,document,syntaxError, offset);
                 String description = syntaxError.getMessageToDispaly();
                 ErrorDescription errorDescription = ErrorDescriptionFactory.createErrorDescription(Severity.ERROR,(description == null)?"":description,fixes,document,syntaxError.getLine());
                 errors.add(errorDescription);
@@ -65,10 +66,31 @@ public class GherkinSyntaxErrorHighlightingTask extends ParserResultTask{
         }
     }
     
-    private List<Fix> getFixesWherePossible(Document document,SyntaxError error,int offset){
+    private List<Fix> getFixesWherePossible(TokenSequence<GherkinTokenId> ts,Document document,SyntaxError error,int offset){
         List<Fix> fixes = new ArrayList<Fix>();
-        printException(error);
-        if(error.getErrorType() == SyntaxError.ErrorType.MISSING_FEATURE){
+        //printException(error);
+        if(error.getErrorType() == SyntaxError.ErrorType.NOT_VIABLE_SCENARIO){
+            fixes.add(new ExpectingScenarioFix(document, offset, GherkinCompletionNames.SCENARIO));
+            fixes.add(new ExpectingScenarioFix(document, offset, GherkinCompletionNames.SCENOUT));
+            try{
+                int start = getStartOfLineOffset(ts, error);
+                int end = getEndOfLineOffset(ts, error);
+                fixes.add(new DeleteLineFix(document, start,end));
+            }catch(Exception e){}  
+        }else if(error.getErrorType() == SyntaxError.ErrorType.NOT_VIABLE_FEATURE){
+            try{
+                int start = getStartOfLineOffset(ts, error);
+                int end = getEndOfLineOffset(ts, error);
+                fixes.add(new DeleteLineFix(document, start,end));
+            }catch(Exception e){}            
+        }else if(error.getErrorType() == SyntaxError.ErrorType.MISMATCHED_FEATURE){
+            fixes.add(new ExpectingFeatureFix(document,offset));
+            try{
+                int start = getStartOfLineOffset(ts, error);
+                int end = getEndOfLineOffset(ts, error);
+                fixes.add(new DeleteLineFix(document, start,end));
+            }catch(Exception e){}             
+        }else if(error.getErrorType() == SyntaxError.ErrorType.MISSING_FEATURE){
             fixes.add(new ExpectingFeatureFix(document,offset));
         }else if(error.getErrorType() == SyntaxError.ErrorType.MISSING_SCENARIO){
             fixes.add(new ExpectingScenarioFix(document, offset, GherkinCompletionNames.SCENARIO));
@@ -87,13 +109,31 @@ public class GherkinSyntaxErrorHighlightingTask extends ParserResultTask{
         return fixes;
     }
     
-    private void printException(SyntaxError error){
-        RecognitionException ex=error.getException();
-        System.out.println("---------------------------------------------------");
-        System.out.println("\ngetLocalizedMessage: " + ex.getLocalizedMessage());
-        System.out.println("\ngetMessage: " + ex.getMessage());
-        System.out.println("\ngetCause: " + ex.getCause());
-        System.out.println("\nerror message: " + error.getMessage());
+    
+    private int getStartOfLineOffset(TokenSequence<GherkinTokenId> ts,SyntaxError error)throws Exception{         
+            int index = error.getIndex();
+            ts.moveIndex(index);
+            ts.moveNext();
+            while (ts.movePrevious()){
+                Token<GherkinTokenId> token = ts.token();
+                 if (token.id().name().equals("NL")) {
+                    return ts.offset();
+                 }
+            }
+            throw new Exception();     
+    }
+    
+    private int getEndOfLineOffset(TokenSequence<GherkinTokenId> ts,SyntaxError error)throws Exception{         
+            int index = error.getIndex();
+            ts.moveIndex(index);
+            ts.moveNext();
+            while (ts.moveNext()){
+                Token<GherkinTokenId> token = ts.token();
+                 if (token.id().name().equals("NL")) {
+                    return ts.offset();
+                 }
+            }
+            throw new Exception();
     }
     
     private int getTokenExceptionOffset(TokenSequence<GherkinTokenId> ts, SyntaxError error) {
