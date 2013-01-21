@@ -5,11 +5,18 @@
 package me.dsnet.cetriolo.integration.syntaxerrors;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 import javax.swing.text.Document;
+import javax.swing.text.Element;
 import me.dsnet.cetriolo.antlr.integration.GherkinTokenId;
 import me.dsnet.cetriolo.antlr.integration.IntegrationGherkingParserResult;
 import me.dsnet.cetriolo.antlr.output.SyntaxError;
+import me.dsnet.cetriolo.findimpl.CucumberImplData;
+import me.dsnet.cetriolo.findimpl.CucumberImplElement;
 import me.dsnet.cetriolo.integration.completion.GherkinCompletionNames;
 import me.dsnet.cetriolo.integration.hints.DeleteLineFix;
 import me.dsnet.cetriolo.integration.hints.ExpectingFeatureFix;
@@ -17,7 +24,7 @@ import me.dsnet.cetriolo.integration.hints.ExpectingScenarioFix;
 import me.dsnet.cetriolo.integration.hints.ExpectingStepDescriptionFix;
 import me.dsnet.cetriolo.integration.hints.ExpectingStepFix;
 import me.dsnet.cetriolo.integration.hints.ExpectingTitleFix;
-import org.antlr.runtime.RecognitionException;
+import me.dsnet.cetriolo.integration.hints.GotoStepImplHint;
 import org.netbeans.api.lexer.Token;
 import org.netbeans.api.lexer.TokenHierarchy;
 import org.netbeans.api.lexer.TokenSequence;
@@ -45,7 +52,7 @@ public class GherkinSyntaxErrorHighlightingTask extends ParserResultTask{
             List<SyntaxError> syntaxErrors = gherkinRes.getGherkinParser().syntaxErrors;
             Document document = r.getSnapshot().getSource().getDocument(false);              
             List<ErrorDescription> errors = new ArrayList<ErrorDescription>();
-            
+                        
             //get token sequence to find out offset of token where the excetion was found
             TokenHierarchy<GherkinTokenId> th = (TokenHierarchy<GherkinTokenId>) r.getSnapshot().getTokenHierarchy();
             TokenSequence<GherkinTokenId> ts = th.tokenSequence(GherkinTokenId.getLanguage());
@@ -60,11 +67,71 @@ public class GherkinSyntaxErrorHighlightingTask extends ParserResultTask{
                 ErrorDescription errorDescription = ErrorDescriptionFactory.createErrorDescription(Severity.ERROR,(description == null)?"":description,fixes,document,syntaxError.getLine());
                 errors.add(errorDescription);
             }
+            
+            //add all hints
+            for(ErrorDescription hint:addStepsHints(document, th, ts)){
+                errors.add(hint);
+            }          
+            
             HintsController.setErrors(document, "feature", errors);               
         }catch (Exception ex1) {
             Exceptions.printStackTrace (ex1);
         }
     }
+    
+    public List<ErrorDescription> addStepsHints(Document document,TokenHierarchy<GherkinTokenId> th,TokenSequence<GherkinTokenId> ts){
+        List<ErrorDescription> errorDescs = new ArrayList<ErrorDescription>();
+        Map<Integer,String> steps = getAllStepsTokens(document, th, ts);
+        for(Entry<Integer,String>  entry:steps.entrySet()){
+            String description =  entry.getValue();
+            List<Fix> fixes  = getNavigationCodeFixes(description);             
+            ErrorDescription errorDescription = ErrorDescriptionFactory.createErrorDescription(
+                    Severity.HINT,
+                    "Click on the hint to go to the implemantation",
+                    fixes,document,entry.getKey());
+            errorDescs.add(errorDescription);
+        }
+        return errorDescs;
+    }
+    
+    private List<Fix> getNavigationCodeFixes (String description){
+        List<Fix> fixes = new ArrayList<Fix>();
+        Set<CucumberImplElement> impls = CucumberImplData.getMatchingImpls(description);
+        for(CucumberImplElement imp:impls){
+            fixes.add(new GotoStepImplHint(imp));
+        }
+        return fixes;
+    }
+    
+    private Map<Integer,String> getAllStepsTokens(Document document,TokenHierarchy<GherkinTokenId> th,TokenSequence<GherkinTokenId> ts) {
+        Map<Integer,String> steps = new Hashtable<Integer,String>();
+        ts.moveStart();
+        int lineNumber = 1;
+        StringBuilder sb;
+        while (ts.moveNext()) {
+            Token<GherkinTokenId> token = ts.token();
+            if (token.id().primaryCategory().equals("Stepkeyword")) {
+                lineNumber= getLineNumber(document,ts.offset());
+                sb = new StringBuilder();
+                while (ts.moveNext()){                    
+                    token = ts.token();
+                    if (token.id().name().equals("NL")){
+                        break;
+                    }                    
+                    sb.append(token.text());
+                }
+                steps.put(lineNumber,sb.toString());
+            }           
+        }
+        return steps;
+    }
+    
+    public static int getLineNumber(Document doc, int pos) {
+        Element map = doc.getDefaultRootElement();
+        int line = map.getElementIndex(pos);
+        return line +1 ;
+    }
+
     
     private List<Fix> getFixesWherePossible(TokenSequence<GherkinTokenId> ts,Document document,SyntaxError error,int offset){
         List<Fix> fixes = new ArrayList<Fix>();
@@ -161,5 +228,7 @@ public class GherkinSyntaxErrorHighlightingTask extends ParserResultTask{
 
     @Override
     public void cancel() {}
+
+    
     
 }

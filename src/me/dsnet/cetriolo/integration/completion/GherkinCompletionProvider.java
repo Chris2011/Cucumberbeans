@@ -67,7 +67,7 @@ public class GherkinCompletionProvider implements CompletionProvider {
 
     private static int getRowFirstNonWhite(StyledDocument doc, int offset)throws BadLocationException {
         Element lineElement = doc.getParagraphElement(offset);
-        int start = lineElement.getStartOffset();
+        int start = lineElement.getStartOffset();        
         while (start + 1 < lineElement.getEndOffset()) {
             try {
                 if (doc.getText(start, 1).charAt(0) != ' ') {
