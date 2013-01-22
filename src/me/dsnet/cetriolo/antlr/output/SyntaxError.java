@@ -4,7 +4,6 @@
  */
 package me.dsnet.cetriolo.antlr.output;
 
-import org.antlr.runtime.MismatchedTokenException;
 import org.antlr.runtime.NoViableAltException;
 import org.antlr.runtime.RecognitionException;
 

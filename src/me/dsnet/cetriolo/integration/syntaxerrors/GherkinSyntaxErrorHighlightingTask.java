@@ -84,10 +84,19 @@ public class GherkinSyntaxErrorHighlightingTask extends ParserResultTask{
         Map<Integer,String> steps = getAllStepsTokens(document, th, ts);
         for(Entry<Integer,String>  entry:steps.entrySet()){
             String description =  entry.getValue();
-            List<Fix> fixes  = getNavigationCodeFixes(description);             
+            List<Fix> fixes  = getNavigationCodeFixes(description);   
+            Severity stepSeverity = Severity.HINT;
+            String errorMessage = "Click on the hint to go to the implementation";
+            if(fixes.isEmpty()){
+                stepSeverity = Severity.WARNING;
+                errorMessage = "No implementations found for this step";
+            }else if(fixes.size()>1){
+                stepSeverity = Severity.ERROR;
+                errorMessage = "More than one implementation found for this step, expecting only one.";
+            }
             ErrorDescription errorDescription = ErrorDescriptionFactory.createErrorDescription(
-                    Severity.HINT,
-                    "Click on the hint to go to the implemantation",
+                    stepSeverity,
+                    errorMessage,
                     fixes,document,entry.getKey());
             errorDescs.add(errorDescription);
         }
@@ -97,8 +106,10 @@ public class GherkinSyntaxErrorHighlightingTask extends ParserResultTask{
     private List<Fix> getNavigationCodeFixes (String description){
         List<Fix> fixes = new ArrayList<Fix>();
         Set<CucumberImplElement> impls = CucumberImplData.getMatchingImpls(description);
-        for(CucumberImplElement imp:impls){
-            fixes.add(new GotoStepImplHint(imp));
+        if(!impls.isEmpty()){
+            for(CucumberImplElement imp:impls){
+                fixes.add(new GotoStepImplHint(imp));
+            }
         }
         return fixes;
     }

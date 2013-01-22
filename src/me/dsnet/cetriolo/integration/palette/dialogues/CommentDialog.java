@@ -24,7 +24,6 @@ public class CommentDialog extends javax.swing.JDialog {
         setTitle("Insert comment");
         setIconImage(ImageUtilities.loadImage("me/dsnet/cetriolo/resources/icons/tag.png"));
         jLabel1.setIcon(new javax.swing.ImageIcon(ImageUtilities.loadImage("me/dsnet/cetriolo/resources/icons/tag64.png")));
-        
     }
 
     public String getDescription() {
