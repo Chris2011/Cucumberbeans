@@ -19,3 +19,4 @@ Cucumber lets software development teams describe how software should behave in 
 * **Code Formatting** (Triggered by Alt+Shift+F)
 * **Language Templates** to create new .feature and .future files
 * **Hints** to fix grammar errors
+* **Code Navigation** go to the implementation of any step definition using hints
