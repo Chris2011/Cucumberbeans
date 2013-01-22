@@ -35,9 +35,19 @@ import org.openide.filesystems.FileObject;
  */
 public class CucumberImplData {
 
-    static Map<String, List<CucumberImplElement>> implementations;
+    static Map<String, List<CucumberImplElement>> implementations;    
     static boolean isMapDirty = true;
     
+    public static List<CucumberImplElement> getImplementationList(){
+        List<CucumberImplElement> implementationSet = new ArrayList<CucumberImplElement>();
+        if (isMapDirty || implementations == null) { loadMap();}
+        for (Entry<String, List<CucumberImplElement>> e : implementations.entrySet()) {
+            for (CucumberImplElement elem : e.getValue()) {
+                implementationSet.add(elem);
+            }
+        }
+        return implementationSet;
+    }
     
 
     public static Map<String, List<CucumberImplElement>> getImplementationsMap() {
