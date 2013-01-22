@@ -30,7 +30,7 @@ public class GotoStepImplHint implements Fix{
     
     @Override
     public String getText() {
-        return "Go to: " + elem.getName() +" ("+elem.getFilename().substring(elem.getFilename().lastIndexOf("\\")) +")" ;
+        return "Go to: <b>&quot;" + elem.getName() +"&quot;</b> ("+elem.getFilename().substring(elem.getFilename().lastIndexOf("\\") + 1 ) +")" ;
     }
 
     @Override
