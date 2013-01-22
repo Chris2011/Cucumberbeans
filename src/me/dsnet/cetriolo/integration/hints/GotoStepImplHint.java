@@ -51,7 +51,7 @@ public class GotoStepImplHint implements Fix{
         ec.openDocument();
         WindowManager.getDefault().invokeWhenUIReady(new Runnable() {
             @Override
-            public void run() {
+            public void run() { 
                 ec.getLineSet().getCurrent(elem.getLine()).show(Line.ShowOpenType.OPEN, Line.ShowVisibilityType.FOCUS);
             }
         });
