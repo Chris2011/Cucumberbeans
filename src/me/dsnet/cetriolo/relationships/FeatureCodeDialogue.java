@@ -133,6 +133,7 @@ public class FeatureCodeDialogue extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
+        annotationTable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
         annotationTable.setFillsViewportHeight(true);
         annotationTable.setGridColor(new java.awt.Color(204, 204, 204));
         jScrollPane2.setViewportView(annotationTable);
@@ -163,7 +164,7 @@ public class FeatureCodeDialogue extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 739, Short.MAX_VALUE)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

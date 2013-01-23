@@ -10,22 +10,24 @@ package me.dsnet.cetriolo.antlr.output;
  */
 public enum GherkinTokenEnum {
 
-    COMMENT(4, "comment"),
-    DOCSTR(5,"string"),
-    EXAMPLE(6,"Stepkeyword"),
-    FEATURE(7, "keyword"),
-    FEAT_KEY(8,"Featurekeyword"),    
-    NL(9, "whitespace"),
-    NUMBER(10, "Number"),
-    PHOLDER(11, "Placeholder"),
-    SCENARIO(12, "keyword"),
-    SCEN_OUT(13, "keyword"),
-    STEP_KEY(14, "Stepkeyword"),
-    STRING(15, "string"),
-    TAGNAME(16, "Tag"),
-    T_ROW(17, "Table"),
-    WORD(18, "Text"),
-    WS(19, "whitespace");
+    BACKGROUND(4, "keyword"),
+    COMMENT(5, "comment"),
+    DOCSTR(6,"string"),
+    EXAMPLE(7,"Stepkeyword"),
+    FEATURE(8, "keyword"),
+    FEAT_KEY(9,"Featurekeyword"),    
+    NL(10, "whitespace"),
+    NUMBER(11, "Number"),
+    PHOLDER(12, "Placeholder"),
+    SCENARIO(13, "keyword"),
+    SCEN_OUT(14, "keyword"),
+    STEP_KEY(15, "Stepkeyword"),
+    STRING(16, "string"),
+    TAGNAME(17, "Tag"),
+    T_ROW(18, "Table"),
+    WORD(19, "Text"),
+    WS(20, "whitespace");
+    
     
     public int id;
     public String category;

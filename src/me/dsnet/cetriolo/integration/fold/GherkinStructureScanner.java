@@ -43,6 +43,11 @@ public class GherkinStructureScanner implements StructureScanner{
                     int start = token.offset(th);
                     String titolo = getTitle(ts);
                     feature = new GherkingStructureItem(start,start +1,titolo,GherkinCompletionNames.FEATURE);
+                }else if(feature !=null && token.id().name().equals("BACKGROUND")){
+                    int start = token.offset(th);
+                    String titolo = getTitle(ts);
+                    currentScenario = new GherkingStructureItem(start,start +1,titolo,GherkinCompletionNames.BACKGROUND);
+                    feature.addChild(currentScenario);
                 }else if(feature !=null && token.id().name().equals("SCEN_OUT")){
                     int start = token.offset(th);
                     String titolo = getTitle(ts);
@@ -81,7 +86,7 @@ public class GherkinStructureScanner implements StructureScanner{
     }
     
     private static String getTitle(TokenSequence<GherkinTokenId> ts){
-        StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder("");
         while (ts.moveNext()){
             Token<GherkinTokenId> token = ts.token();
             if (token.id().name().equals("NL")) {
