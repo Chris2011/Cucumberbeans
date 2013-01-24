@@ -4,6 +4,8 @@
  */
 package me.dsnet.cetriolo.findimpl;
 
+import java.io.File;
+
 /**
  *
  * @author sessonad
@@ -12,12 +14,12 @@ public class CucumberImplElement {
     
     private String name;
     private Integer line;
-    private String filename;
+    private File file;
 
-    public CucumberImplElement(String name, Integer line, String filename) {
+    public CucumberImplElement(String name, Integer line, File file) {
         this.name = name;
         this.line = line;
-        this.filename = filename;
+        this.file = file;
     }
 
     public String getName() {
@@ -37,16 +39,26 @@ public class CucumberImplElement {
     }
 
     public String getFilename() {
-        return filename;
+        return file.getName();
+    }
+    
+    public String getFilePath() {
+        return file.getAbsolutePath();
     }
 
-    public void setFilename(String filename) {
-        this.filename = filename;
+    public File getFile() {
+        return file;
     }
+
+    public void setFile(File file) {
+        this.file = file;
+    }
+
+    
 
     @Override
     public String toString() {
-        return "CucumberImplElement{" + "name=" + name + ", line=" + line + ", filename=" + filename + '}';
+        return "CucumberImplElement{" + "name=" + name + ", line=" + line + ", filename=" + file.getName() + '}';
     }
     
     

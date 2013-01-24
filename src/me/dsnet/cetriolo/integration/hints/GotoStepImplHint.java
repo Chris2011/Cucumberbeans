@@ -8,7 +8,6 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.io.File;
 import me.dsnet.cetriolo.findimpl.CucumberImplElement;
-import me.dsnet.cetriolo.relationships.FeatureCodeDialogue;
 import org.netbeans.spi.editor.hints.ChangeInfo;
 import org.netbeans.spi.editor.hints.Fix;
 import org.openide.cookies.EditorCookie;
@@ -39,15 +38,7 @@ public class GotoStepImplHint implements Fix{
     public ChangeInfo implement() throws Exception {        
         ChangeInfo changes = new ChangeInfo();
         try{
-            openDoc();            
-//            FeatureCodeDialogue dialogue = new FeatureCodeDialogue(null, true);
-//            //center on screen
-//            final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-//            final int x = (screenSize.width - dialogue.getWidth()) / 2;
-//            final int y = (screenSize.height - dialogue.getHeight()) / 2;
-//            dialogue.setLocation(x, y);
-//            dialogue.setVisible(true);
-            
+            openDoc();                      
         }catch(Exception e){}
         return changes;
     }

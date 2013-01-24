@@ -41,7 +41,9 @@ public class CucumberImplementationUtils {
     
     public enum Extensions{
         
+        FEATURE(".feature"),
         JAVA(".java");        
+        
         String extension;
 
         private Extensions(String extension) {
@@ -62,51 +64,67 @@ public class CucumberImplementationUtils {
     
     public static void setFiles(Extensions ext){
         Project[] projects = OpenProjects.getDefault().getOpenProjects();       
-        files = new ArrayList<File>();
-        projectRoots = new ArrayList<FileObject>();
+        files = new ArrayList<File>();        
+        projectRoots = new ArrayList<FileObject>(); 
+        
         for(Project p:projects){
             FileObject fo = p.getProjectDirectory();
-            fo.addRecursiveListener(new FileChangeListener() {
-                @Override
-                public void fileFolderCreated(FileEvent fe) {
-                    File created = FileUtil.toFile(fe.getFile());
-                    modifiedFiles = new ArrayList<File>();
-                    getModifiedFiles(created, Extensions.JAVA.getExtension());
-                    for(File f:modifiedFiles){
-                        CucumberImplData.updateFileInImplementationMap(f);
+            if(ext == Extensions.JAVA){
+                fo.addRecursiveListener(new FileChangeListener() {
+                    @Override
+                    public void fileFolderCreated(FileEvent fe) {
+                        File created = FileUtil.toFile(fe.getFile());
+                        modifiedFiles = new ArrayList<File>();
+                        getModifiedFiles(created, Extensions.JAVA.getExtension());
+                        for(File f:modifiedFiles){
+                            CucumberImplData.updateFileInImplementationMap(f);
+                        }
+                        getModifiedFiles(created, Extensions.FEATURE.getExtension());
+                        for(File f:modifiedFiles){
+                            CucumberImplData.updateFileInStepMap(f);
+                        }
                     }
-                }
 
-                @Override
-                public void fileDataCreated(FileEvent fe) {
-                    File changed = FileUtil.toFile(fe.getFile());
-                    if(changed.getName().endsWith(Extensions.JAVA.getExtension())){
-                        CucumberImplData.updateFileInImplementationMap(changed);                        
+                    @Override
+                    public void fileDataCreated(FileEvent fe) {
+                        File changed = FileUtil.toFile(fe.getFile());
+                        if(changed.getName().endsWith(Extensions.JAVA.getExtension())){
+                            CucumberImplData.updateFileInImplementationMap(changed);                        
+                        }else if(changed.getName().endsWith(Extensions.FEATURE.getExtension())){
+                            CucumberImplData.updateFileInStepMap(changed); 
+                        }
                     }
-                }
 
-                @Override
-                public void fileChanged(FileEvent fe) {
-                    File changed = FileUtil.toFile(fe.getFile());
-                    if(changed.getName().endsWith(Extensions.JAVA.getExtension())){
-                        CucumberImplData.updateFileInImplementationMap(changed);                        
+                    @Override
+                    public void fileChanged(FileEvent fe) {
+                        File changed = FileUtil.toFile(fe.getFile());
+                        if(changed.getName().endsWith(Extensions.JAVA.getExtension())){
+                            CucumberImplData.updateFileInImplementationMap(changed);                        
+                        }else if(changed.getName().endsWith(Extensions.FEATURE.getExtension())){
+                            CucumberImplData.updateFileInStepMap(changed); 
+                        }
                     }
-                }
-                
-                @Override
-                public void fileDeleted(FileEvent fe) {
-                    File changed = FileUtil.toFile(fe.getFile());
-                    if(!changed.isDirectory() && changed.getName().endsWith(Extensions.JAVA.getExtension())){
-                        CucumberImplData.removeFileinImplementationMap(changed);                         
+
+                    @Override
+                    public void fileDeleted(FileEvent fe) {
+                        File changed = FileUtil.toFile(fe.getFile());
+                        if(!changed.isDirectory()){
+                            if(changed.getName().endsWith(Extensions.JAVA.getExtension())){
+                                CucumberImplData.removeFileinImplementationMap(changed,Extensions.JAVA);         
+                            }else if(changed.getName().endsWith(Extensions.FEATURE.getExtension())){
+                                CucumberImplData.removeFileinImplementationMap(changed,Extensions.FEATURE);   
+                            }                                                  
+                        }
                     }
-                }
-                @Override
-                public void fileRenamed(FileRenameEvent fre) {}
-                
-                @Override
-                public void fileAttributeChanged(FileAttributeEvent fae) {}
-            });
-            projectRoots.add(fo);
+                    @Override
+                    public void fileRenamed(FileRenameEvent fre) {}
+
+                    @Override
+                    public void fileAttributeChanged(FileAttributeEvent fae) {}
+                });
+
+                projectRoots.add(fo);
+            }
             p.getProjectDirectory();
             addFiles(FileUtil.toFile(p.getProjectDirectory()),ext.getExtension());
         }        

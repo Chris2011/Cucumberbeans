@@ -13,21 +13,15 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Hashtable;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
-import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.regex.Pattern;
+import me.dsnet.cetriolo.findimpl.CucumberImplementationUtils.Extensions;
 import org.netbeans.api.progress.ProgressHandle;
 import org.netbeans.api.progress.ProgressHandleFactory;
-import org.netbeans.api.search.SearchRoot;
-import org.netbeans.api.search.SearchScopeOptions;
-import org.netbeans.api.search.provider.SearchInfo;
-import org.netbeans.api.search.provider.SearchListener;
 import org.openide.awt.StatusDisplayer;
-import org.openide.filesystems.FileObject;
 
 /**
  *
@@ -35,8 +29,10 @@ import org.openide.filesystems.FileObject;
  */
 public class CucumberImplData {
 
-    static Map<String, List<CucumberImplElement>> implementations;    
+    static Map<String, List<CucumberImplElement>> implementations;  
+    static Map<String, List<CucumberImplElement>> steps;  
     static boolean isMapDirty = true;
+    static boolean isStepMapDirty = true;
     
     public static List<CucumberImplElement> getImplementationList(){
         List<CucumberImplElement> implementationSet = new ArrayList<CucumberImplElement>();
@@ -49,6 +45,25 @@ public class CucumberImplData {
         return implementationSet;
     }
     
+    public static List<CucumberImplElement> getStepsList(){
+        List<CucumberImplElement> stepSet = new ArrayList<CucumberImplElement>();
+        if (isStepMapDirty || steps == null) { loadStepMap();}
+        for (Entry<String, List<CucumberImplElement>> e : steps.entrySet()) {
+            for (CucumberImplElement elem : e.getValue()) {
+                stepSet.add(elem);
+            }
+        }
+        return stepSet;
+    }
+    
+    public static Map<String, List<CucumberImplElement>> getStepsMap() {
+        if (isStepMapDirty || steps == null) {
+            loadStepMap();
+            return steps;
+        } else {
+            return steps;
+        }
+    }
 
     public static Map<String, List<CucumberImplElement>> getImplementationsMap() {
         if (isMapDirty || implementations == null) {
@@ -75,6 +90,22 @@ public class CucumberImplData {
         isMapDirty = false;
     }
     
+    private static void loadStepMap() {
+        ProgressHandle handle = ProgressHandleFactory.createHandle("Searching for Cucumber steps...");
+        handle.switchToIndeterminate();
+        handle.start();
+        long start = Calendar.getInstance().getTimeInMillis();
+        List<File> files = CucumberImplementationUtils.getFiles(CucumberImplementationUtils.Extensions.FEATURE);
+        steps = new Hashtable<String, List<CucumberImplElement>>();
+        for (File f : files) {
+            updateFileInStepMap(f);
+        }        
+        handle.finish();
+        //printImplementationMap(implementations);
+        StatusDisplayer.getDefault().setStatusText("Cucumber steps map loaded, took :" +(Calendar.getInstance().getTimeInMillis() - start ) +" milliseconds");
+        isStepMapDirty = false;
+    }
+    
     public static void updateFileInImplementationMap(File fileToUpdate){        
         try {
             long start = Calendar.getInstance().getTimeInMillis();
@@ -86,7 +117,7 @@ public class CucumberImplData {
             while ((strLine = br.readLine()) != null) {
                 if(strLine.contains("@When")||strLine.contains("@Given")||strLine.contains("@Then")||strLine.contains("@And")||strLine.contains("@But")){                        
                     String annotationText=strLine.substring(strLine.indexOf("(\"") + 2,strLine.lastIndexOf("\")"));
-                    CucumberImplElement impl = new CucumberImplElement(annotationText, line, path);
+                    CucumberImplElement impl = new CucumberImplElement(annotationText, line, fileToUpdate);
                     currlist.add(impl);
                 }
                 line++;
@@ -99,10 +130,40 @@ public class CucumberImplData {
         }        
     }
     
-    public static void removeFileinImplementationMap(File fileToRemove){
+    public static void updateFileInStepMap(File fileToUpdate){        
+        try {
+            long start = Calendar.getInstance().getTimeInMillis();
+            String path =fileToUpdate.getAbsolutePath();
+            List<CucumberImplElement> currlist = new ArrayList<CucumberImplElement>();                
+            BufferedReader br = new BufferedReader(new InputStreamReader(new DataInputStream(new FileInputStream(fileToUpdate))));
+            String strLine;
+            int line=1;
+            while ((strLine = br.readLine()) != null) {
+                strLine = strLine.trim();
+                System.out.println("strline step: " +strLine);
+                if(strLine.startsWith("Given ")||strLine.startsWith("When ")||strLine.startsWith("Then ")||strLine.startsWith("But ")||strLine.startsWith("And ")){                        
+                    String annotationText=strLine.substring(strLine.indexOf(" ")+1);
+                    CucumberImplElement impl = new CucumberImplElement(annotationText, line, fileToUpdate);
+                    currlist.add(impl);
+                }
+                line++;
+            }
+            steps.put(path, currlist);
+            br.close();
+            System.out.println("updated in the stepmap: "+fileToUpdate.getAbsolutePath()+" time: " +(Calendar.getInstance().getTimeInMillis() - start ) + " milliseconds");
+        } catch (Exception e) {
+            e.printStackTrace();                
+        }        
+    }
+    
+    public static void removeFileinImplementationMap(File fileToRemove, Extensions ext){
         long start = Calendar.getInstance().getTimeInMillis();
-        implementations.remove(fileToRemove.getAbsolutePath());
-        System.out.println("removed in the map: "+fileToRemove.getAbsolutePath()+" time: " +(Calendar.getInstance().getTimeInMillis() - start ) + " milliseconds");
+        if(ext == Extensions.JAVA){
+            implementations.remove(fileToRemove.getAbsolutePath());
+        }else{
+            steps.remove(fileToRemove.getAbsolutePath());
+        }        
+        System.out.println("removed in the map: ("+ext.getExtension() +") " +fileToRemove.getAbsolutePath()+" time: " +(Calendar.getInstance().getTimeInMillis() - start ) + " milliseconds");
     }
     
     public static Set<CucumberImplElement> getMatchingImpls(String steppDefinition){
@@ -125,13 +186,10 @@ public class CucumberImplData {
     
     private static boolean isValidMatch(String stepDesc,String annotation){
         boolean isMatch = false;
-//        System.out.println("step: " + stepDesc);
-        String annotation1= annotation.replaceAll("\\\\d", "\\d");
-//        System.out.println("annota: " +annotation1);        
+        String annotation1= annotation.replaceAll("\\\\d", "\\d");     
         if(Pattern.matches(annotation1, stepDesc.trim())){
             isMatch =true;
         }
-        //System.out.println("matches: " + isMatch);
         return isMatch;
     }
     

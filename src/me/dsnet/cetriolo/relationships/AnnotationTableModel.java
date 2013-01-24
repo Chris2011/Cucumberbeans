@@ -18,10 +18,12 @@ public class AnnotationTableModel extends AbstractTableModel{
     
     List<CucumberImplElement> impls;    
     Object[][] data;
+    boolean isStep;
     
-    public AnnotationTableModel() {
+    public AnnotationTableModel(boolean isStep) {
         super();
-        impls = CucumberImplData.getImplementationList();              
+        this.isStep=isStep;
+        impls = (isStep)?CucumberImplData.getStepsList():CucumberImplData.getImplementationList();              
     }
     
     @Override
@@ -43,7 +45,7 @@ public class AnnotationTableModel extends AbstractTableModel{
     public String getColumnName(int col) {
         switch(col){
             case 0: {
-                return "Annotation text";
+                return (isStep)?"Step definition":"Annotation text";
             }case 1:{
                 return "File";
             }case 2:{
@@ -66,7 +68,7 @@ public class AnnotationTableModel extends AbstractTableModel{
                 return imp.getName();
             }case 1:{
                 String filename = imp.getFilename();
-                return filename.substring(filename.lastIndexOf("\\" + 1));
+                return filename;//.substring(filename.lastIndexOf("\\" + 1));
             }case 2:{
                 return imp.getLine().toString();
             }
