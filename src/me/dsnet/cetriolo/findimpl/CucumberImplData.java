@@ -125,9 +125,10 @@ public class CucumberImplData {
     
     private static boolean isValidMatch(String stepDesc,String annotation){
         boolean isMatch = false;
-        //System.out.println("step: " + stepDesc);
-        //System.out.println("annota: " +annotation);
-        if(Pattern.matches(annotation, stepDesc.trim())){
+//        System.out.println("step: " + stepDesc);
+        String annotation1= annotation.replaceAll("\\\\d", "\\d");
+//        System.out.println("annota: " +annotation1);        
+        if(Pattern.matches(annotation1, stepDesc.trim())){
             isMatch =true;
         }
         //System.out.println("matches: " + isMatch);
