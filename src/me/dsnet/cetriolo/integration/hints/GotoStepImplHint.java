@@ -44,7 +44,7 @@ public class GotoStepImplHint implements Fix{
     }
     
     public void openDoc() throws Exception{
-        File f = new File(elem.getFilename());
+        File f = elem.getFile();
         FileObject fo = FileUtil.toFileObject(f);
         DataObject d = DataObject.find(fo);
         final EditorCookie ec = (EditorCookie) d.getLookup().lookup(EditorCookie.class);

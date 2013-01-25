@@ -10,7 +10,7 @@ import java.io.File;
  *
  * @author sessonad
  */
-public class CucumberImplElement {
+public class CucumberImplElement implements Comparable{
     
     private String name;
     private Integer line;
@@ -59,6 +59,14 @@ public class CucumberImplElement {
     @Override
     public String toString() {
         return "CucumberImplElement{" + "name=" + name + ", line=" + line + ", filename=" + file.getName() + '}';
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        if(o instanceof CucumberImplElement){
+            return this.getName().compareTo(((CucumberImplElement)o).getName());
+        }
+        return 0;
     }
     
     
