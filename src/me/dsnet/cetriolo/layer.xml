@@ -35,6 +35,7 @@
             <file name="PaletteFeature.xml" url="nbresloc:/me/dsnet/cetriolo/resources/xml/PaletteFeature.xml"></file>
             <file name="PaletteScenario.xml" url="nbresloc:/me/dsnet/cetriolo/resources/xml/PaletteScenario.xml"></file>
             <file name="PaletteScenarioOutline.xml" url="nbresloc:/me/dsnet/cetriolo/resources/xml/PaletteScenarioOutline.xml"></file>
+            <file name="PaletteBackground.xml" url="nbresloc:/me/dsnet/cetriolo/resources/xml/PaletteBackground.xml"></file>
         </folder>
         <folder name="Steps">
             <file name="PaletteGiven.xml" url="nbresloc:/me/dsnet/cetriolo/resources/xml/PaletteGiven.xml"></file>

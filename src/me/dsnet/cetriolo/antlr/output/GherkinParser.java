@@ -79,7 +79,9 @@ public TreeAdaptor getTreeAdaptor() {
                     type=SyntaxError.ErrorType.NOT_VIABLE_SCENARIO;
                 }else if(grammarDesc.contains(" step ")){
                     type=SyntaxError.ErrorType.NOT_VIABLE_FEATURE;
-                }      
+                }else if(grammarDesc.contains(" background ")){
+                    type=SyntaxError.ErrorType.NOT_VIABLE_BACKGROUND;
+                }     
             }else if(ex instanceof MismatchedTokenException){
                 type=SyntaxError.ErrorType.MISMATCHED_FEATURE;
             }else if(methodName!=null){

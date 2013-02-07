@@ -4,14 +4,14 @@
 
 <editor_palette_item version="1.0">
 
-    <class name="me.dsnet.cetriolo.integration.palette.PaletteBackground" />
+    <class name="me.dsnet.cetriolo.integration.palette.PaletteScenario" />
 
     <icon16 urlvalue="me/dsnet/cetriolo/resources/icons/block.png" />
     <icon32 urlvalue="me/dsnet/cetriolo/resources/icons/block32.png" />
    
     <inline-description>
-       <display-name>Background</display-name>
-       <tooltip><![CDATA[ Drag to the editor to add a new Background  ]]></tooltip> 
+       <display-name>Scenario</display-name>
+       <tooltip><![CDATA[ Drag to the editor to add a new Scenario  ]]></tooltip> 
     </inline-description>
                
 </editor_palette_item>

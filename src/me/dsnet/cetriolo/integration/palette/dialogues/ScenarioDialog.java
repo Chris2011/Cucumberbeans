@@ -24,10 +24,22 @@ public class ScenarioDialog extends javax.swing.JDialog {
         super(parent, modal);  
         this.keyword=keyword;
         initComponents();
-        scenTitle.setText((keyword ==  GherkinCompletionNames.SCENARIO)?"  Scenario Title:":"  Scenario Outline Title:");
-        scenDesc.setText((keyword ==  GherkinCompletionNames.SCENARIO)?"  Scenario Description:":"  Scenario Outline Description:");
-        scenSteps.setText((keyword ==  GherkinCompletionNames.SCENARIO)?"  Scenario Steps:":"  Scenario Outline Steps:");
-        setTitle("Add a scenario...");
+        if(keyword ==  GherkinCompletionNames.SCENARIO){
+            scenTitle.setText("  Scenario Title:");
+            scenDesc.setText("  Scenario Description:");
+            scenSteps.setText("  Scenario Steps:");
+        }else if (keyword ==  GherkinCompletionNames.SCENOUT){
+            scenTitle.setText("  Scenario Outline Title:");
+            scenDesc.setText("  Scenario Outline Description:");
+            scenSteps.setText("  Scenario Outline Steps:");
+        }else{
+            scenTitle.setText("  Background Title:");
+            scenDesc.setText("  Background Description:");
+            scenSteps.setText("  Background Steps:");
+        }
+            
+        
+        setTitle("Add a block...");
         setIconImage(keyword.getIcon(16));
         jLabel1.setIcon(new javax.swing.ImageIcon(keyword.getIcon(64)));
         //jTextArea1.setText(keywordTitle.getDocumentation());
@@ -288,7 +300,14 @@ public class ScenarioDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
-        StringBuilder sb= new StringBuilder((keyword ==  GherkinCompletionNames.SCENARIO)?"\n   Scenario: ":"\n   Scenario Outline: ");
+        StringBuilder sb= new StringBuilder();
+        if(keyword ==  GherkinCompletionNames.SCENARIO){
+            sb.append("\n   Scenario: ");
+        }else if(keyword ==  GherkinCompletionNames.SCENOUT){
+            sb.append("\n   Scenario Outline: ");
+        }else{
+            sb.append("\n   Background: ");
+        }
         sb.append(featureTitle.getText());
         sb.append("\n      ");
         String desc=scenarioDescArea.getText();

@@ -147,7 +147,16 @@ public class GherkinSyntaxErrorHighlightingTask extends ParserResultTask{
     private List<Fix> getFixesWherePossible(TokenSequence<GherkinTokenId> ts,Document document,SyntaxError error,int offset){
         List<Fix> fixes = new ArrayList<Fix>();
         //printException(error);
-        if(error.getErrorType() == SyntaxError.ErrorType.NOT_VIABLE_SCENARIO){
+        if(error.getErrorType() == SyntaxError.ErrorType.NOT_VIABLE_BACKGROUND){
+            fixes.add(new ExpectingScenarioFix(document, offset, GherkinCompletionNames.BACKGROUND));
+            fixes.add(new ExpectingScenarioFix(document, offset, GherkinCompletionNames.SCENARIO));
+            fixes.add(new ExpectingScenarioFix(document, offset, GherkinCompletionNames.SCENOUT));
+            try{
+                int start = getStartOfLineOffset(ts, error);
+                int end = getEndOfLineOffset(ts, error);
+                fixes.add(new DeleteLineFix(document, start,end));
+            }catch(Exception e){}  
+        }else if(error.getErrorType() == SyntaxError.ErrorType.NOT_VIABLE_SCENARIO){
             fixes.add(new ExpectingScenarioFix(document, offset, GherkinCompletionNames.SCENARIO));
             fixes.add(new ExpectingScenarioFix(document, offset, GherkinCompletionNames.SCENOUT));
             try{

@@ -28,6 +28,7 @@ public class SyntaxError {
         MISSING_STEP_DESC,
         MISSING_TITLE,
         NOT_VIABLE_SCENARIO,
+        NOT_VIABLE_BACKGROUND,
         NOT_VIABLE_FEATURE,
         MISMATCHED_FEATURE
     }    
@@ -44,6 +45,9 @@ public class SyntaxError {
                 String tokenFound = message.substring("no viable alternative at input ".length());
                 this.messageToDispaly = tokenFound +" was found, but either 'Scenario:' or 'Scenario Outline:' is expected here.";
             }else if(errorType == ErrorType.NOT_VIABLE_FEATURE){
+                String tokenFound = message.substring("no viable alternative at input ".length());
+                this.messageToDispaly = tokenFound +" was found, but it wasn't expected here.";
+            }else if(errorType == ErrorType.NOT_VIABLE_BACKGROUND){
                 String tokenFound = message.substring("no viable alternative at input ".length());
                 this.messageToDispaly = tokenFound +" was found, but it wasn't expected here.";
             }

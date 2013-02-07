@@ -30,7 +30,7 @@ public class GherkinCompletionDocumentation implements CompletionDocumentation{
     @Override
     public URL getURL() {
         try {
-            return new URL("http://cukes.info/");
+            return new URL("http://cuke4ninja.com/toc.html");
         } catch (MalformedURLException ex) {
             return null;
         }
