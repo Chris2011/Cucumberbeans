@@ -5,8 +5,8 @@
 package me.dsnet.cetriolo.antlr.integration;
 
 import javax.swing.event.ChangeListener;
-import me.dsnet.cetriolo.antlr.output.GherkinLexer;
-import me.dsnet.cetriolo.antlr.output.GherkinParser;
+import me.dsnet.cetriolo.antlr.GherkinLexer;
+import me.dsnet.cetriolo.antlr.GherkinParser;
 import org.antlr.runtime.ANTLRStringStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.Lexer;

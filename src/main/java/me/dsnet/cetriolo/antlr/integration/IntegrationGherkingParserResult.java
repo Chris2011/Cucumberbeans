@@ -6,7 +6,7 @@ package me.dsnet.cetriolo.antlr.integration;
 
 import java.util.ArrayList;
 import java.util.List;
-import me.dsnet.cetriolo.antlr.output.GherkinParser;
+import me.dsnet.cetriolo.antlr.GherkinParser;
 import org.netbeans.modules.csl.api.Error;
 import org.netbeans.modules.parsing.api.Snapshot;
 import org.netbeans.modules.parsing.spi.ParseException;

@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package me.dsnet.cetriolo.antlr.output;
+package me.dsnet.cetriolo.antlr;
 
 import org.antlr.runtime.NoViableAltException;
 import org.antlr.runtime.RecognitionException;
