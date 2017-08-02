@@ -10,23 +10,23 @@ package me.dsnet.cetriolo.antlr;
  */
 public enum GherkinTokenEnum {
 
-    BACKGROUND(4, "keyword"),
-    COMMENT(5, "comment"),
-    DOCSTR(6,"string"),
-    EXAMPLE(7,"Stepkeyword"),
-    FEATURE(8, "keyword"),
-    FEAT_KEY(9,"Featurekeyword"),    
-    NL(10, "whitespace"),
-    NUMBER(11, "Number"),
-    PHOLDER(12, "Placeholder"),
-    SCENARIO(13, "keyword"),
-    SCEN_OUT(14, "keyword"),
-    STEP_KEY(15, "Stepkeyword"),
-    STRING(16, "string"),
-    TAGNAME(17, "Tag"),
-    T_ROW(18, "Table"),
-    WORD(19, "Text"),
-    WS(20, "whitespace");
+    BACKGROUND(GherkinLexer.BACKGROUND, "keyword"),
+    COMMENT(GherkinLexer.COMMENT, "comment"),
+    DOCSTR(GherkinLexer.DOCSTR,"string"),
+    EXAMPLE(GherkinLexer.EXAMPLE,"Stepkeyword"),
+    FEATURE(GherkinLexer.FEATURE, "keyword"),
+    FEAT_KEY(GherkinLexer.FEAT_KEY,"Featurekeyword"),    
+    NL(GherkinLexer.NL, "whitespace"),
+    NUMBER(GherkinLexer.NUMBER, "Number"),
+    PHOLDER(GherkinLexer.PHOLDER, "Placeholder"),
+    SCENARIO(GherkinLexer.SCENARIO, "keyword"),
+    SCEN_OUT(GherkinLexer.SCEN_OUT, "keyword"),
+    STEP_KEY(GherkinLexer.STEP_KEY, "Stepkeyword"),
+    STRING(GherkinLexer.STRING, "string"),
+    TAGNAME(GherkinLexer.TAGNAME, "Tag"),
+    T_ROW(GherkinLexer.T_ROW, "Table"),
+    WORD(GherkinLexer.WORD, "Text"),
+    WS(GherkinLexer.WS, "whitespace");
     
     
     public int id;
