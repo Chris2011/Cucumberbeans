@@ -26,8 +26,10 @@ public class IntegrationGherkinLexer implements Lexer<GherkinTokenId> {
 
         if (token.getType() != GherkinLexer.EOF) {
             GherkinTokenId tokenId = GherkinLanguageHierarchy.getToken(token.getType());
+            final org.netbeans.api.lexer.Token<GherkinTokenId> createToken = info.tokenFactory().createToken(tokenId);
 
-            return info.tokenFactory().createToken(tokenId);
+            assert createToken != null;
+            return createToken;
         }
 
         return null;
