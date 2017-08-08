@@ -13,7 +13,7 @@
                 </file>
                 <file name="structure.instance">
                     <attr name="instanceClass" stringvalue="me.dsnet.cetriolo.integration.fold.GherkinStructureScanner"/>
-		</file>
+                </file>
             </folder>
         </folder>
     </folder>
@@ -21,10 +21,10 @@
         <folder name="Panels">
             <folder name="text">
                 <folder name="x-gherkin">
-                    <file name="org-netbeans-modules-csl-navigation-ClassMemberPanel.instance">
-                        <!--net.dfranek.typoscript.TSLanguage-->
+                    <!--                    <file name="org-netbeans-modules-csl-navigation-ClassMemberPanel.instance">
+                        net.dfranek.typoscript.TSLanguage
                         <attr name="instanceClass" stringvalue="org.netbeans.modules.csl.navigation.ClassMemberPanel"/>
-                    </file>
+                    </file>-->
                 </folder>
             </folder>
         </folder>
@@ -57,33 +57,33 @@
     </folder>
     <folder name="Editors">
         <folder name="text">
-            <folder name="x-gherkin">                
-            <attr name="SystemFileSystem.localizingBundle" stringvalue="me.dsnet.cetriolo.Bundle"/>
-            <file name="me-dsnet-cetriolo-antlr-integration-IntegrationGherkinParserFactory.instance"/>
-            <file name="me-dsnet-cetriolo-integration-syntaxerrors-GherkinSyntaxErrorHighlightingTaskFactory.instance"/>
-            <file name="me-dsnet-cetriolo-integration-reformat-GherkinReformatTaskFactory.instance"/>
-            <folder name="FontsColors">
-                <folder name="NetBeans">
-                    <folder name="Defaults">
-                        <file name="FontAndColors.xml" url="nbresloc:/me/dsnet/cetriolo/resources/xml/FontAndColors.xml">
-                            <attr name="SystemFileSystem.localizingBundle" stringvalue="me.dsnet.cetriolo.Bundle"/>
-                        </file>
+            <folder name="x-gherkin">
+                <attr name="SystemFileSystem.localizingBundle" stringvalue="me.dsnet.cetriolo.Bundle"/>
+                <file name="me-dsnet-cetriolo-antlr-integration-IntegrationGherkinParserFactory.instance"/>
+                <!--<file name="me-dsnet-cetriolo-integration-syntaxerrors-GherkinSyntaxErrorHighlightingTaskFactory.instance"/>-->
+                <file name="me-dsnet-cetriolo-integration-reformat-GherkinReformatTaskFactory.instance"/>
+                <folder name="FontsColors">
+                    <folder name="NetBeans">
+                        <folder name="Defaults">
+                            <file name="FontAndColors.xml" url="nbresloc:/me/dsnet/cetriolo/resources/xml/FontAndColors.xml">
+                                <attr name="SystemFileSystem.localizingBundle" stringvalue="me.dsnet.cetriolo.Bundle"/>
+                            </file>
+                        </folder>
                     </folder>
                 </folder>
-            </folder>
-            <file name="me-dsnet-cetriolo-integration-palette-GherkinPaletteFactory-createPalette.instance">
+                <file name="me-dsnet-cetriolo-integration-palette-GherkinPaletteFactory-createPalette.instance">
                     <!--me.dsnet.cetriolo.integration.palette.GherkinPaletteFactory.createPalette()-->
                     <attr
                         methodvalue="me.dsnet.cetriolo.integration.palette.GherkinPaletteFactory.createPalette" name="instanceCreate"/>
                     <attr name="instanceOf" stringvalue="org.netbeans.spi.palette.PaletteController"/>
                 </file>
-            <file name="me-dsnet-cetriolo-integration-occurrences-OccurrencesHighlighterFactory.instance">
+                <file name="me-dsnet-cetriolo-integration-occurrences-OccurrencesHighlighterFactory.instance">
                     <!--me.dsnet.cetriolo.integration.occurrences.GherkinOccurrencesHighlightsLayerFactory-->
                     <attr name="instanceOf" stringvalue="org.netbeans.spi.editor.highlighting.HighlightsLayerFactory"/>
                 </file>
-<!--            <folder name="FoldManager">
-                <file name="me-dsnet-cetriolo-integration-fold-GherkinFolderManagerFactory.instance"/>
-            </folder>-->
+                <!--            <folder name="FoldManager">
+                    <file name="me-dsnet-cetriolo-integration-fold-GherkinFolderManagerFactory.instance"/>
+                </folder>-->
                 <file name="org-netbeans-modules-csl-core-TLIndexerFactory.instance">
                     <!--me.dsnet.cetriolo.GherkinLanguage-->
                     <attr name="instanceClass" stringvalue="org.netbeans.modules.csl.core.TLIndexerFactory"/>
@@ -286,7 +286,7 @@
                     </file>
                     <file name="me-dsnet-crumblecuc-GherkingDataObject.instance">
                         <!--me.dsnet.cetriolo.GherkingDataObject-->
-                        <attr name="iconBase" stringvalue="me/dsnet/cetriolo/resources/icons/cucdoc.png"/>
+                        <attr name="iconBase" stringvalue="me/dsnet/cetriolo/resources/icons/cuc.png"/>
                         <attr intvalue="300" name="position"/>
                         <attr bundlevalue="me.dsnet.cetriolo.Bundle#LBL_Cuc_LOADER" name="displayName"/>
                         <attr methodvalue="org.openide.loaders.DataLoaderPool.factory" name="instanceCreate"/>

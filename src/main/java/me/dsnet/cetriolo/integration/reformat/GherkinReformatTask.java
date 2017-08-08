@@ -22,16 +22,15 @@ import org.netbeans.modules.editor.indent.spi.ReformatTask;
  * @author SessonaD
  */
 public class GherkinReformatTask implements ReformatTask{
-
     private Context context;
     private Document doc;
     Map<Integer, Token<GherkinTokenId>> indents = new TreeMap<Integer, Token<GherkinTokenId>> ();
-    
+
     public GherkinReformatTask(Context context) {
         this.context = context;
         this.doc=context.document();
     }
-    
+
     @Override
     public void reformat() throws BadLocationException {
         populateMapIndents();
@@ -42,17 +41,17 @@ public class GherkinReformatTask implements ReformatTask{
                     token.id().primaryCategory().equals("keyword")||
                     token.id().primaryCategory().equals("Featurekeyword")||
                     token.id().primaryCategory().equals("Table")) {
-                
+
                 int newStartline = context.lineStartOffset(e.getKey() + offset);
                 int currentindent = context.lineIndent(newStartline);
                 int newiNdentValue= getIndentationLenghtForToken(token);
                 int modified = newiNdentValue - currentindent;
                 context.modifyIndent(newStartline, newiNdentValue);
                 offset += modified;
-            }            
+            }
         }
     }
-    
+
     private int getIndentationLenghtForToken(Token<GherkinTokenId> token){
         if(token.id().name().equals("FEATURE")){
             return 0;
@@ -64,7 +63,7 @@ public class GherkinReformatTask implements ReformatTask{
             return 3;
         }
     }
-    
+
     private void populateMapIndents() throws BadLocationException {
         int start = context.startOffset();
         start = context.lineStartOffset(start);
@@ -80,14 +79,14 @@ public class GherkinReformatTask implements ReformatTask{
                 break;
             }else{
                 Token<GherkinTokenId> firstvalid = findFirstValidToken(th, ts);
-                try{                    
+                try{
                     indents.put(context.lineStartOffset(firstvalid.offset(th)), firstvalid);
                 }catch(NullPointerException e){}
                 moveToNextLine(th, ts);
             }
-        }        
+        }
     }
-    
+
     public static void moveToNextLine(TokenHierarchy th,TokenSequence<GherkinTokenId> ts){
         Token<GherkinTokenId> token= ts.token();
         if(token.id().name().equals("NL")||token.id().primaryCategory().equals("Table")){
@@ -100,7 +99,7 @@ public class GherkinReformatTask implements ReformatTask{
             }
         }
     }
-    
+
     public static Token<GherkinTokenId> findFirstValidToken(TokenHierarchy th,TokenSequence<GherkinTokenId> ts){
         Token<GherkinTokenId> token=ts.token();
         if(!token.id().primaryCategory().equals("whitespace")){
@@ -114,10 +113,10 @@ public class GherkinReformatTask implements ReformatTask{
         }
         return null;
     }
-    
+
     @Override
     public ExtraLock reformatLock() {
         return null;
     }
-    
+
 }

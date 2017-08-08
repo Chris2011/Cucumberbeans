@@ -13,69 +13,65 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableCellRenderer;
 import me.dsnet.cetriolo.findimpl.CucumberImplElement;
-import org.netbeans.api.settings.ConvertAsProperties;
-import org.openide.awt.ActionID;
-import org.openide.awt.ActionReference;
 import org.openide.cookies.EditorCookie;
 import org.openide.filesystems.FileObject;
 import org.openide.filesystems.FileUtil;
 import org.openide.loaders.DataObject;
 import org.openide.text.Line;
 import org.openide.windows.TopComponent;
-import org.openide.util.NbBundle.Messages;
 import org.openide.windows.WindowManager;
 
 /**
  * Top component which displays something.
  */
-@ConvertAsProperties(
-    dtd = "-//me.dsnet.cetriolo.relationships//Feature//EN",
-autostore = false)
-@TopComponent.Description(
-    preferredID = "FeatureTopComponent",
-iconBase = "me/dsnet/cetriolo/resources/icons/step.png",
-persistenceType = TopComponent.PERSISTENCE_ALWAYS)
-@TopComponent.Registration(mode = "bottomSlidingSide", openAtStartup = false)
-@ActionID(category = "Window", id = "me.dsnet.cetriolo.relationships.FeatureTopComponent")
-@ActionReference(path = "Menu/Window" /*, position = 333 */)
-@TopComponent.OpenActionRegistration(
-    displayName = "#CTL_FeatureAction",
-preferredID = "FeatureTopComponent")
-@Messages({
-    "CTL_FeatureAction=Steps",
-    "CTL_FeatureTopComponent=Steps Window",
-    "HINT_FeatureTopComponent=This is a Feature window"
-})
+//@ConvertAsProperties(
+//    dtd = "-//me.dsnet.cetriolo.relationships//Feature//EN",
+//autostore = false)
+//@TopComponent.Description(
+//    preferredID = "FeatureTopComponent",
+//iconBase = "me/dsnet/cetriolo/resources/icons/step.png",
+//persistenceType = TopComponent.PERSISTENCE_ALWAYS)
+//@TopComponent.Registration(mode = "bottomSlidingSide", openAtStartup = false)
+//@ActionID(category = "Window", id = "me.dsnet.cetriolo.relationships.FeatureTopComponent")
+//@ActionReference(path = "Menu/Window" /*, position = 333 */)
+//@TopComponent.OpenActionRegistration(
+//    displayName = "#CTL_FeatureAction",
+//preferredID = "FeatureTopComponent")
+//@Messages({
+//    "CTL_FeatureAction=Steps",
+//    "CTL_FeatureTopComponent=Steps Window",
+//    "HINT_FeatureTopComponent=This is a Feature window"
+//})
 public final class FeatureTopComponent extends TopComponent {
 
     public FeatureTopComponent() {
         initComponents();
-        setName(Bundle.CTL_FeatureTopComponent());
-        setToolTipText(Bundle.HINT_FeatureTopComponent());
+//        setName(Bundle.CTL_FeatureTopComponent());
+//        setToolTipText(Bundle.HINT_FeatureTopComponent());
         putClientProperty(TopComponent.PROP_UNDOCKING_DISABLED, Boolean.TRUE);
         setAnnotationTableModel(null);
         setStepTableModel(null);
         setTablesWidth();
         annotationTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         stepTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        jSplitPane1.setDividerLocation(500);     
+        jSplitPane1.setDividerLocation(500);
         annotationTable.getColumnModel().getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
                 ImplementationGotoButton.setEnabled(!annotationTable.getSelectionModel().isSelectionEmpty());
                 showMatchingDefsButton.setEnabled(!annotationTable.getSelectionModel().isSelectionEmpty());
-            }            
+            }
         });
         stepTable.getColumnModel().getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
                 StepGotoButton.setEnabled(!stepTable.getSelectionModel().isSelectionEmpty());
                 showMatchingImpls.setEnabled(!stepTable.getSelectionModel().isSelectionEmpty());
-            }            
+            }
         });
-        
+
     }
-    
+
     private void setTablesWidth(){
         annotationTable.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
         annotationTable.getColumnModel().getColumn(2).setPreferredWidth(30);
@@ -90,16 +86,16 @@ public final class FeatureTopComponent extends TopComponent {
         stepTable.getColumnModel().getColumn(2).setMinWidth(30);
         stepTable.getColumnModel().getColumn(1).setPreferredWidth(150);
         stepTable.getColumnModel().getColumn(1).setMaxWidth(150);
-        stepTable.getColumnModel().getColumn(1).setMinWidth(150);        
+        stepTable.getColumnModel().getColumn(1).setMinWidth(150);
     }
-    
+
     private void setAnnotationTableModel(String filter){
-        annotationTable.setModel(new AnnotationTableModel(false,filter));
+//        annotationTable.setModel(new AnnotationTableModel(false,filter));
         setTablesWidth();
     }
-    
+
     private void setStepTableModel(String filter){
-        stepTable.setModel(new AnnotationTableModel(true,filter));
+//        stepTable.setModel(new AnnotationTableModel(true,filter));
         setTablesWidth();
     }
 
@@ -389,7 +385,7 @@ public final class FeatureTopComponent extends TopComponent {
             CucumberImplElement elem = ((AnnotationTableModel) annotationTable.getModel()).getElementAtRow(rowselected);
             try{
                 openDoc(elem);
-            }catch(Exception e){}            
+            }catch(Exception e){}
         }
     }//GEN-LAST:event_ImplementationGotoButtonActionPerformed
 
@@ -399,7 +395,7 @@ public final class FeatureTopComponent extends TopComponent {
             CucumberImplElement elem = ((AnnotationTableModel) stepTable.getModel()).getElementAtRow(rowselected);
             try{
                 openDoc(elem);
-            }catch(Exception e){}            
+            }catch(Exception e){}
         }
     }//GEN-LAST:event_StepGotoButtonActionPerformed
 
@@ -407,16 +403,16 @@ public final class FeatureTopComponent extends TopComponent {
         int rowselected = annotationTable.getSelectedRow();
         if(rowselected!=-1){
             CucumberImplElement elem = ((AnnotationTableModel) annotationTable.getModel()).getElementAtRow(rowselected);
-            setStepTableModel(elem.getName());            
-        }        
+            setStepTableModel(elem.getName());
+        }
     }//GEN-LAST:event_showMatchingDefsButtonActionPerformed
 
     private void showMatchingImplsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showMatchingImplsActionPerformed
         int rowselected = stepTable.getSelectedRow();
         if(rowselected!=-1){
             CucumberImplElement elem = ((AnnotationTableModel) stepTable.getModel()).getElementAtRow(rowselected);
-            setAnnotationTableModel(elem.getName());            
-        }      
+            setAnnotationTableModel(elem.getName());
+        }
     }//GEN-LAST:event_showMatchingImplsActionPerformed
 
     private void resetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetButtonActionPerformed
@@ -430,17 +426,17 @@ public final class FeatureTopComponent extends TopComponent {
         FileObject fo = FileUtil.toFileObject(f);
         DataObject d = DataObject.find(fo);
         final EditorCookie ec = (EditorCookie) d.getLookup().lookup(EditorCookie.class);
-        ec.open();        
+        ec.open();
         ec.openDocument();
         WindowManager.getDefault().invokeWhenUIReady(new Runnable() {
             @Override
-            public void run() { 
+            public void run() {
                 ec.getLineSet().getCurrent(elem.getLine()).show(Line.ShowOpenType.OPEN, Line.ShowVisibilityType.FOCUS);
             }
         });
-        
+
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ImplementationGotoButton;
     private javax.swing.JButton StepGotoButton;

@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>me.dsnet.cetriolo</groupId>
-    <artifactId>cetriolo-netbeans-plugin</artifactId>
+    <artifactId>NBCucumber</artifactId>
     <!--
       Versioning scheme:
       Major.Minor.Bugfix.NetBeansRelease
@@ -11,7 +11,7 @@
     <version>1.0.0.RELEASE74-SNAPSHOT</version>
     <packaging>nbm</packaging>
 
-    <name>Cetriolo</name>
+    <name>NBCucumber</name>
 
     <properties>
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

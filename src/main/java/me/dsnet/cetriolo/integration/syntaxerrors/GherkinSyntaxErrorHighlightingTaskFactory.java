@@ -14,10 +14,8 @@ import org.netbeans.modules.parsing.spi.TaskFactory;
  * @author SessonaD
  */
 public class GherkinSyntaxErrorHighlightingTaskFactory extends TaskFactory {
-
     @Override
-    public Collection create (Snapshot snapshot) {
-        return Collections.singleton (new GherkinSyntaxErrorHighlightingTask());
+    public Collection create(Snapshot snapshot) {
+        return Collections.singleton(new GherkinSyntaxErrorHighlightingTask());
     }
-
 }
