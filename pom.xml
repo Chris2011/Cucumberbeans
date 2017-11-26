@@ -237,7 +237,7 @@
 
                 <configuration>
                     <codeNameBase>me.dsnet.cetriolo</codeNameBase>
-                    <homePageUrl>https://github.com/dzsessona/Cetriolo</homePageUrl>
+                    <homePageUrl>https://github.com/Chris2011/Cucumberbeans</homePageUrl>
                     <author>Diego Zambelli Sessona</author>
                     <licenseName>General Public License 3</licenseName>
                     <licenseFile>${project.basedir}/license.txt</licenseFile>
