@@ -1,4 +1,4 @@
-Cetriolo
+Cucumberbeans
 ========
 
 **Status of the project and future development/bugs**

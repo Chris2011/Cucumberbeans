@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package me.dsnet.cetriolo.antlr;
 
 /**
@@ -9,13 +5,12 @@ package me.dsnet.cetriolo.antlr;
  * @author SessonaD
  */
 public enum GherkinTokenEnum {
-
     BACKGROUND(GherkinLexer.BACKGROUND, "keyword"),
     COMMENT(GherkinLexer.COMMENT, "comment"),
     DOCSTR(GherkinLexer.DOCSTR,"string"),
     EXAMPLE(GherkinLexer.EXAMPLE,"Stepkeyword"),
     FEATURE(GherkinLexer.FEATURE, "keyword"),
-    FEAT_KEY(GherkinLexer.FEAT_KEY,"Featurekeyword"),    
+    FEAT_KEY(GherkinLexer.FEAT_KEY,"Featurekeyword"),
     NL(GherkinLexer.NL, "whitespace"),
     NUMBER(GherkinLexer.NUMBER, "Number"),
     PHOLDER(GherkinLexer.PHOLDER, "Placeholder"),
@@ -26,9 +21,9 @@ public enum GherkinTokenEnum {
     TAGNAME(GherkinLexer.TAGNAME, "Tag"),
     T_ROW(GherkinLexer.T_ROW, "Table"),
     WORD(GherkinLexer.WORD, "Text"),
-    WS(GherkinLexer.WS, "whitespace");
-    
-    
+    WS(GherkinLexer.WS, "whitespace"),
+    ERR_CHAR(GherkinLexer.ERR_CHAR, "Text");
+
     public int id;
     public String category;
 
