@@ -1,11 +1,12 @@
 grammar Gherkin;
 
 options {
+    tokenVocab=GherkinTokens;
     output=AST;
 }
 
-@header{package me.dsnet.cetriolo.antlr.output;}
-@lexer::header{package me.dsnet.cetriolo.antlr.output;}
+@header{package me.dsnet.cetriolo.antlr;}
+@lexer::header{package me.dsnet.cetriolo.antlr;}
 
 @members {
 	public List<SyntaxError> syntaxErrors = new ArrayList<SyntaxError>();

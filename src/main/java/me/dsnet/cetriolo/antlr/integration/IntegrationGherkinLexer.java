@@ -4,7 +4,7 @@
  */
 package me.dsnet.cetriolo.antlr.integration;
 
-import me.dsnet.cetriolo.antlr.output.GherkinLexer;
+import me.dsnet.cetriolo.antlr.GherkinLexer;
 import org.antlr.runtime.Token;
 import org.netbeans.spi.lexer.Lexer;
 import org.netbeans.spi.lexer.LexerRestartInfo;
