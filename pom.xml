@@ -8,7 +8,7 @@
       Versioning scheme:
       Major.Minor.Bugfix.NetBeansRelease
     -->
-    <version>1.0.0.RELEASE82-SNAPSHOT</version>
+    <version>1.1.0.RELEASE82-SNAPSHOT</version>
     <packaging>nbm</packaging>
 
     <name>Cucumberbeans</name>
