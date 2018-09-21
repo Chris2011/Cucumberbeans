@@ -3,7 +3,7 @@ Cucumberbeans
 
 **Status of the project and future development/bugs**
 
-Current development will be for the 8.2 release.  Future issues will be created as apache netbeans comes more stable.
+Current development will be for the 8.2 release.  Future issues for incubating builds will be created as apache netbeans becomes more stable.
 
 Contributions are welcome!
 
