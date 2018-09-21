@@ -6,7 +6,7 @@
     <artifactId>Cucumberbeans</artifactId>
     <!--
       Versioning scheme:
-      Major.Minor.Bugfix.NetBeansRelease
+      Major.Minor.Bugfix.NetBeansRelease (82 as the netbeans ide version)
     -->
     <version>1.1.0.RELEASE82-SNAPSHOT</version>
     <packaging>nbm</packaging>
@@ -237,8 +237,8 @@
 
                 <configuration>
                     <codeNameBase>me.dsnet.cetriolo</codeNameBase>
-                    <homePageUrl>https://github.com/Chris2011/Cucumberbeans</homePageUrl>
-                    <author>Diego Zambelli Sessona</author>
+                    <homePageUrl>https://github.com/Downright-Development/Cucumberbeans</homePageUrl>
+                    <author>Downright Development</author>
                     <licenseName>General Public License 3</licenseName>
                     <licenseFile>${project.basedir}/license.txt</licenseFile>
                 </configuration>
@@ -246,7 +246,6 @@
             </plugin>
 
             <plugin>
-                <!-- NetBeans 6.9+ requires JDK 6, starting NetBeans 7.4 source 1.7 will be required   -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.1</version>
