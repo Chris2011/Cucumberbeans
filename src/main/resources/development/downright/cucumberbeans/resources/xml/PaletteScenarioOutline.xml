@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE editor_palette_item PUBLIC "-//NetBeans//Editor Palette Item 1.1//EN"
+  "http://www.netbeans.org/dtds/editor-palette-item-1_1.dtd">
+
+<editor_palette_item version="1.0">
+
+    <class name="development.downright.cucumberbeans.integration.palette.PaletteScenarioOutline" />
+
+    <icon16 urlvalue="development/downright/cucumberbeans/resources/icons/block.png" />
+    <icon32 urlvalue="development/downright/cucumberbeans/resources/icons/block32.png" />
+   
+    <inline-description>
+       <display-name>Scenario outline</display-name>
+       <tooltip><![CDATA[ Drag to the editor to add a new Scenario Outline ]]></tooltip> 
+    </inline-description>
+               
+</editor_palette_item>

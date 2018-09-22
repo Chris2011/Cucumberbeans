@@ -2,7 +2,7 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>me.dsnet.cetriolo</groupId>
+    <groupId>development.downright.cucumberbeans</groupId>
     <artifactId>Cucumberbeans</artifactId>
     <!--
       Versioning scheme:
@@ -236,7 +236,7 @@
                 <extensions>true</extensions>
 
                 <configuration>
-                    <codeNameBase>me.dsnet.cetriolo</codeNameBase>
+                    <codeNameBase>development.downright.cucumberbeans</codeNameBase>
                     <homePageUrl>https://github.com/Downright-Development/Cucumberbeans</homePageUrl>
                     <author>Downright Development</author>
                     <licenseName>General Public License 3</licenseName>
@@ -277,7 +277,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <libDirectory>src/main/antlr3/me/dsnet/cetriolo/antlr</libDirectory>
+                    <libDirectory>src/main/antlr3/development/downright/cucumberbeans/antlr</libDirectory>
                 </configuration>
             </plugin>
         </plugins>

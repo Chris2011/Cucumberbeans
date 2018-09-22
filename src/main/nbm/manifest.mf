@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 OpenIDE-Module-Implementation-Version: 2
-OpenIDE-Module-Layer: me/dsnet/cetriolo/layer.xml
-OpenIDE-Module-Localizing-Bundle: me/dsnet/cetriolo/Bundle.properties
+OpenIDE-Module-Layer: development/downright/cucumberbeans/layer.xml
+OpenIDE-Module-Localizing-Bundle: development/downright/cucumberbeans/Bundle.properties
 OpenIDE-Module-Requires: org.openide.windows.WindowManager
 
