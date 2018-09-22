@@ -2,6 +2,7 @@ Cucumberbeans
 ========
 
 **Status of the project and future development/bugs**
+[![Build Status](https://travis-ci.org/Downright-Development/Cucumberbeans.svg?branch=develop)](https://travis-ci.org/Downright-Development/Cucumberbeans)
 
 Current development will be for the 8.2 release.  Future issues for incubating builds will be created as apache netbeans becomes more stable.
 
