@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.2//EN" "http://www.netbeans.org/dtds/filesystem-1_2.dtd">
+<filesystem>
+    <folder name="CslPlugins">
+        <folder name="text">
+            <folder name="x-gherkin">
+                <!--development.downright.cucumberbeans.GherkinLanguage-->
+                <attr intvalue="2" name="genver"/>
+                <attr boolvalue="false" name="useMultiview"/>
+                <file name="language.instance">
+                    <!--development.downright.cucumberbeans.GherkinLanguage-->
+                    <attr name="instanceClass" stringvalue="development.downright.cucumberbeans.GherkinLanguage"/>
+                </file>
+                <file name="structure.instance">
+                    <attr name="instanceClass" stringvalue="development.downright.cucumberbeans.integration.fold.GherkinStructureScanner"/>
+                </file>
+            </folder>
+        </folder>
+    </folder>
+    <folder name="Navigator">
+        <folder name="Panels">
+            <folder name="text">
+                <folder name="x-gherkin">
+                    <!--                    <file name="org-netbeans-modules-csl-navigation-ClassMemberPanel.instance">
+                        net.dfranek.typoscript.TSLanguage
+                        <attr name="instanceClass" stringvalue="org.netbeans.modules.csl.navigation.ClassMemberPanel"/>
+                    </file>-->
+                </folder>
+            </folder>
+        </folder>
+    </folder>
+    <folder name="GherkinPalette">
+        <folder name="Blocks">
+            <attr name="SystemFileSystem.localizingBundle" stringvalue="development.downright.cucumberbeans.Bundle"/>
+            <file name="PaletteFeature.xml" url="nbresloc:/development/downright/cucumberbeans/resources/xml/PaletteFeature.xml"></file>
+            <file name="PaletteScenario.xml" url="nbresloc:/development/downright/cucumberbeans/resources/xml/PaletteScenario.xml"></file>
+            <file name="PaletteScenarioOutline.xml" url="nbresloc:/development/downright/cucumberbeans/resources/xml/PaletteScenarioOutline.xml"></file>
+            <file name="PaletteBackground.xml" url="nbresloc:/development/downright/cucumberbeans/resources/xml/PaletteBackground.xml"></file>
+        </folder>
+        <folder name="Steps">
+            <file name="PaletteGiven.xml" url="nbresloc:/development/downright/cucumberbeans/resources/xml/PaletteGiven.xml"></file>
+            <file name="PaletteWhen.xml" url="nbresloc:/development/downright/cucumberbeans/resources/xml/PaletteWhen.xml"></file>
+            <file name="PaletteAnd.xml" url="nbresloc:/development/downright/cucumberbeans/resources/xml/PaletteAnd.xml"></file>
+            <file name="PaletteBut.xml" url="nbresloc:/development/downright/cucumberbeans/resources/xml/PaletteBut.xml"></file>
+            <file name="PaletteThen.xml" url="nbresloc:/development/downright/cucumberbeans/resources/xml/PaletteThen.xml"></file>
+        </folder>
+        <folder name="Narrative">
+            <file name="PaletteAsA.xml" url="nbresloc:/development/downright/cucumberbeans/resources/xml/PaletteAsA.xml"></file>
+            <file name="PaletteInOrder.xml" url="nbresloc:/development/downright/cucumberbeans/resources/xml/PaletteInOrder.xml"></file>
+            <file name="PaletteIWant.xml" url="nbresloc:/development/downright/cucumberbeans/resources/xml/PaletteIWant.xml"></file>
+        </folder>
+        <folder name="Other">
+            <file name="PaletteComment.xml" url="nbresloc:/development/downright/cucumberbeans/resources/xml/PaletteComment.xml"></file>
+            <file name="PaletteTable.xml" url="nbresloc:/development/downright/cucumberbeans/resources/xml/PaletteTable.xml"></file>
+            <file name="PalettePlaceHolder.xml" url="nbresloc:/development/downright/cucumberbeans/resources/xml/PalettePlaceHolder.xml"></file>
+        </folder>
+    </folder>
+    <folder name="Editors">
+        <folder name="text">
+            <folder name="x-gherkin">
+                <attr name="SystemFileSystem.localizingBundle" stringvalue="development.downright.cucumberbeans.Bundle"/>
+                <file name="development-downright-cucumberbeans-antlr-integration-IntegrationGherkinParserFactory.instance"/>
+                <!--<file name="development-downright-cucumberbeans-integration-syntaxerrors-GherkinSyntaxErrorHighlightingTaskFactory.instance"/>-->
+                <file name="development-downright-cucumberbeans-integration-reformat-GherkinReformatTaskFactory.instance"/>
+                <folder name="FontsColors">
+                    <folder name="NetBeans">
+                        <folder name="Defaults">
+                            <file name="FontAndColors.xml" url="nbresloc:/development/downright/cucumberbeans/resources/xml/FontAndColors.xml">
+                                <attr name="SystemFileSystem.localizingBundle" stringvalue="development.downright.cucumberbeans.Bundle"/>
+                            </file>
+                        </folder>
+                    </folder>
+                </folder>
+                <file name="development-downright-cucumberbeans-integration-palette-GherkinPaletteFactory-createPalette.instance">
+                    <!--development.downright.cucumberbeans.integration.palette.GherkinPaletteFactory.createPalette()-->
+                    <attr
+                        methodvalue="development.downright.cucumberbeans.integration.palette.GherkinPaletteFactory.createPalette" name="instanceCreate"/>
+                    <attr name="instanceOf" stringvalue="org.netbeans.spi.palette.PaletteController"/>
+                </file>
+                <file name="development-downright-cucumberbeans-integration-occurrences-OccurrencesHighlighterFactory.instance">
+                    <!--development.downright.cucumberbeans.integration.occurrences.GherkinOccurrencesHighlightsLayerFactory-->
+                    <attr name="instanceOf" stringvalue="org.netbeans.spi.editor.highlighting.HighlightsLayerFactory"/>
+                </file>
+                <!--            <folder name="FoldManager">
+                    <file name="development-downright-cucumberbeans-integration-fold-GherkinFolderManagerFactory.instance"/>
+                </folder>-->
+                <file name="org-netbeans-modules-csl-core-TLIndexerFactory.instance">
+                    <!--development.downright.cucumberbeans.GherkinLanguage-->
+                    <attr name="instanceClass" stringvalue="org.netbeans.modules.csl.core.TLIndexerFactory"/>
+                    <attr name="instanceOf" stringvalue="org.netbeans.modules.parsing.spi.indexing.EmbeddingIndexerFactory"/>
+                </file>
+                <file name="org-netbeans-modules-csl-core-CslEditorKit-createEditorKitInstance.instance">
+                    <!--development.downright.cucumberbeans.GherkinLanguage-->
+                    <attr methodvalue="org.netbeans.modules.csl.core.CslEditorKit.createEditorKitInstance" name="instanceCreate"/>
+                    <attr name="instanceOf" stringvalue="javax.swing.text.EditorKit"/>
+                </file>
+                <file name="org-netbeans-modules-csl-core-CslEditorKit-createLexerLanguageInstance.instance">
+                    <!--development.downright.cucumberbeans.GherkinLanguage-->
+                    <attr methodvalue="org.netbeans.modules.csl.core.CslEditorKit.createLexerLanguageInstance" name="instanceCreate"/>
+                    <attr name="instanceOf" stringvalue="org.netbeans.api.lexer.Language"/>
+                </file>
+                <folder name="CompletionProviders">
+                    <file name="development-downright-cucumberbeans-integration-completion-GherkinCompletionProvider.instance">
+                        <!--development.downright.cucumberbeans.integration.completion.GherkinCompletionProvider-->
+                        <attr name="instanceOf" stringvalue="org.netbeans.spi.editor.completion.CompletionProvider"/>
+                    </file>
+                    <file name="org-netbeans-lib-editor-codetemplates-CodeTemplateCompletionProvider.instance">
+                        <!--development.downright.cucumberbeans.GherkinLanguage-->
+                        <attr name="instanceClass" stringvalue="org.netbeans.lib.editor.codetemplates.CodeTemplateCompletionProvider"/>
+                    </file>
+                    <file name="org-netbeans-modules-csl-editor-completion-GsfCompletionProvider.instance">
+                        <!--development.downright.cucumberbeans.GherkinLanguage-->
+                        <attr name="instanceClass" stringvalue="org.netbeans.modules.csl.editor.completion.GsfCompletionProvider"/>
+                    </file>
+                    <file name="org-netbeans-modules-parsing-ui-WaitScanFinishedCompletionProvider.instance">
+                        <!--development.downright.cucumberbeans.GherkinLanguage-->
+                        <attr name="instanceClass" stringvalue="org.netbeans.modules.parsing.ui.WaitScanFinishedCompletionProvider"/>
+                    </file>
+                </folder>
+                <folder name="SideBar">
+                    <file name="org-netbeans-modules-csl-editor-GsfCodeFoldingSideBarFactory.instance">
+                        <!--development.downright.cucumberbeans.GherkinLanguage-->
+                        <attr name="instanceClass" stringvalue="org.netbeans.modules.csl.editor.GsfCodeFoldingSideBarFactory"/>
+                        <attr intvalue="1200" name="position"/>
+                    </file>
+                </folder>               
+                <folder name="FoldManager">
+                    <file name="org-netbeans-modules-csl-editor-fold-GsfFoldManagerFactory.instance">
+                        <attr name="instanceClass" stringvalue="org.netbeans.modules.csl.editor.fold.GsfFoldManagerFactory"/>
+                    </file>
+                </folder>
+                <folder name="CodeTemplateProcessorFactories">
+                    <file name="org-netbeans-modules-csl-editor-codetemplates-GsfCodeTemplateProcessor$Factory.instance">
+                        <!--development.downright.cucumberbeans.GherkinLanguage-->
+                        <attr name="instanceClass" stringvalue="org.netbeans.modules.csl.editor.codetemplates.GsfCodeTemplateProcessor$Factory"/>
+                    </file>
+                </folder>
+                <folder name="CodeTemplateFilterFactories">
+                    <file name="org-netbeans-modules-csl-editor-codetemplates-GsfCodeTemplateFilter$Factory.instance">
+                        <!--development.downright.cucumberbeans.GherkinLanguage-->
+                        <attr name="instanceClass" stringvalue="org.netbeans.modules.csl.editor.codetemplates.GsfCodeTemplateFilter$Factory"/>
+                    </file>
+                </folder>
+                <file name="org-netbeans-modules-csl-editor-semantic-HighlightsLayerFactoryImpl.instance">
+                    <!--development.downright.cucumberbeans.GherkinLanguage-->
+                    <attr name="instanceClass" stringvalue="org.netbeans.modules.csl.editor.semantic.HighlightsLayerFactoryImpl"/>
+                    <attr name="instanceOf" stringvalue="org.netbeans.spi.editor.highlighting.HighlightsLayerFactory"/>
+                </file>
+                <folder name="UpToDateStatusProvider">
+                    <file name="org-netbeans-modules-csl-hints-GsfUpToDateStateProviderFactory.instance">
+                        <!--development.downright.cucumberbeans.GherkinLanguage-->
+                        <attr name="instanceClass" stringvalue="org.netbeans.modules.csl.hints.GsfUpToDateStateProviderFactory"/>
+                        <attr name="instanceOf" stringvalue="org.netbeans.spi.editor.errorstripe.UpToDateStatusProviderFactory"/>
+                    </file>
+                    <file name="org-netbeans-modules-csl-editor-semantic-OccurrencesMarkProviderCreator.instance">
+                        <!--development.downright.cucumberbeans.GherkinLanguage-->
+                        <attr name="instanceClass" stringvalue="org.netbeans.modules.csl.editor.semantic.OccurrencesMarkProviderCreator"/>
+                        <attr name="instanceOf" stringvalue="org.netbeans.modules.editor.errorstripe.privatespi.MarkProviderCreator"/>
+                    </file>
+                </folder>
+                <folder name="Popup">
+                    <folder name="goto">
+                        <!--development.downright.cucumberbeans.GherkinLanguage-->
+                        <attr intvalue="500" name="position"/>
+                        <attr bundlevalue="org.netbeans.modules.csl.core.Bundle#generate-goto-popup" name="displayName"/>
+                        <file name="goto">
+                            <!--development.downright.cucumberbeans.GherkinLanguage-->
+                            <attr intvalue="600" name="position"/>
+                        </file>
+                    </folder>
+                    <file name="SeparatorBeforeCut.instance">
+                        <!--development.downright.cucumberbeans.GherkinLanguage-->
+                        <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                        <attr intvalue="1200" name="position"/>
+                    </file>
+                    <file name="format">
+                        <!--development.downright.cucumberbeans.GherkinLanguage-->
+                        <attr intvalue="750" name="position"/>
+                    </file>
+                    <file name="SeparatorAfterFormat.instance">
+                        <!--development.downright.cucumberbeans.GherkinLanguage-->
+                        <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                        <attr intvalue="780" name="position"/>
+                    </file>
+                </folder>
+                <folder name="Toolbars">
+                    <folder name="Default">
+                        <file name="Separator-before-comment.instance">
+                            <!--development.downright.cucumberbeans.GherkinLanguage-->
+                            <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                            <attr intvalue="30000" name="position"/>
+                        </file>
+                        <file name="comment">
+                            <!--development.downright.cucumberbeans.GherkinLanguage-->
+                            <attr intvalue="30100" name="position"/>
+                        </file>
+                        <file name="uncomment">
+                            <!--development.downright.cucumberbeans.GherkinLanguage-->
+                            <attr intvalue="30200" name="position"/>
+                        </file>
+                    </folder>
+                </folder>
+            </folder>
+        </folder>
+    </folder>
+    <folder name="Loaders">
+        <folder name="text">
+            <folder name="x-gherkin">
+                <folder name="Actions">
+                    <file name="org-openide-actions-OpenAction.shadow">
+                        <!--development.downright.cucumberbeans.GherkingDataObject-->
+                        <attr name="originalFile" stringvalue="Actions/System/org-openide-actions-OpenAction.instance"/>
+                        <attr intvalue="100" name="position"/>
+                    </file>
+                    <file name="org-openide-actions-OpenAction-separatorAfter.instance">
+                        <!--development.downright.cucumberbeans.GherkingDataObject-->
+                        <attr name="instanceCreate" newvalue="javax.swing.JSeparator"/>
+                        <attr intvalue="200" name="position"/>
+                    </file>
+                    <file name="org-openide-actions-CutAction.shadow">
+                        <!--development.downright.cucumberbeans.GherkingDataObject-->
+                        <attr name="originalFile" stringvalue="Actions/Edit/org-openide-actions-CutAction.instance"/>
+                        <attr intvalue="300" name="position"/>
+                    </file>
+                    <file name="org-openide-actions-CopyAction.shadow">
+                        <!--development.downright.cucumberbeans.GherkingDataObject-->
+                        <attr name="originalFile" stringvalue="Actions/Edit/org-openide-actions-CopyAction.instance"/>
+                        <attr intvalue="400" name="position"/>
+                    </file>
+                    <file name="org-openide-actions-CopyAction-separatorAfter.instance">
+                        <!--development.downright.cucumberbeans.GherkingDataObject-->
+                        <attr name="instanceCreate" newvalue="javax.swing.JSeparator"/>
+                        <attr intvalue="500" name="position"/>
+                    </file>
+                    <file name="org-openide-actions-DeleteAction.shadow">
+                        <!--development.downright.cucumberbeans.GherkingDataObject-->
+                        <attr name="originalFile" stringvalue="Actions/Edit/org-openide-actions-DeleteAction.instance"/>
+                        <attr intvalue="600" name="position"/>
+                    </file>
+                    <file name="org-openide-actions-RenameAction.shadow">
+                        <!--development.downright.cucumberbeans.GherkingDataObject-->
+                        <attr name="originalFile" stringvalue="Actions/System/org-openide-actions-RenameAction.instance"/>
+                        <attr intvalue="700" name="position"/>
+                    </file>
+                    <file name="org-openide-actions-RenameAction-separatorAfter.instance">
+                        <!--development.downright.cucumberbeans.GherkingDataObject-->
+                        <attr name="instanceCreate" newvalue="javax.swing.JSeparator"/>
+                        <attr intvalue="800" name="position"/>
+                    </file>
+                    <file name="org-openide-actions-SaveAsTemplateAction.shadow">
+                        <!--development.downright.cucumberbeans.GherkingDataObject-->
+                        <attr name="originalFile" stringvalue="Actions/System/org-openide-actions-SaveAsTemplateAction.instance"/>
+                        <attr intvalue="900" name="position"/>
+                    </file>
+                    <file name="org-openide-actions-SaveAsTemplateAction-separatorAfter.instance">
+                        <!--development.downright.cucumberbeans.GherkingDataObject-->
+                        <attr name="instanceCreate" newvalue="javax.swing.JSeparator"/>
+                        <attr intvalue="1000" name="position"/>
+                    </file>
+                    <file name="org-openide-actions-FileSystemAction.shadow">
+                        <!--development.downright.cucumberbeans.GherkingDataObject-->
+                        <attr name="originalFile" stringvalue="Actions/System/org-openide-actions-FileSystemAction.instance"/>
+                        <attr intvalue="1100" name="position"/>
+                    </file>
+                    <file name="org-openide-actions-FileSystemAction-separatorAfter.instance">
+                        <!--development.downright.cucumberbeans.GherkingDataObject-->
+                        <attr name="instanceCreate" newvalue="javax.swing.JSeparator"/>
+                        <attr intvalue="1200" name="position"/>
+                    </file>
+                    <file name="org-openide-actions-ToolsAction.shadow">
+                        <!--development.downright.cucumberbeans.GherkingDataObject-->
+                        <attr name="originalFile" stringvalue="Actions/System/org-openide-actions-ToolsAction.instance"/>
+                        <attr intvalue="1300" name="position"/>
+                    </file>
+                    <file name="org-openide-actions-PropertiesAction.shadow">
+                        <!--development.downright.cucumberbeans.GherkingDataObject-->
+                        <attr name="originalFile" stringvalue="Actions/System/org-openide-actions-PropertiesAction.instance"/>
+                        <attr intvalue="1400" name="position"/>
+                    </file>
+                </folder>
+                <folder name="Factories">
+                    <file name="org-netbeans-modules-csl-core-GsfDataLoader.instance">
+                        <!--development.downright.cucumberbeans.GherkinLanguage-->
+                        <attr name="instanceClass" stringvalue="org.netbeans.modules.csl.core.GsfDataLoader"/>
+                        <attr intvalue="89998" name="position"/>
+                    </file>
+                    <file name="development.downright.cucumberbeans-GherkingDataObject.instance">
+                        <!--development.downright.cucumberbeans.GherkingDataObject-->
+                        <attr name="iconBase" stringvalue="development/downright/cucumberbeans/resources/icons/cuc.png"/>
+                        <attr intvalue="300" name="position"/>
+                        <attr bundlevalue="development.downright.cucumberbeans.Bundle#LBL_Cuc_LOADER" name="displayName"/>
+                        <attr methodvalue="org.openide.loaders.DataLoaderPool.factory" name="instanceCreate"/>
+                        <attr name="dataObjectClass" stringvalue="development.downright.cucumberbeans.GherkingDataObject"/>
+                        <attr name="mimeType" stringvalue="text/x-gherkin"/>
+                    </file>
+                </folder>
+            </folder>
+        </folder>
+    </folder>
+    <folder name="Services">
+        <folder name="MIMEResolver">
+            <file name="development.downright.cucumberbeans-GherkingDataObject-Extension.xml">
+                <!--development.downright.cucumberbeans.GherkingDataObject-->
+                <attr methodvalue="org.openide.filesystems.MIMEResolver.create" name="instanceCreate"/>
+                <attr name="instanceClass" stringvalue="org.openide.filesystems.MIMEResolver"/>
+                <attr name="mimeType" stringvalue="text/x-gherkin"/>
+                <attr name="ext.0" stringvalue="feature"/>
+                <attr name="ext.1" stringvalue="future"/>
+                <attr bundlevalue="development.downright.cucumberbeans.Bundle#LBL_Cuc_LOADER" name="displayName"/>
+            </file>
+        </folder>
+    </folder>
+    <folder name="Templates">
+        <folder name="Cucumber">
+            <file name="GherkinEmpty.feature" url="nbresloc:/development/downright/cucumberbeans/resources/xml/GherkinEmpty.feature">
+                <attr boolvalue="true" name="template"/>
+                <attr name="SystemFileSystem.localizingBundle" stringvalue="development.downright.cucumberbeans.resources.xml.Bundle"/>
+                <attr name="templateWizardURL" urlvalue="nbresloc:/development/downright/cucumberbeans/resources/xml/DescriptionEmpty.html"/>
+            </file>  
+            <file name="GherkinSimple.feature" url="nbresloc:/development/downright/cucumberbeans/resources/xml/GherkinSimple.feature">
+                <attr boolvalue="true" name="template"/> 
+                <attr name="SystemFileSystem.localizingBundle" stringvalue="development.downright.cucumberbeans.resources.xml.Bundle"/>   
+                <attr name="templateWizardURL" urlvalue="nbresloc:/development/downright/cucumberbeans/resources/xml/DescriptionSimple.html"/>           
+            </file>   
+            <file name="GherkinFull.feature" url="nbresloc:/development/downright/cucumberbeans/resources/xml/GherkinFull.feature">
+                <attr boolvalue="true" name="template"/>
+                <attr name="SystemFileSystem.localizingBundle" stringvalue="development.downright.cucumberbeans.resources.xml.Bundle"/>
+                <attr name="templateWizardURL" urlvalue="nbresloc:/development/downright/cucumberbeans/resources/xml/DescriptionFull.html"/>
+            </file>  
+            <file name="GherkinEmpty.future" url="nbresloc:/development/downright/cucumberbeans/resources/xml/GherkinEmpty.future">
+                <attr boolvalue="true" name="template"/>
+                <attr name="SystemFileSystem.localizingBundle" stringvalue="development.downright.cucumberbeans.resources.xml.Bundle"/>
+                <attr name="templateWizardURL" urlvalue="nbresloc:/development/downright/cucumberbeans/resources/xml/DescriptionFuture.html"/>
+            </file>              
+        </folder>
+    </folder> 
+    <folder name="OptionsDialog">
+        <folder name="PreviewExamples">
+            <folder name="text">
+                <file name="x-gherkin" url="nbresloc:/development/downright/cucumberbeans/resources/xml/GherkinFull.feature"/>
+            </folder>
+        </folder>
+    </folder>   
+</filesystem>
