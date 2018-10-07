@@ -30,4 +30,9 @@ Cucumber lets software development teams describe how software should behave in 
 * **Hints** to fix grammar errors
 * **Code Navigation** go to the implementation of any step definition using hints
 
-## Want to contribute? Follow our [guidelines](Cucumberbeans/Contribution.md)!
+## Code Quality
+When this project transfered ownership, no tests were writen. This will be changing! As you could have guessed, once you've developed your new feature, ensure you've implemented sufficient code coverage between unit and integration tests.
+
+ [![codecov](https://codecov.io/gh/Downright-Development/Cucumberbeans/branch/master/graphs/tree.svg)](https://codecov.io/gh/Downright-Development/Cucumberbeans)
+
+## Want to contribute? Follow our [guidelines](Contribution.md)
