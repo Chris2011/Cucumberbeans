@@ -19,7 +19,7 @@
     <fontcolor name="Table" foreColor="009933">  
         <font style="italic"/>    
     </fontcolor>
-    <fontcolor name="Text" foreColor="black">
+    <fontcolor name="Text" default="text" foreColor="000000">
         <font style="plain"/>    
     </fontcolor>
     <fontcolor name="comment" default="comment">
