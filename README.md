@@ -29,3 +29,5 @@ Cucumber lets software development teams describe how software should behave in 
 * **Language Templates** to create new .feature and .future files
 * **Hints** to fix grammar errors
 * **Code Navigation** go to the implementation of any step definition using hints
+
+## Want to contribute? Follow our [guidelines](https://github.com/Downright-Development/Cucumberbeans/Contribute.md)!
