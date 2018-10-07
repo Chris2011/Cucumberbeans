@@ -18,7 +18,7 @@ Downright Development
 
 ![overview](https://github.com/Downright-Development/Cucumberbeans/raw/master/screenshots/overview.png)
 
-Cucumber lets software development teams describe how software should behave in plain text; and this text follows some conventions and keyword specified by a syntax called Gherkin. At the moment the feature supported for this langualge are:
+Cucumber lets software development teams describe how software should behave in plain text; and this text follows some conventions and keyword specified by a syntax called Gherkin. At the moment the feature supported for this language are:
 
 * **Syntax Highlighting** (Colors, editable in the preference)
 * **Navigation** of feature files (the navigator view)
