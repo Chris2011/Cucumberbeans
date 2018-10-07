@@ -16,7 +16,7 @@ Downright Development
 
 **This plugin adds to NetBeans support for Cucumber**. Cucumber is a tool for running automated acceptance tests written in a behavior driven development (BDD) style. You can use it to automate functional validation in a form that is easily readable and understandable to business users, developers and testers.
 
-![overview](https://github.com/kinkadzs/Cetriolo/raw/master/screenshots/overview.png)
+![overview](https://github.com/Downright-Development/Cucumberbeans/raw/master/screenshots/overview.png)
 
 Cucumber lets software development teams describe how software should behave in plain text; and this text follows some conventions and keyword specified by a syntax called Gherkin. At the moment the feature supported for this langualge are:
 
@@ -30,4 +30,4 @@ Cucumber lets software development teams describe how software should behave in 
 * **Hints** to fix grammar errors
 * **Code Navigation** go to the implementation of any step definition using hints
 
-## Want to contribute? Follow our [guidelines](https://github.com/Downright-Development/Cucumberbeans/Contribute.md)!
+## Want to contribute? Follow our [guidelines](Cucumberbeans/Contribution.md)!
