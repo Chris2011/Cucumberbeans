@@ -14,8 +14,8 @@ import org.netbeans.spi.lexer.LanguageHierarchy;
 import org.netbeans.spi.lexer.Lexer;
 import org.netbeans.spi.lexer.LexerRestartInfo;
 /**
- *
- * @author SessonaD
+ * Creates the Hierarchy of GherkinTokens accounting for their category and id.
+ * @author Downright-Development
  */
 public class GherkinLanguageHierarchy extends LanguageHierarchy<GherkinTokenId>{
     

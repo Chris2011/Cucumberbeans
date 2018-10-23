@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package development.downright.cucumberbeans.antlr.integration;
 
 import javax.swing.event.ChangeListener;
@@ -19,16 +15,21 @@ import org.netbeans.modules.parsing.spi.SourceModificationEvent;
  *
  * @author SessonaD
  */
-public class IntegrationGherkinParser extends Parser{
+public class IntegrationGherkinParser extends Parser {
 
-    private Snapshot snapshot;
-    private GherkinParser gherkinParser;
+    private Snapshot snapshot; //an instance of the most current feature file
+    private GherkinParser gherkinParser; 
     
     @Override
     public void parse(Snapshot snpsht, Task task, SourceModificationEvent sme) throws ParseException {
         this.snapshot = snpsht;
-        ANTLRStringStream input = new ANTLRStringStream(snapshot.getText().toString());
-        Lexer lexer = new GherkinLexer(input);
+        
+        //allocate the current feature file to an AntlrStringStream
+        //then send it to the lexer/parser.
+        ANTLRStringStream input = 
+                new ANTLRStringStream(snapshot.getText().toString());
+        
+        Lexer lexer = new GherkinLexer(input); //TODO can I create a static lexer so it's only called once?
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         gherkinParser = new GherkinParser(tokens);
         try {
@@ -40,7 +41,7 @@ public class IntegrationGherkinParser extends Parser{
 
     @Override
     public Result getResult(Task task) throws ParseException {
-        return new IntegrationGherkingParserResult(gherkinParser,snapshot);
+        return new IntegrationGherkinParserResult(gherkinParser,snapshot);
     }
 
     @Override

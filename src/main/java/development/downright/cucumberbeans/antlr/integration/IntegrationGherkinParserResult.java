@@ -16,12 +16,12 @@ import org.netbeans.modules.csl.spi.ParserResult;
  *
  * @author SessonaD
  */
-public class IntegrationGherkingParserResult extends ParserResult{
+public class IntegrationGherkinParserResult extends ParserResult{
     
     private GherkinParser gherkingParser;
     private boolean valid = true;
 
-    public IntegrationGherkingParserResult(GherkinParser gherkingParser, Snapshot _snapshot) {
+    public IntegrationGherkinParserResult(GherkinParser gherkingParser, Snapshot _snapshot) {
         super(_snapshot);
         this.gherkingParser = gherkingParser;
     }

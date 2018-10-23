@@ -2,6 +2,7 @@
 # Example of Cucumber .feature file
 #----------------------------------
     
+#The '@RunWith' annotation demonstrates a tag to be utilized by Cucumber
 @RunWith 
 Feature: Fight or flight
    In order to increase the ninja survival rate,

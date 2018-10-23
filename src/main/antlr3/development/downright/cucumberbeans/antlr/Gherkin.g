@@ -56,7 +56,7 @@ feature	: NL*
           title NL+
           narrative?
           background?
-          (scenario|scenario_outline)+
+          (scenario|scenario_outline)*
         ;
          
 background: NL*
