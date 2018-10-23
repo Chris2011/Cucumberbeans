@@ -11,18 +11,18 @@ import org.netbeans.spi.lexer.LexerRestartInfo;
  */
 public class IntegrationGherkinLexer implements Lexer<GherkinTokenId> {
     private final LexerRestartInfo<GherkinTokenId> info;
-    private final GherkinLexer oracleLexer;
+    private final GherkinLexer gherkinLexer;
 
     public IntegrationGherkinLexer(LexerRestartInfo<GherkinTokenId> info) {
         this.info = info;
 
         IntegrationAntlrCharStream charStream = new IntegrationAntlrCharStream(info.input(), "GherkinEditor");
-        oracleLexer = new GherkinLexer(charStream);
+        gherkinLexer = new GherkinLexer(charStream);
     }
 
     @Override
     public org.netbeans.api.lexer.Token<GherkinTokenId> nextToken() {
-        Token token = oracleLexer.nextToken();
+        Token token = gherkinLexer.nextToken();
 
         if (token.getType() != GherkinLexer.EOF) {
             GherkinTokenId tokenId = GherkinLanguageHierarchy.getToken(token.getType());

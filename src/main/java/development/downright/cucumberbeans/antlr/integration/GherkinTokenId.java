@@ -1,18 +1,15 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package development.downright.cucumberbeans.antlr.integration;
 
 import org.netbeans.api.lexer.Language;
 import org.netbeans.api.lexer.TokenId;
 /**
  *
- * @author SessonaD
+ * @author Downright-Development
  */
 public class GherkinTokenId implements TokenId {
 
-    private static final Language<GherkinTokenId> language = new GherkinLanguageHierarchy().language();
+    private static final Language<GherkinTokenId> LANGUAGE 
+            = new GherkinLanguageHierarchy().language();
     private final String name;
     private final String primaryCategory;
     private final int id;
@@ -36,7 +33,7 @@ public class GherkinTokenId implements TokenId {
     }
 
     public static final Language<GherkinTokenId> getLanguage() {
-        return language;
+        return LANGUAGE;
     }
 }
 

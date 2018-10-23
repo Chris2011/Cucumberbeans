@@ -10,7 +10,7 @@ import javax.swing.text.Document;
 import javax.swing.text.Element;
 import development.downright.cucumberbeans.antlr.SyntaxError;
 import development.downright.cucumberbeans.antlr.integration.GherkinTokenId;
-import development.downright.cucumberbeans.antlr.integration.IntegrationGherkingParserResult;
+import development.downright.cucumberbeans.antlr.integration.IntegrationGherkinParserResult;
 import development.downright.cucumberbeans.findimpl.CucumberImplData;
 import development.downright.cucumberbeans.findimpl.CucumberImplElement;
 import development.downright.cucumberbeans.integration.completion.GherkinCompletionNames;
@@ -45,7 +45,7 @@ public class GherkinSyntaxErrorHighlightingTask extends ParserResultTask {
     @Override
     public void run(Result r, SchedulerEvent se) {
         try {
-            IntegrationGherkingParserResult gherkinRes = (IntegrationGherkingParserResult) r;
+            IntegrationGherkinParserResult gherkinRes = (IntegrationGherkinParserResult) r;
             List<SyntaxError> syntaxErrors = gherkinRes.getGherkinParser().syntaxErrors;
             Document document = r.getSnapshot().getSource().getDocument(false);
             List<ErrorDescription> errors = new ArrayList<>();

@@ -5,7 +5,7 @@
 # until it is renamed as .feature
 #----------------------------------
 
-Feature: a title
+Feature: Your future's title here
 
    Scenario: a title
       Given a given
