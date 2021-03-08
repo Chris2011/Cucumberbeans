@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package development.downright.cucumberbeans.integration.fold;
 
 import java.util.ArrayList;

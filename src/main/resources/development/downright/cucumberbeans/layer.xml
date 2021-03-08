@@ -3,18 +3,18 @@
 <filesystem>
     <folder name="CslPlugins">
         <folder name="text">
-            <folder name="x-gherkin">
-                <!--development.downright.cucumberbeans.GherkinLanguage-->
+<!--            <folder name="x-gherkin">
+                development.downright.cucumberbeans.GherkinLanguage
                 <attr intvalue="2" name="genver"/>
                 <attr boolvalue="false" name="useMultiview"/>
                 <file name="language.instance">
-                    <!--development.downright.cucumberbeans.GherkinLanguage-->
+                    development.downright.cucumberbeans.GherkinLanguage
                     <attr name="instanceClass" stringvalue="development.downright.cucumberbeans.GherkinLanguage"/>
                 </file>
                 <file name="structure.instance">
                     <attr name="instanceClass" stringvalue="development.downright.cucumberbeans.integration.fold.GherkinStructureScanner"/>
                 </file>
-            </folder>
+            </folder>-->
         </folder>
     </folder>
     <folder name="Navigator">
@@ -59,7 +59,7 @@
         <folder name="text">
             <folder name="x-gherkin">
                 <attr name="SystemFileSystem.localizingBundle" stringvalue="development.downright.cucumberbeans.Bundle"/>
-                <file name="development-downright-cucumberbeans-antlr-integration-IntegrationGherkinParserFactory.instance"/>
+                <!--<file name="development-downright-cucumberbeans-antlr-integration-IntegrationGherkinParserFactory.instance"/>-->
                 <!--<file name="development-downright-cucumberbeans-integration-syntaxerrors-GherkinSyntaxErrorHighlightingTaskFactory.instance"/>-->
                 <file name="development-downright-cucumberbeans-integration-reformat-GherkinReformatTaskFactory.instance"/>
                 <folder name="FontsColors">
